@@ -28,13 +28,13 @@ struct HomeView: View {
                         VStack {
                             Text("October 3, 2024")
                                 .font(.system(size: 12, weight: .semibold, design: .default))
-                                .foregroundStyle(Color("green"))
+                                .foregroundStyle(Color("greenColorText"))
                                 .padding(.vertical, 6)
                                 .padding(.horizontal, 24)
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 25)
-                                .foregroundStyle(Color("green").opacity(0.15))
+                                .foregroundStyle(Color("greenColorBackground").opacity(0.15))
                         )
                     }
                     
@@ -55,7 +55,7 @@ struct HomeView: View {
                             .foregroundStyle(Color("primary-text"))
                         Text("$ 61.32")
                             .font(.system(size: 28, weight: .semibold, design: .rounded))
-                            .foregroundStyle(Color("green"))
+                            .foregroundStyle(Color("greenColorText"))
                     }
                     
                     HStack {
@@ -64,11 +64,11 @@ struct HomeView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 18, height: 18)
-                                .foregroundStyle(Color("white"))
+                                .foregroundStyle(Color("whiteColorBackground"))
                             
                             Text("Earned Today")
                                 .font(.system(size: 12, weight: .medium, design: .default))
-                                .foregroundStyle(Color("white"))
+                                .foregroundStyle(Color("whiteColorText"))
                         }
                         
                         Spacer()
@@ -77,10 +77,10 @@ struct HomeView: View {
                             Group {
                                 Text("$ 63.32")
                                     .font(.system(size: 14, weight: .medium, design: .default))
-                                    .foregroundStyle(Color("white"))
+                                    .foregroundStyle(Color("whiteColorText"))
                                 + Text("/$ 77.2(per day)")
                                     .font(.system(size: 9, weight: .medium, design: .default))
-                                    .foregroundStyle(Color("white").opacity(0.7))
+                                    .foregroundStyle(Color("whiteColorText").opacity(0.7))
                             }
                         }
                     }
@@ -90,7 +90,7 @@ struct HomeView: View {
                         RoundedRectangle(cornerRadius: 14)
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color("green").opacity(0.8), Color("green")]),
+                                    gradient: Gradient(colors: [Color("greenColorBackground").opacity(0.8), Color("greenColorBackground")]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
@@ -103,11 +103,11 @@ struct HomeView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 18, height: 18)
-                                .foregroundStyle(Color("white"))
+                                .foregroundStyle(Color("whiteColorText"))
                             
                             Text("Spent Today")
                                 .font(.system(size: 12, weight: .medium, design: .default))
-                                .foregroundStyle(Color("white"))
+                                .foregroundStyle(Color("whiteColorText"))
                         }
                         
                         Spacer()
@@ -115,7 +115,7 @@ struct HomeView: View {
                         HStack {
                             Text("$ 3.49")
                                 .font(.system(size: 14, weight: .medium, design: .default))
-                                .foregroundStyle(Color("white"))
+                                .foregroundStyle(Color("whiteColorText"))
                         }
                     }
                     .padding(.vertical, 23)
@@ -124,7 +124,7 @@ struct HomeView: View {
                         RoundedRectangle(cornerRadius: 14)
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color("red").opacity(0.8), Color("red")]),
+                                    gradient: Gradient(colors: [Color("redColorBackground").opacity(0.8), Color("redColorBackground")]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
