@@ -138,6 +138,17 @@ struct HomeView: View {
                         .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 0)
                 )
                 .padding(.top, 16)
+                
+                VStack {
+                    HStack {
+                        Text("Spending in October")
+                            .font(.system(size: 20, weight: .semibold, design: .default))
+                            .foregroundStyle(Color("primary-text"))
+                            .padding(.leading, 16)
+                        Spacer()
+                    }
+                }
+                
                 Spacer()
             }
             .padding()
