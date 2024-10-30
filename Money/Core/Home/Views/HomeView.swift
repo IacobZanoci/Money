@@ -38,7 +38,7 @@ extension HomeView {
             
             Spacer()
             
-            Text("October 3, 2024")
+            Text("October 30, 2024")
                 .font(.system(size: 12, weight: .semibold, design: .default))
                 .foregroundStyle(Color.theme.green)
                 .padding(.vertical, 10)
