@@ -12,7 +12,7 @@ struct RoundedButtonTextView: View {
     let text: String
     
     var body: some View {
-        Text("Set recurring")
+        Text(text)
             .font(.system(size: 12, weight: .medium, design: .default))
             .foregroundStyle(Color.theme.white)
             .padding(.horizontal, 14)
