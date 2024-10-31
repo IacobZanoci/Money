@@ -20,10 +20,9 @@ struct HomeView: View {
                     .padding(.horizontal)
                 
                 ScrollView {
-                    VStack {
+                    VStack(spacing: 30) {
                         spendingTrackerView
-                        
-                        
+                        spendingMonthlySectionView
                     }
                     .padding()
                 }
@@ -83,7 +82,7 @@ extension HomeView {
                 }
                 
                 HStack(alignment: .center) {
-                    Text("$ 61.32")
+                    Text("$ 0")
                         .font(.system(size: 32, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.theme.green)
                 }
@@ -94,10 +93,10 @@ extension HomeView {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
                         Group {
-                            Text("$ 63.32")
+                            Text("$ 0")
                                 .font(.system(size: 18, weight: .medium, design: .default))
                                 .foregroundColor(Color.theme.white) +
-                            Text("/$ 77.2")
+                            Text("/$ 0")
                                 .font(.system(size: 13, weight: .medium, design: .default))
                                 .foregroundColor(Color.theme.white.opacity(0.85))
                         }
@@ -132,7 +131,7 @@ extension HomeView {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("$ 23.0")
+                        Text("$ 0")
                             .font(.system(size: 18, weight: .medium, design: .default))
                             .foregroundColor(Color.theme.white)
                         Text("Spent Today")
@@ -172,6 +171,91 @@ extension HomeView {
                 .shadow(color: Color.black.opacity(0.07), radius: 0, x: 0, y: 0)
                 .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 2)
         )
+    }
+    
+    private var spendingMonthlySectionView: some View {
+        VStack(spacing: 12) {
+            HStack {
+                Text("Spending in October")
+                    .font(.system(size: 16, weight: .semibold, design: .default))
+                    .foregroundStyle(Color.theme.accent)
+                
+                Spacer()
+                
+                CircleButtonView(iconName: "chevron.right.circle")
+            }
+            
+            VStack( spacing: 16) {
+                HStack(spacing: 16) {
+                    SpendingCategoryCardView(
+                        cardImage: "fork.knife",
+                        cardTitle: "Food",
+                        cardSpendingAmount: "$ 0",
+                        gradient: LinearGradient(
+                            colors: [Color.theme.food.opacity(0.5), Color.theme.food],
+                            startPoint: .bottomLeading,
+                            endPoint: .topTrailing
+                        )
+                    )
+                    SpendingCategoryCardView(
+                        cardImage: "figure",
+                        cardTitle: "Entertainment",
+                        cardSpendingAmount: "$ 0",
+                        gradient: LinearGradient(
+                            colors: [Color.theme.entertainment.opacity(0.5), Color.theme.entertainment],
+                            startPoint: .bottomLeading,
+                            endPoint: .topTrailing
+                        )
+                    )
+                }
+                
+                HStack(spacing: 16) {
+                    SpendingCategoryCardView(
+                        cardImage: "bag.fill",
+                        cardTitle: "Shopping",
+                        cardSpendingAmount: "$ 0",
+                        gradient: LinearGradient(
+                            colors: [Color.theme.shopping.opacity(0.5), Color.theme.shopping],
+                            startPoint: .bottomLeading,
+                            endPoint: .topTrailing
+                        )
+                    )
+                    SpendingCategoryCardView(
+                        cardImage: "creditcard.fill",
+                        cardTitle: "Subscription",
+                        cardSpendingAmount: "$ 0",
+                        gradient: LinearGradient(
+                            colors: [Color.theme.subscription.opacity(0.5), Color.theme.subscription],
+                            startPoint: .bottomLeading,
+                            endPoint: .topTrailing
+                        )
+                    )
+                }
+                
+                HStack(spacing: 16) {
+                    SpendingCategoryCardView(
+                        cardImage: "car.fill",
+                        cardTitle: "Transport",
+                        cardSpendingAmount: "$ 0",
+                        gradient: LinearGradient(
+                            colors: [Color.theme.transport.opacity(0.5), Color.theme.transport],
+                            startPoint: .bottomLeading,
+                            endPoint: .topTrailing
+                        )
+                    )
+                    SpendingCategoryCardView(
+                        cardImage: "questionmark.circle.fill",
+                        cardTitle: "Other",
+                        cardSpendingAmount: "$ 0",
+                        gradient: LinearGradient(
+                            colors: [Color.theme.other.opacity(0.5), Color.theme.other],
+                            startPoint: .bottomLeading,
+                            endPoint: .topTrailing
+                        )
+                    )
+                }
+            }
+        }
     }
     
 }

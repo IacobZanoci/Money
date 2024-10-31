@@ -15,6 +15,7 @@
 		42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606722CD0EBE90029BD7E /* SettingsView.swift */; };
 		42D606762CD0F2B10029BD7E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606752CD0F2B10029BD7E /* Color.swift */; };
 		42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606792CD3C1D60029BD7E /* CircleButtonView.swift */; };
+		42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		42D606722CD0EBE90029BD7E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		42D606752CD0F2B10029BD7E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		42D606792CD3C1D60029BD7E /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
+		42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategoryCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		42D606772CD3C15D0029BD7E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				42D6067B2CD3C5FC0029BD7E /* SpendingCategoryCard */,
 				42D606782CD3C1B40029BD7E /* CircleButton */,
 			);
 			path = Components;
@@ -157,6 +160,14 @@
 				42D606792CD3C1D60029BD7E /* CircleButtonView.swift */,
 			);
 			path = CircleButton;
+			sourceTree = "<group>";
+		};
+		42D6067B2CD3C5FC0029BD7E /* SpendingCategoryCard */ = {
+			isa = PBXGroup;
+			children = (
+				42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */,
+			);
+			path = SpendingCategoryCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 			files = (
 				42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */,
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
+				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
