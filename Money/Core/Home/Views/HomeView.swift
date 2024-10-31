@@ -15,15 +15,22 @@ struct HomeView: View {
         ZStack {
             Color.theme.background.ignoresSafeArea()
             
-            VStack(spacing: 26) {
+            VStack(spacing: 10) {
                 headerHomeView
+                    .padding(.horizontal)
                 
-                spendingTrackerView
-                
+                ScrollView {
+                    VStack {
+                        spendingTrackerView
+                        
+                        
+                    }
+                    .padding()
+                }
+                .scrollIndicators(.hidden)
                 
                 Spacer()
             }
-            .padding(.horizontal)
         }
     }
 }
@@ -66,17 +73,13 @@ extension HomeView {
         VStack {
             VStack(spacing: 8) {
                 HStack {
-                    Image(systemName: "questionmark.circle")
-                        .font(.system(size: 20))
-                        .foregroundStyle(Color.theme.accent.opacity(0.5))
+                    CircleButtonView(iconName: "questionmark.circle")
                     Spacer()
                     Text("Spending Tracker")
                         .font(.system(size: 16, weight: .semibold, design: .default))
                         .foregroundStyle(Color.theme.accent)
                     Spacer()
-                    Image(systemName: "ellipsis.circle")
-                        .font(.system(size: 20))
-                        .foregroundStyle(Color.theme.accent.opacity(0.5))
+                    CircleButtonView(iconName: "ellipsis.circle")
                 }
                 
                 HStack(alignment: .center) {

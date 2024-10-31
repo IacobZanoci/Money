@@ -14,6 +14,7 @@
 		42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606702CD0EBCD0029BD7E /* HomeView.swift */; };
 		42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606722CD0EBE90029BD7E /* SettingsView.swift */; };
 		42D606762CD0F2B10029BD7E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606752CD0F2B10029BD7E /* Color.swift */; };
+		42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606792CD3C1D60029BD7E /* CircleButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		42D606702CD0EBCD0029BD7E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42D606722CD0EBE90029BD7E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		42D606752CD0F2B10029BD7E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		42D606792CD3C1D60029BD7E /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		42D606682CD0EB3D0029BD7E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				42D606772CD3C15D0029BD7E /* Components */,
 				42D606692CD0EB540029BD7E /* Home */,
 				42D6066A2CD0EB5E0029BD7E /* Settings */,
 			);
@@ -138,6 +141,22 @@
 				42D606752CD0F2B10029BD7E /* Color.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		42D606772CD3C15D0029BD7E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				42D606782CD3C1B40029BD7E /* CircleButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		42D606782CD3C1B40029BD7E /* CircleButton */ = {
+			isa = PBXGroup;
+			children = (
+				42D606792CD3C1D60029BD7E /* CircleButtonView.swift */,
+			);
+			path = CircleButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */,
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
