@@ -23,6 +23,7 @@ struct HomeView: View {
                     VStack(spacing: 30) {
                         spendingTrackerView
                         spendingMonthlySectionView
+                        recurringExpensesView
                     }
                     .padding()
                 }
@@ -255,6 +256,50 @@ extension HomeView {
                     )
                 }
             }
+        }
+    }
+    
+    private var recurringExpensesView: some View {
+        VStack(alignment: .center, spacing: 12) {
+            HStack {
+                Text("Recurring")
+                    .font(.system(size: 16, weight: .semibold, design: .default))
+                    .foregroundStyle(Color.theme.accent)
+                
+                Spacer()
+                
+                TextButtonView(text: "View all")
+            }
+            
+            VStack(spacing: 20) {
+                Image(systemName: "dollarsign.arrow.trianglehead.counterclockwise.rotate.90")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(Color.theme.white)
+                    .frame(width: 50)
+                    .padding(12)
+                    .background(
+                        Circle()
+                            .fill(
+                                RadialGradient(gradient: Gradient(colors: [Color.theme.green.opacity(0.55), Color.theme.green.opacity(1)]), center: .center, startRadius: 0, endRadius: 50)
+                            )
+                    )
+                
+                Text("Stay organized by setting up recurring payments, so you never miss tracking essential expenses in your budget.")
+                    .font(.system(size: 12, weight: .regular, design: .rounded))
+                    .foregroundStyle(Color.theme.accent.opacity(0.8))
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(6)
+                
+                RoundedButtonTextView(text: "Set recurring")
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .foregroundStyle(Color.theme.white)
+            )
+            .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0)
         }
     }
     
