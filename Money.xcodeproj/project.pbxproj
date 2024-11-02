@@ -18,6 +18,9 @@
 		42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */; };
 		42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */; };
 		42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */; };
+		42D606832CD55D8F0029BD7E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606822CD55D8F0029BD7E /* HomeViewModel.swift */; };
+		42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606842CD56BCD0029BD7E /* TabBarItemView.swift */; };
+		42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606892CD5713D0029BD7E /* ViewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategoryCardView.swift; sourceTree = "<group>"; };
 		42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
 		42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonTextView.swift; sourceTree = "<group>"; };
+		42D606822CD55D8F0029BD7E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		42D606842CD56BCD0029BD7E /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
+		42D606892CD5713D0029BD7E /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				42D606622CCEB7DC0029BD7E /* MoneyApp.swift */,
+				42D606872CD570BA0029BD7E /* Router */,
 				42D606742CD0F29E0029BD7E /* Extensions */,
 				42D606682CD0EB3D0029BD7E /* Core */,
 				42D6065F2CCEB7DC0029BD7E /* Preview Content */,
 				42D606602CCEB7DC0029BD7E /* Assets.xcassets */,
-				42D606612CCEB7DC0029BD7E /* ContentView.swift */,
 			);
 			path = Money;
 			sourceTree = "<group>";
@@ -122,6 +128,7 @@
 		42D6066D2CD0EB900029BD7E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				42D606822CD55D8F0029BD7E /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -174,6 +181,24 @@
 				42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */,
 			);
 			path = SpendingCategoryCard;
+			sourceTree = "<group>";
+		};
+		42D606872CD570BA0029BD7E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				42D606892CD5713D0029BD7E /* ViewRouter.swift */,
+				42D606882CD570E80029BD7E /* Components */,
+				42D606612CCEB7DC0029BD7E /* ContentView.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		42D606882CD570E80029BD7E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				42D606842CD56BCD0029BD7E /* TabBarItemView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +277,12 @@
 				42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */,
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
 				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
+				42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */,
+				42D606832CD55D8F0029BD7E /* HomeViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
+				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,
 				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				42D606672CCEB7DC0029BD7E /* MoneyApp.swift in Sources */,

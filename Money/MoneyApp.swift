@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MoneyApp: App {
+    
+    @StateObject var viewRouter = ViewRouter()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewRouter: viewRouter)
         }
     }
 }

@@ -27,10 +27,9 @@ struct HomeView: View {
                     .padding()
                 }
                 .scrollIndicators(.hidden)
-                
-                Spacer()
             }
         }
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 
