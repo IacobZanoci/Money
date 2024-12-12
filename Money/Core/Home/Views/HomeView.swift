@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject var moneyViewModel: MoneyViewModel // Access the injected MoneyViewModel
+    
+    
     var body: some View {
         ZStack {
             Color.theme.background.ignoresSafeArea()
@@ -28,6 +31,9 @@ struct HomeView: View {
                 }
                 .scrollIndicators(.hidden)
             }
+        }
+        .onAppear {
+            moneyViewModel.fetchData() // Load saved data when the view appears
         }
         .ignoresSafeArea(edges: .bottom)
     }
@@ -81,7 +87,7 @@ extension HomeView {
                 }
                 
                 HStack(alignment: .center) {
-                    Text("$ 0")
+                    Text("$ 0.00")
                         .font(.system(size: 32, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.theme.green)
                 }
@@ -130,7 +136,7 @@ extension HomeView {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("$ 0")
+                        Text("$ \(moneyViewModel.spentMoney, specifier: "%.2f")")
                             .font(.system(size: 18, weight: .medium, design: .default))
                             .foregroundColor(Color.theme.white)
                         Text("Spent Today")
@@ -273,16 +279,8 @@ extension HomeView {
                 Image(systemName: "dollarsign.arrow.circlepath")
                     .resizable()
                     .scaledToFit()
-                    .foregroundStyle(Color.theme.white)
+                    .foregroundStyle(Color.theme.green)
                     .frame(width: 50)
-                    .padding(12)
-                    .padding(.leading, -2)
-                    .background(
-                        Circle()
-                            .fill(
-                                RadialGradient(gradient: Gradient(colors: [Color.theme.green.opacity(0.55), Color.theme.green.opacity(1)]), center: .center, startRadius: 0, endRadius: 50)
-                            )
-                    )
                 
                 Text("Stay organized by setting up recurring payments, so you never miss tracking essential expenses in your budget.")
                     .font(.system(size: 12, weight: .regular, design: .rounded))
@@ -342,5 +340,6 @@ extension HomeView {
 }
 
 #Preview {
-    HomeView()
+  HomeView()
+        .environmentObject(MoneyViewModel())
 }

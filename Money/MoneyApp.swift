@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct MoneyApp: App {
-    
-    @StateObject var viewRouter = ViewRouter()
+    @StateObject private var moneyViewModel = MoneyViewModel()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewRouter: viewRouter)
+            ContentView(viewRouter: ViewRouter())
+                .environmentObject(moneyViewModel) // Inject moneyViewModel to the root view
         }
     }
 }

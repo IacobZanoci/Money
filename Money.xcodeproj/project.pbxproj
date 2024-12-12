@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
 		42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606612CCEB7DC0029BD7E /* ContentView.swift */; };
@@ -18,12 +19,18 @@
 		42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */; };
 		42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */; };
 		42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */; };
-		42D606832CD55D8F0029BD7E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606822CD55D8F0029BD7E /* HomeViewModel.swift */; };
 		42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606842CD56BCD0029BD7E /* TabBarItemView.swift */; };
 		42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606892CD5713D0029BD7E /* ViewRouter.swift */; };
+		42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E966CE2CD927ED006F16AE /* AddRecordView.swift */; };
+		42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */; };
+		42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F82E2D099E0D00D489A8 /* MoneyViewModel.swift */; };
+		42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F8352D09AA0800D489A8 /* PersistenceController.swift */; };
+		42F6F8392D09AE9C00D489A8 /* Money+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F8372D09AE9C00D489A8 /* Money+CoreDataClass.swift */; };
+		42F6F83A2D09AE9C00D489A8 /* Money+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F8382D09AE9C00D489A8 /* Money+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42D606602CCEB7DC0029BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,9 +43,14 @@
 		42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategoryCardView.swift; sourceTree = "<group>"; };
 		42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
 		42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonTextView.swift; sourceTree = "<group>"; };
-		42D606822CD55D8F0029BD7E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42D606842CD56BCD0029BD7E /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		42D606892CD5713D0029BD7E /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		42E966CE2CD927ED006F16AE /* AddRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordView.swift; sourceTree = "<group>"; };
+		42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBarButton.swift; sourceTree = "<group>"; };
+		42F6F82E2D099E0D00D489A8 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
+		42F6F8352D09AA0800D489A8 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		42F6F8372D09AE9C00D489A8 /* Money+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Money+CoreDataClass.swift"; sourceTree = "<group>"; };
+		42F6F8382D09AE9C00D489A8 /* Money+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Money+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		423F2A8C2D0AF6740043B327 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				42F6F8352D09AA0800D489A8 /* PersistenceController.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		423F2A8D2D0AFEBA0043B327 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		427D82FC2CECA082008A5238 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42F6F8342D09A9F400D489A8 /* CoreData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		42D606442CCEB71D0029BD7E = {
 			isa = PBXGroup;
 			children = (
@@ -80,11 +116,15 @@
 			isa = PBXGroup;
 			children = (
 				42D606622CCEB7DC0029BD7E /* MoneyApp.swift */,
-				42D606872CD570BA0029BD7E /* Router */,
-				42D606742CD0F29E0029BD7E /* Extensions */,
-				42D606682CD0EB3D0029BD7E /* Core */,
-				42D6065F2CCEB7DC0029BD7E /* Preview Content */,
 				42D606602CCEB7DC0029BD7E /* Assets.xcassets */,
+				427D82FC2CECA082008A5238 /* Models */,
+				423F2A8C2D0AF6740043B327 /* Persistence */,
+				42F6F82D2D099DE300D489A8 /* ViewModels */,
+				42D606682CD0EB3D0029BD7E /* Core */,
+				42F6F8282D04CAF700D489A8 /* Services */,
+				42D606742CD0F29E0029BD7E /* Extensions */,
+				42D606872CD570BA0029BD7E /* Router */,
+				42D6065F2CCEB7DC0029BD7E /* Preview Content */,
 			);
 			path = Money;
 			sourceTree = "<group>";
@@ -92,9 +132,10 @@
 		42D606682CD0EB3D0029BD7E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				42D606772CD3C15D0029BD7E /* Components */,
 				42D606692CD0EB540029BD7E /* Home */,
+				42E966CB2CD927B1006F16AE /* AddRecord */,
 				42D6066A2CD0EB5E0029BD7E /* Settings */,
+				42D606772CD3C15D0029BD7E /* Components */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -102,8 +143,9 @@
 		42D606692CD0EB540029BD7E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				42D6066D2CD0EB900029BD7E /* ViewModels */,
 				42D6066B2CD0EB810029BD7E /* Views */,
+				42D6066D2CD0EB900029BD7E /* ViewModels */,
+				423F2A8D2D0AFEBA0043B327 /* Components */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -111,8 +153,8 @@
 		42D6066A2CD0EB5E0029BD7E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				42D6066F2CD0EBB00029BD7E /* ViewModels */,
 				42D6066E2CD0EBAA0029BD7E /* Views */,
+				42D6066F2CD0EBB00029BD7E /* ViewModels */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -128,7 +170,6 @@
 		42D6066D2CD0EB900029BD7E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				42D606822CD55D8F0029BD7E /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -159,7 +200,6 @@
 		42D606772CD3C15D0029BD7E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				42D6067B2CD3C5FC0029BD7E /* SpendingCategoryCard */,
 				42D606782CD3C1B40029BD7E /* Buttons */,
 			);
 			path = Components;
@@ -171,16 +211,9 @@
 				42D606792CD3C1D60029BD7E /* CircleButtonView.swift */,
 				42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */,
 				42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */,
+				42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */,
 			);
 			path = Buttons;
-			sourceTree = "<group>";
-		};
-		42D6067B2CD3C5FC0029BD7E /* SpendingCategoryCard */ = {
-			isa = PBXGroup;
-			children = (
-				42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */,
-			);
-			path = SpendingCategoryCard;
 			sourceTree = "<group>";
 		};
 		42D606872CD570BA0029BD7E /* Router */ = {
@@ -199,6 +232,55 @@
 				42D606842CD56BCD0029BD7E /* TabBarItemView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		42E966CB2CD927B1006F16AE /* AddRecord */ = {
+			isa = PBXGroup;
+			children = (
+				42E966CC2CD927CD006F16AE /* Views */,
+				42E966CD2CD927DA006F16AE /* ViewModels */,
+			);
+			path = AddRecord;
+			sourceTree = "<group>";
+		};
+		42E966CC2CD927CD006F16AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42E966CE2CD927ED006F16AE /* AddRecordView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42E966CD2CD927DA006F16AE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		42F6F8282D04CAF700D489A8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		42F6F82D2D099DE300D489A8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				42F6F82E2D099E0D00D489A8 /* MoneyViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		42F6F8342D09A9F400D489A8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				42F6F8372D09AE9C00D489A8 /* Money+CoreDataClass.swift */,
+				42F6F8382D09AE9C00D489A8 /* Money+CoreDataProperties.swift */,
+				427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,12 +360,18 @@
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
 				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
 				42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */,
-				42D606832CD55D8F0029BD7E /* HomeViewModel.swift in Sources */,
+				42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */,
+				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,
+				42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */,
+				427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */,
 				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
+				42F6F8392D09AE9C00D489A8 /* Money+CoreDataClass.swift in Sources */,
+				42F6F83A2D09AE9C00D489A8 /* Money+CoreDataProperties.swift in Sources */,
+				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				42D606672CCEB7DC0029BD7E /* MoneyApp.swift in Sources */,
 			);
@@ -493,6 +581,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */,
+			);
+			currentVersion = 427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */;
+			path = MoneyContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42D606452CCEB71D0029BD7E /* Project object */;
 }
