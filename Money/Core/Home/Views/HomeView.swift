@@ -98,7 +98,7 @@ extension HomeView {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
                         Group {
-                            Text("$ 0")
+                            Text("$ \(moneyViewModel.earnedMoney, specifier: "%.2f")")
                                 .font(.system(size: 18, weight: .medium, design: .default))
                                 .foregroundColor(Color.theme.white) +
                             Text("/$ 0")

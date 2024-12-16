@@ -12,14 +12,17 @@ struct AddRecordView: View {
     @State private var expenseCount: String? = ""
     @State private var selectedRecordType: RecordType = .expense
     @Environment(\.dismiss) var dismiss
-    
+
     @FocusState private var isTextFieldFocused: Bool
-    
+    @State private var isCategorySheetPresented: Bool = false
+    @State private var isDatePickerPresented: Bool = false
+    @State private var selectedDate: Date = Date() // Holds the selected date
+
     var body: some View {
         NavigationStack {
             VStack {
                 navBarHeader
-                
+
                 ScrollView {
                     VStack(spacing: 16) {
                         pickerRecordType
@@ -32,7 +35,7 @@ struct AddRecordView: View {
                     }
                     .padding()
                 }
-                
+
                 VStack(spacing: 16) {
                     Divider()
                     confirmButton
@@ -54,28 +57,16 @@ struct AddRecordView: View {
 
 extension AddRecordView {
     private var navBarHeader: some View {
-        HStack {
-            AddRecordNavBarButton(icon: "xmark") {
-                dismiss()
-            }
-            
-            Spacer()
-            
-            Text("Add Record")
-                .font(.system(size: 16, weight: .medium, design: .default))
-                .foregroundStyle(Color.theme.accent)
-            
-            Spacer()
+        CustomNavBar(title: "Add Record",
+                     icon: "xmark",
+                     iconColor: Color.theme.red,
+                     titleColor: Color.theme.accent,
+                     borderColor: Color.theme.accent) {
+            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "General", icon: "chart.bar.yaxis")
+            dismiss()
         }
-        .padding(.vertical, 14)
-        .padding(.horizontal)
-        .background(
-            Rectangle()
-                .fill(Color.theme.white)
-                .shadow(color: Color.theme.accent.opacity(0.3), radius: 0, x: 0, y: 0.8)
-        )
     }
-    
+
     private var pickerRecordType: some View {
         Picker("Record Type", selection: $selectedRecordType) {
             ForEach(RecordType.allCases) { recordType in
@@ -85,22 +76,22 @@ extension AddRecordView {
         }
         .pickerStyle(SegmentedPickerStyle())
     }
-    
+
     private var ExpenseIncomeCountView: some View {
         HStack {
-            Text("Expense")
+            Text(selectedRecordType == .expense ? "Expense" : "Income")
                 .font(.system(size: 16, weight: .semibold, design: .default))
                 .foregroundStyle(Color.theme.accent)
-            
+
             Spacer()
-            
+
             HStack(spacing: 0) {
-                Text("- $ ")
+                Text(selectedRecordType == .expense ? "- $ " : "+ $ ")
                     .font(.system(size: 32, weight: .semibold, design: .rounded))
-                    .foregroundColor(Color.theme.red)
-                
+                    .foregroundColor(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
+
                 TextField("0", text: Binding(
-                    get: { expenseCount ?? "0" }, // Provide a default value if nil
+                    get: { expenseCount ?? "0" },
                     set: { expenseCount = $0 }
                 ))
                 .font(.system(size: 32, weight: .semibold, design: .default))
@@ -121,10 +112,15 @@ extension AddRecordView {
         )
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.theme.red.opacity(0.5), lineWidth: 1.2)
+                .stroke(
+                    selectedRecordType == .expense
+                    ? Color.theme.red.opacity(0.5)
+                    : Color.theme.green.opacity(0.5),
+                    lineWidth: 1.2
+                )
         )
     }
-    
+
     private var dateAndTimeSection: some View {
         HStack {
             HStack {
@@ -134,44 +130,62 @@ extension AddRecordView {
                     .frame(width: 40, height: 32)
                     .symbolRenderingMode(.palette)
                     .foregroundStyle(Color.theme.accent, Color.theme.red)
-                
+
                 Text("Date & Time")
                     .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundStyle(Color.theme.accent)
             }
             .padding(.leading, 6)
-            
+
             Spacer()
-            
-            Text("Today, 11:29 pm")
-                .font(.system(size: 14, weight: .medium, design: .default))
-                .foregroundStyle(Color.theme.accent.opacity(0.7))
-        }
-    }
-    
-    private var categorySection: some View {
-        HStack {
-            HStack {
-                Image(systemName: "chart.bar.yaxis")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 33, height: 32)
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(Color.theme.red, Color.theme.accent)
-                
-                Text("Category")
-                    .font(.system(size: 14, weight: .medium, design: .default))
-                    .foregroundStyle(Color.theme.accent)
-            }
-            .padding(.leading, 6)
-            
-            Spacer()
-            
-            HStack {
-                Text("General")
+
+            // Display formatted date & time, and tap to open the date picker
+            Button(action: {
+                isDatePickerPresented.toggle()
+            }) {
+                Text(formattedDate)
                     .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
-                
+            }
+            .sheet(isPresented: $isDatePickerPresented) {
+                DatePicker(
+                    "Select Date & Time",
+                    selection: $selectedDate,
+                    displayedComponents: [.date, .hourAndMinute]
+                )
+                .datePickerStyle(WheelDatePickerStyle())
+                .presentationDetents([.medium, .large])
+                .padding()
+            }
+        }
+    }
+
+    private var categorySection: some View {
+        HStack {
+            Image(systemName: "chart.bar.yaxis")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 33, height: 32)
+                .symbolRenderingMode(.palette)
+                .foregroundStyle(Color.theme.red, Color.theme.accent)
+
+            Text("Category")
+                .font(.system(size: 14, weight: .medium, design: .default))
+                .foregroundStyle(Color.theme.accent)
+
+            Spacer()
+
+            HStack {
+                if let selectedCategory = moneyViewModel.selectedExpenseCategory {
+                    Text(selectedCategory.name)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .foregroundStyle(Color.theme.accent.opacity(0.7))
+                } else {
+                    Text("General")
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .foregroundStyle(Color.theme.accent.opacity(0.7))
+                }
+
                 Image(systemName: "chevron.forward")
                     .resizable()
                     .scaledToFit()
@@ -179,22 +193,32 @@ extension AddRecordView {
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
             }
         }
+        .onTapGesture {
+            isCategorySheetPresented = true
+        }
+        .sheet(isPresented: $isCategorySheetPresented, onDismiss: {
+            if moneyViewModel.selectedExpenseCategory == nil {
+                moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "General", icon: "chart.bar.yaxis")
+            }
+        }) {
+            ExpenseCategoryListView(viewModel: moneyViewModel)
+        }
     }
-    
+
     private var confirmButton: some View {
         Button(action: {
             guard let amount = Float(expenseCount ?? ""), amount > 0 else {
-                // Handle invalid input (e.g., show an alert)
                 return
             }
-            
+
+            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "General", icon: "chart.bar.yaxis")
+
             if selectedRecordType == .expense {
                 moneyViewModel.addSpentMoney(amount: amount)
             } else {
                 moneyViewModel.addEarnedMoney(amount: amount)
             }
-            
-            dismiss() // Close the sheet
+            dismiss()
         }) {
             HStack {
                 Spacer()
@@ -212,17 +236,45 @@ extension AddRecordView {
             .padding(.horizontal)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.theme.accent.opacity(0.3)) // Adjust fill for clarity
+                    .fill(buttonBackgroundColor)
             )
         }
         .frame(maxWidth: .infinity)
+        .disabled(Float(expenseCount ?? "") ?? 0 <= 0)
+    }
+
+    private var buttonBackgroundColor: Color {
+        if let amount = Float(expenseCount ?? ""), amount > 0 {
+            return selectedRecordType == .expense ? Color.theme.red : Color.theme.green
+        } else {
+            return Color.gray.opacity(0.5)
+        }
+    }
+
+    private var formattedDate: String {
+        let calendar = Calendar.current
+        let today = calendar.isDateInToday(selectedDate)
+
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateStyle = .none
+        timeFormatter.timeStyle = .short
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+
+        if today {
+            return "Today at \(timeFormatter.string(from: selectedDate))"
+        } else {
+            return "\(dateFormatter.string(from: selectedDate)) at \(timeFormatter.string(from: selectedDate))"
+        }
     }
 }
 
 enum RecordType: String, CaseIterable, Identifiable {
     case expense
     case income
-    
+
     var id: String { self.rawValue }
 }
 

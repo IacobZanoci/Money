@@ -14,6 +14,9 @@ class MoneyViewModel: ObservableObject {
     
     private let container: NSPersistentContainer
     
+    @Published var expenseCategories: [ExpenseCategory] = ExpenseCategory.expenseCategory
+    @Published var selectedExpenseCategory: ExpenseCategory? = nil
+    
     init(container: NSPersistentContainer = PersistenceController.shared.container) {
         self.container = container
         fetchData()
@@ -58,4 +61,8 @@ class MoneyViewModel: ObservableObject {
             print("Error saving data: \(error.localizedDescription)")
         }
     }
+    
+    func selectExpenseCategory(_ expenseCategory: ExpenseCategory) {
+            selectedExpenseCategory = expenseCategory
+        }
 }

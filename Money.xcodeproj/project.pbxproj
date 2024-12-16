@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */; };
+		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
+		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
@@ -25,11 +28,12 @@
 		42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */; };
 		42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F82E2D099E0D00D489A8 /* MoneyViewModel.swift */; };
 		42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F8352D09AA0800D489A8 /* PersistenceController.swift */; };
-		42F6F8392D09AE9C00D489A8 /* Money+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F8372D09AE9C00D489A8 /* Money+CoreDataClass.swift */; };
-		42F6F83A2D09AE9C00D489A8 /* Money+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6F8382D09AE9C00D489A8 /* Money+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
+		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -49,8 +53,6 @@
 		42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBarButton.swift; sourceTree = "<group>"; };
 		42F6F82E2D099E0D00D489A8 /* MoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewModel.swift; sourceTree = "<group>"; };
 		42F6F8352D09AA0800D489A8 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		42F6F8372D09AE9C00D489A8 /* Money+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Money+CoreDataClass.swift"; sourceTree = "<group>"; };
-		42F6F8382D09AE9C00D489A8 /* Money+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Money+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */,
+				423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -84,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				42F6F8342D09A9F400D489A8 /* CoreData */,
+				423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				42E966CE2CD927ED006F16AE /* AddRecordView.swift */,
+				423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,8 +281,6 @@
 		42F6F8342D09A9F400D489A8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				42F6F8372D09AE9C00D489A8 /* Money+CoreDataClass.swift */,
-				42F6F8382D09AE9C00D489A8 /* Money+CoreDataProperties.swift */,
 				427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -357,10 +360,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */,
+				423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */,
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
 				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
 				42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */,
 				42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */,
+				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
 				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
@@ -368,9 +373,8 @@
 				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,
 				42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */,
 				427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */,
+				423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */,
 				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
-				42F6F8392D09AE9C00D489A8 /* Money+CoreDataClass.swift in Sources */,
-				42F6F83A2D09AE9C00D489A8 /* Money+CoreDataProperties.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				42D606672CCEB7DC0029BD7E /* MoneyApp.swift in Sources */,
