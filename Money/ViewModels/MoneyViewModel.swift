@@ -14,7 +14,10 @@ class MoneyViewModel: ObservableObject {
     @Published var earnedMoney: Float = 0
     
     @Published var expenseCategories: [ExpenseCategory] = ExpenseCategory.expenseCategory
-    @Published var selectedExpenseCategory: ExpenseCategory? = nil
+    @Published var selectedExpenseCategory: ExpenseCategory? = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
+    
+    @Published var incomeCategories: [IncomeCategory] = IncomeCategory.incomeCategory
+    @Published var selectedIncomeCategory: IncomeCategory? = IncomeCategory(name: "Other", icon: "ellipsis.circle.fill")
     
     private let container: NSPersistentContainer
     
@@ -61,6 +64,36 @@ class MoneyViewModel: ObservableObject {
         }
     }
     
+    // Get the selected category name based on record type
+    func selectedCategory(for type: RecordType) -> String {
+        switch type {
+        case .expense:
+            return selectedExpenseCategory?.name ?? "Other"
+        case .income:
+            return selectedIncomeCategory?.name ?? "Other"
+        }
+    }
+    
+    // Reset selected category to default
+    func resetCategory(for type: RecordType) {
+        switch type {
+        case .expense:
+            selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
+        case .income:
+            selectedIncomeCategory = IncomeCategory(name: "Other", icon: "ellipsis.circle.fill")
+        }
+    }
+    
+    // Provide the correct category list view
+    func categoryListView(for type: RecordType) -> AnyView {
+        switch type {
+        case .expense:
+            return AnyView(ExpenseCategoryListView(viewModel: self))
+        case .income:
+            return AnyView(IncomeCategoryListView(viewModel: self))
+        }
+    }
+    
     /// Add a new transaction
     func addTransaction(amount: Float, type: RecordType, date: Date, category: ExpenseCategory) {
         let transaction = Transaction(context: container.viewContext)
@@ -85,7 +118,7 @@ class MoneyViewModel: ObservableObject {
             .filter { $0.type == RecordType.income.rawValue }
             .reduce(0) { $0 + $1.amount }
     }
-
+    
     /// Get total amount by category and type
     func totalAmount(forCategory categoryName: String, type: RecordType) -> Float {
         transactions
@@ -110,5 +143,9 @@ class MoneyViewModel: ObservableObject {
     /// Select an expense category
     func selectExpenseCategory(_ expenseCategory: ExpenseCategory) {
         selectedExpenseCategory = expenseCategory
+    }
+    
+    func selectIncomeCategory(_ incomeCategory: IncomeCategory) {
+        selectedIncomeCategory = incomeCategory
     }
 }

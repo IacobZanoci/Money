@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		421E92502D1435B50049D82F /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E924F2D1435B50049D82F /* RecordType.swift */; };
 		421E92522D14364A0049D82F /* RecordTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92512D14364A0049D82F /* RecordTypeViewModel.swift */; };
+		421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92532D15804A0049D82F /* IncomeCategoryListView.swift */; };
+		421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92552D1580C10049D82F /* IncomeCategory.swift */; };
 		423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */; };
 		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
 		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		421E924F2D1435B50049D82F /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		421E92512D14364A0049D82F /* RecordTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeViewModel.swift; sourceTree = "<group>"; };
+		421E92532D15804A0049D82F /* IncomeCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryListView.swift; sourceTree = "<group>"; };
+		421E92552D1580C10049D82F /* IncomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategory.swift; sourceTree = "<group>"; };
 		423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
 		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			children = (
 				423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */,
 				421E924F2D1435B50049D82F /* RecordType.swift */,
+				421E92552D1580C10049D82F /* IncomeCategory.swift */,
 			);
 			path = AddRecordModel;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 			children = (
 				42E966CE2CD927ED006F16AE /* AddRecordView.swift */,
 				423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */,
+				421E92532D15804A0049D82F /* IncomeCategoryListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -390,6 +396,7 @@
 				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
 				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */,
+				421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,
@@ -398,6 +405,7 @@
 				423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */,
 				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
 				421E92502D1435B50049D82F /* RecordType.swift in Sources */,
+				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				421E92522D14364A0049D82F /* RecordTypeViewModel.swift in Sources */,

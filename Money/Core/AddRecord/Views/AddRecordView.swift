@@ -15,17 +15,17 @@ struct AddRecordView: View {
     @State private var expenseCount: String? = ""
     @State private var selectedRecordType: RecordType = .expense
     @Environment(\.dismiss) var dismiss
-
+    
     @FocusState private var isTextFieldFocused: Bool
     @State private var isCategorySheetPresented: Bool = false
     @State private var isDatePickerPresented: Bool = false
     @State private var selectedDate: Date = Date() // Holds the selected date
-
+    
     var body: some View {
         NavigationStack {
             VStack {
                 navBarHeader
-
+                
                 ScrollView {
                     VStack(spacing: 16) {
                         pickerRecordType
@@ -38,7 +38,7 @@ struct AddRecordView: View {
                     }
                     .padding()
                 }
-
+                
                 VStack(spacing: 16) {
                     Divider()
                     confirmButton
@@ -62,14 +62,14 @@ extension AddRecordView {
     private var navBarHeader: some View {
         CustomNavBar(title: "Add Record",
                      icon: "xmark",
-                     iconColor: Color.theme.red,
+                     iconColor: selectedRecordType == .expense ? Color.theme.red : Color.theme.green,
                      titleColor: Color.theme.accent,
                      borderColor: Color.theme.accent) {
             moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
             dismiss()
         }
     }
-
+    
     private var pickerRecordType: some View {
         Picker("Record Type", selection: $selectedRecordType) {
             ForEach(RecordType.allCases) { recordType in
@@ -79,20 +79,20 @@ extension AddRecordView {
         }
         .pickerStyle(SegmentedPickerStyle())
     }
-
+    
     private var ExpenseIncomeCountView: some View {
         HStack {
             Text(selectedRecordType == .expense ? "Expense" : "Income")
                 .font(.system(size: 16, weight: .semibold, design: .default))
                 .foregroundStyle(Color.theme.accent)
-
+            
             Spacer()
-
+            
             HStack(spacing: 0) {
                 Text(selectedRecordType == .expense ? "- $ " : "+ $ ")
                     .font(.system(size: 32, weight: .semibold, design: .rounded))
                     .foregroundColor(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
-
+                
                 TextField("0", text: Binding(
                     get: { expenseCount ?? "0" },
                     set: { expenseCount = $0 }
@@ -123,24 +123,24 @@ extension AddRecordView {
                 )
         )
     }
-
+    
     private var dateAndTimeSection: some View {
         HStack {
             HStack(spacing: 10) {
                 Image(systemName: "calendar")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 32, height: 32)
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
-
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 32, height: 32)
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
+                
                 Text("Date & Time")
                     .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundStyle(Color.theme.accent)
             }
-
+            
             Spacer()
-
+            
             // Display formatted date & time, and tap to open the date picker
             Button(action: {
                 isDatePickerPresented.toggle()
@@ -161,7 +161,7 @@ extension AddRecordView {
             }
         }
     }
-
+    
     private var categorySection: some View {
         HStack(spacing: 10) {
             Image(systemName: "square.grid.2x2")
@@ -170,24 +170,18 @@ extension AddRecordView {
                 .frame(width: 32, height: 32)
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
-
+            
             Text("Category")
                 .font(.system(size: 14, weight: .medium, design: .default))
                 .foregroundStyle(Color.theme.accent)
-
+            
             Spacer()
-
+            
             HStack {
-                if let selectedCategory = moneyViewModel.selectedExpenseCategory {
-                    Text(selectedCategory.name)
-                        .font(.system(size: 14, weight: .medium, design: .default))
-                        .foregroundStyle(Color.theme.accent.opacity(0.7))
-                } else {
-                    Text("Other")
-                        .font(.system(size: 14, weight: .medium, design: .default))
-                        .foregroundStyle(Color.theme.accent.opacity(0.7))
-                }
-
+                Text(moneyViewModel.selectedCategory(for: selectedRecordType))
+                    .font(.system(size: 14, weight: .medium, design: .default))
+                    .foregroundStyle(Color.theme.accent.opacity(0.7))
+                
                 Image(systemName: "chevron.forward")
                     .resizable()
                     .scaledToFit()
@@ -199,15 +193,12 @@ extension AddRecordView {
             isCategorySheetPresented = true
         }
         .sheet(isPresented: $isCategorySheetPresented, onDismiss: {
-            // Reset category to "General" after dismissing the sheet if none selected
-            if moneyViewModel.selectedExpenseCategory == nil {
-                moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
-            }
+            moneyViewModel.resetCategory(for: selectedRecordType)
         }) {
-            ExpenseCategoryListView(viewModel: moneyViewModel)
+            moneyViewModel.categoryListView(for: selectedRecordType)
         }
     }
-
+    
     private var confirmButton: some View {
         Button(action: {
             guard let amount = Float(expenseCount ?? ""), amount > 0 else {
@@ -250,7 +241,7 @@ extension AddRecordView {
         .frame(maxWidth: .infinity)
         .disabled(Float(expenseCount ?? "") ?? 0 <= 0)
     }
-
+    
     private var buttonBackgroundColor: Color {
         if let amount = Float(expenseCount ?? ""), amount > 0 {
             return selectedRecordType == .expense ? Color.theme.red : Color.theme.green
@@ -258,19 +249,19 @@ extension AddRecordView {
             return Color.gray.opacity(0.5)
         }
     }
-
+    
     private var formattedDate: String {
         let calendar = Calendar.current
         let today = calendar.isDateInToday(selectedDate)
-
+        
         let timeFormatter = DateFormatter()
         timeFormatter.dateStyle = .none
         timeFormatter.timeStyle = .short
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-
+        
         if today {
             return "Today at \(timeFormatter.string(from: selectedDate))"
         } else {
