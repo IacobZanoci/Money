@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AddRecordView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
+    
+    @ObservedObject var viewModel: RecordTypeViewModel
+    
     @State private var expenseCount: String? = ""
     @State private var selectedRecordType: RecordType = .expense
     @Environment(\.dismiss) var dismiss
@@ -62,7 +65,7 @@ extension AddRecordView {
                      iconColor: Color.theme.red,
                      titleColor: Color.theme.accent,
                      borderColor: Color.theme.accent) {
-            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "General", icon: "chart.bar.yaxis")
+            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
             dismiss()
         }
     }
@@ -123,19 +126,18 @@ extension AddRecordView {
 
     private var dateAndTimeSection: some View {
         HStack {
-            HStack {
-                Image(systemName: "calendar.badge.clock")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 32)
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(Color.theme.accent, Color.theme.red)
+            HStack(spacing: 10) {
+                Image(systemName: "calendar")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 32, height: 32)
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
 
                 Text("Date & Time")
                     .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundStyle(Color.theme.accent)
             }
-            .padding(.leading, 6)
 
             Spacer()
 
@@ -161,13 +163,13 @@ extension AddRecordView {
     }
 
     private var categorySection: some View {
-        HStack {
-            Image(systemName: "chart.bar.yaxis")
+        HStack(spacing: 10) {
+            Image(systemName: "square.grid.2x2")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 33, height: 32)
+                .frame(width: 32, height: 32)
                 .symbolRenderingMode(.palette)
-                .foregroundStyle(Color.theme.red, Color.theme.accent)
+                .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
 
             Text("Category")
                 .font(.system(size: 14, weight: .medium, design: .default))
@@ -181,7 +183,7 @@ extension AddRecordView {
                         .font(.system(size: 14, weight: .medium, design: .default))
                         .foregroundStyle(Color.theme.accent.opacity(0.7))
                 } else {
-                    Text("General")
+                    Text("Other")
                         .font(.system(size: 14, weight: .medium, design: .default))
                         .foregroundStyle(Color.theme.accent.opacity(0.7))
                 }
@@ -197,8 +199,9 @@ extension AddRecordView {
             isCategorySheetPresented = true
         }
         .sheet(isPresented: $isCategorySheetPresented, onDismiss: {
+            // Reset category to "General" after dismissing the sheet if none selected
             if moneyViewModel.selectedExpenseCategory == nil {
-                moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "General", icon: "chart.bar.yaxis")
+                moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
             }
         }) {
             ExpenseCategoryListView(viewModel: moneyViewModel)
@@ -210,14 +213,19 @@ extension AddRecordView {
             guard let amount = Float(expenseCount ?? ""), amount > 0 else {
                 return
             }
-
-            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "General", icon: "chart.bar.yaxis")
-
-            if selectedRecordType == .expense {
-                moneyViewModel.addSpentMoney(amount: amount)
-            } else {
-                moneyViewModel.addEarnedMoney(amount: amount)
-            }
+            // Ensure category is set to default if it's nil
+            let selectedCategory = moneyViewModel.selectedExpenseCategory ?? ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
+            
+            moneyViewModel.addTransaction(
+                amount: selectedRecordType == .expense ? -amount : amount,
+                type: selectedRecordType,
+                date: selectedDate,
+                category: selectedCategory
+            )
+            
+            // Reset category to default after confirmation
+            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
+            
             dismiss()
         }) {
             HStack {
@@ -271,14 +279,7 @@ extension AddRecordView {
     }
 }
 
-enum RecordType: String, CaseIterable, Identifiable {
-    case expense
-    case income
-
-    var id: String { self.rawValue }
-}
-
 #Preview {
-    AddRecordView()
+    AddRecordView(viewModel: RecordTypeViewModel())
         .environmentObject(MoneyViewModel())
 }

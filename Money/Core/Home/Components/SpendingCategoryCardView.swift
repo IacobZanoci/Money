@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SpendingCategoryCardView: View {
+    @EnvironmentObject var moneyViewModel: MoneyViewModel // Access ViewModel
     
-    let cardImage: String
-    let cardTitle: String
-    let cardSpendingAmount: String
+    let categoryName: String
+    let type: RecordType
     let gradient: LinearGradient
     
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
-            Image(systemName: cardImage)
+            Image(systemName: iconName(for: categoryName))
                 .foregroundStyle(Color.theme.white)
                 .font(.system(size: 18))
                 .frame(width: 8, height: 8)
@@ -27,10 +27,11 @@ struct SpendingCategoryCardView: View {
                 )
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(cardTitle)
+                Text(categoryName)
                     .font(.system(size: 12, weight: .medium, design: .default))
                     .foregroundStyle(Color.theme.accent.opacity(0.8))
-                Text(cardSpendingAmount)
+                
+                Text(String(format: "$%.2f", moneyViewModel.totalAmount(forCategory: categoryName, type: type)))
                     .font(.system(size: 14, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.theme.accent)
             }
@@ -46,8 +47,25 @@ struct SpendingCategoryCardView: View {
         )
         .frame(maxWidth: .infinity, alignment: .leading)
     }
+    
+    private func iconName(for category: String) -> String {
+        switch category {
+        case "Food": return "fork.knife"
+        case "Entertainment": return "figure"
+        case "Shopping": return "bag.fill"
+        case "Subscriptions": return "creditcard.fill"
+        case "Transport": return "car.fill"
+        case "Other": return "ellipsis.circle.fill"
+        default: return "questionmark.circle.fill"
+        }
+    }
 }
 
 #Preview {
-    SpendingCategoryCardView(cardImage: "fork.knife", cardTitle: "Food", cardSpendingAmount: "$ 34.40", gradient: LinearGradient(colors: [Color.theme.food.opacity(0.5), Color.theme.food], startPoint: .bottomLeading, endPoint: .topTrailing))
+    SpendingCategoryCardView(
+        categoryName: "Food",
+        type: .expense,
+        gradient: LinearGradient(colors: [Color.theme.food.opacity(0.5), Color.theme.food], startPoint: .bottomLeading, endPoint: .topTrailing)
+    )
+    .environmentObject(MoneyViewModel())
 }

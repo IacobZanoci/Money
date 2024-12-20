@@ -45,7 +45,7 @@ struct ContentView: View {
                             isShowingAddRecordSheet.toggle()
                         }
                         .sheet(isPresented: $isShowingAddRecordSheet) {
-                            AddRecordView()
+                            AddRecordView(viewModel: RecordTypeViewModel())
                                 .environmentObject(moneyViewModel) // Pass it here as well
                         }
                         .offset(y: -geometry.size.height / 8 / 8)

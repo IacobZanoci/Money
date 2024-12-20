@@ -33,7 +33,7 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            moneyViewModel.fetchData() // Load saved data when the view appears
+            moneyViewModel.fetchTransactions() // Load saved data when the view appears
         }
         .ignoresSafeArea(edges: .bottom)
     }
@@ -190,22 +190,21 @@ extension HomeView {
                 CircleButtonView(iconName: "chevron.right.circle")
             }
             
-            VStack( spacing: 16) {
+            VStack(spacing: 16) {
                 HStack(spacing: 16) {
                     SpendingCategoryCardView(
-                        cardImage: "fork.knife",
-                        cardTitle: "Food",
-                        cardSpendingAmount: "$ 0",
+                        categoryName: "Food",
+                        type: .expense,
                         gradient: LinearGradient(
                             colors: [Color.theme.food.opacity(0.5), Color.theme.food],
                             startPoint: .bottomLeading,
                             endPoint: .topTrailing
                         )
                     )
+                    
                     SpendingCategoryCardView(
-                        cardImage: "figure",
-                        cardTitle: "Entertainment",
-                        cardSpendingAmount: "$ 0",
+                        categoryName: "Entertainment",
+                        type: .expense,
                         gradient: LinearGradient(
                             colors: [Color.theme.entertainment.opacity(0.5), Color.theme.entertainment],
                             startPoint: .bottomLeading,
@@ -216,21 +215,20 @@ extension HomeView {
                 
                 HStack(spacing: 16) {
                     SpendingCategoryCardView(
-                        cardImage: "bag.fill",
-                        cardTitle: "Shopping",
-                        cardSpendingAmount: "$ 0",
+                        categoryName: "Shopping",
+                        type: .expense,
                         gradient: LinearGradient(
-                            colors: [Color.theme.shopping.opacity(0.5), Color.theme.shopping],
+                            colors: [Color.theme.food.opacity(0.5), Color.theme.food],
                             startPoint: .bottomLeading,
                             endPoint: .topTrailing
                         )
                     )
+                    
                     SpendingCategoryCardView(
-                        cardImage: "creditcard.fill",
-                        cardTitle: "Subscription",
-                        cardSpendingAmount: "$ 0",
+                        categoryName: "Subscriptions",
+                        type: .expense,
                         gradient: LinearGradient(
-                            colors: [Color.theme.subscription.opacity(0.5), Color.theme.subscription],
+                            colors: [Color.theme.entertainment.opacity(0.5), Color.theme.entertainment],
                             startPoint: .bottomLeading,
                             endPoint: .topTrailing
                         )
@@ -239,21 +237,20 @@ extension HomeView {
                 
                 HStack(spacing: 16) {
                     SpendingCategoryCardView(
-                        cardImage: "car.fill",
-                        cardTitle: "Transport",
-                        cardSpendingAmount: "$ 0",
+                        categoryName: "Transport",
+                        type: .expense,
                         gradient: LinearGradient(
-                            colors: [Color.theme.transport.opacity(0.5), Color.theme.transport],
+                            colors: [Color.theme.shopping.opacity(0.5), Color.theme.shopping],
                             startPoint: .bottomLeading,
                             endPoint: .topTrailing
                         )
                     )
+                    
                     SpendingCategoryCardView(
-                        cardImage: "questionmark.circle.fill",
-                        cardTitle: "Other",
-                        cardSpendingAmount: "$ 0",
+                        categoryName: "Other",
+                        type: .expense,
                         gradient: LinearGradient(
-                            colors: [Color.theme.other.opacity(0.5), Color.theme.other],
+                            colors: [Color.theme.transport.opacity(0.5), Color.theme.transport],
                             startPoint: .bottomLeading,
                             endPoint: .topTrailing
                         )
@@ -339,7 +336,8 @@ extension HomeView {
     
 }
 
+
 #Preview {
-  HomeView()
+    HomeView()
         .environmentObject(MoneyViewModel())
 }
