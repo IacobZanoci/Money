@@ -11,6 +11,9 @@
 		421E92522D14364A0049D82F /* RecordTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92512D14364A0049D82F /* RecordTypeViewModel.swift */; };
 		421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92532D15804A0049D82F /* IncomeCategoryListView.swift */; };
 		421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92552D1580C10049D82F /* IncomeCategory.swift */; };
+		421E925E2D1717990049D82F /* ExpenseTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */; };
+		421E92632D171AA80049D82F /* IncomeHomeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */; };
+		421E92652D1764BC0049D82F /* IncomeTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92642D1764BC0049D82F /* IncomeTransactionsView.swift */; };
 		423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */; };
 		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
 		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
@@ -39,6 +42,9 @@
 		421E92512D14364A0049D82F /* RecordTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeViewModel.swift; sourceTree = "<group>"; };
 		421E92532D15804A0049D82F /* IncomeCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryListView.swift; sourceTree = "<group>"; };
 		421E92552D1580C10049D82F /* IncomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategory.swift; sourceTree = "<group>"; };
+		421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTransactionsView.swift; sourceTree = "<group>"; };
+		421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeHomeListItemView.swift; sourceTree = "<group>"; };
+		421E92642D1764BC0049D82F /* IncomeTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeTransactionsView.swift; sourceTree = "<group>"; };
 		423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
 		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
@@ -89,6 +95,32 @@
 				421E92552D1580C10049D82F /* IncomeCategory.swift */,
 			);
 			path = AddRecordModel;
+			sourceTree = "<group>";
+		};
+		421E925B2D1717820049D82F /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				421E925F2D171A610049D82F /* Component */,
+				421E925C2D17178D0049D82F /* Views */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		421E925C2D17178D0049D82F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */,
+				421E92642D1764BC0049D82F /* IncomeTransactionsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		421E925F2D171A610049D82F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		423F2A8C2D0AF6740043B327 /* Persistence */ = {
@@ -162,6 +194,7 @@
 		42D606682CD0EB3D0029BD7E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				421E925B2D1717820049D82F /* Transactions */,
 				42D606692CD0EB540029BD7E /* Home */,
 				42E966CB2CD927B1006F16AE /* AddRecord */,
 				42D6066A2CD0EB5E0029BD7E /* Settings */,
@@ -391,6 +424,7 @@
 				423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */,
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
 				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
+				421E92632D171AA80049D82F /* IncomeHomeListItemView.swift in Sources */,
 				42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */,
 				42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */,
 				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
@@ -407,6 +441,8 @@
 				421E92502D1435B50049D82F /* RecordType.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
+				421E925E2D1717990049D82F /* ExpenseTransactionsView.swift in Sources */,
+				421E92652D1764BC0049D82F /* IncomeTransactionsView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				421E92522D14364A0049D82F /* RecordTypeViewModel.swift in Sources */,
 				42D606672CCEB7DC0029BD7E /* MoneyApp.swift in Sources */,

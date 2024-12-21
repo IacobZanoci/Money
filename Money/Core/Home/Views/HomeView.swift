@@ -13,29 +13,31 @@ struct HomeView: View {
     
     
     var body: some View {
-        ZStack {
-            Color.theme.background.ignoresSafeArea()
-            
-            VStack(spacing: 10) {
-                headerHomeView
-                    .padding(.horizontal)
+        NavigationStack {
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
                 
-                ScrollView {
-                    VStack(spacing: 30) {
-                        spendingTrackerView
-                        spendingMonthlySectionView
-                        recurringExpensesView
-                        incomeMonthlyView
+                VStack(spacing: 10) {
+                    headerHomeView
+                        .padding(.horizontal)
+                    
+                    ScrollView {
+                        VStack(spacing: 30) {
+                            spendingTrackerView
+                            spendingMonthlySectionView
+                            recurringExpensesView
+                            incomeMonthlyView
+                        }
+                        .padding()
                     }
-                    .padding()
+                    .scrollIndicators(.hidden)
                 }
-                .scrollIndicators(.hidden)
             }
+            .onAppear {
+                moneyViewModel.fetchTransactions() // Load saved data when the view appears
+            }
+            .ignoresSafeArea(edges: .bottom)
         }
-        .onAppear {
-            moneyViewModel.fetchTransactions() // Load saved data when the view appears
-        }
-        .ignoresSafeArea(edges: .bottom)
     }
 }
 
@@ -187,7 +189,9 @@ extension HomeView {
                 
                 Spacer()
                 
-                CircleButtonView(iconName: "chevron.right.circle")
+                NavigationLink(destination: ExpenseTransactionsView()) {
+                    CircleButtonView(iconName: "chevron.right.circle")
+                }
             }
             
             VStack(spacing: 16) {
@@ -306,31 +310,56 @@ extension HomeView {
                 
                 Spacer()
                 
-                TextButtonView(text: "View all")
+                NavigationLink(destination: IncomeTransactionsView()) {
+                    TextButtonView(text: "View all")
+                }
             }
             
-            VStack(spacing: 20) {
-                Image(systemName: "chart.bar.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(Color.theme.green)
-                    .frame(width: 50)
-                
-                Text("Enter your income to easily monitor your earnings and keep your budget balanced.")
-                    .font(.system(size: 12, weight: .regular, design: .rounded))
-                    .foregroundStyle(Color.theme.accent.opacity(0.8))
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(6)
-                
-                RoundedButtonTextView(text: "Add income")
+            if !moneyViewModel.incomeRecords.isEmpty {
+                VStack(spacing: 0) {
+                    ForEach(moneyViewModel.incomeRecords.prefix(3), id: \.self) { record in
+                        IncomeHomeListItemView(
+                            iconName: record.categoryIcon ?? "briefcase.circle.fill",
+                            title: record.categoryName ?? "Income",
+                            incomeAmount: "+ $ \(String(format: "%.2f", record.amount))"
+                        )
+                        
+                        if record != moneyViewModel.incomeRecords.prefix(3).last {
+                            Divider()
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 16)
+                        }
+                    }
+                }
+                .padding(.vertical, 16)
+                .background(
+                    RoundedRectangle(cornerRadius: 14)
+                        .foregroundStyle(Color.theme.white)
+                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0) // Shadow applied to the background
+                )
+            } else {
+                VStack(spacing: 20) {
+                    Image(systemName: "chart.bar.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundStyle(Color.theme.green)
+                        .frame(width: 50)
+                    
+                    Text("Enter your income to easily monitor your earnings and keep your budget balanced.")
+                        .font(.system(size: 12, weight: .regular, design: .rounded))
+                        .foregroundStyle(Color.theme.accent.opacity(0.8))
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(6)
+                    
+                    RoundedButtonTextView(text: "Add income")
+                }
+                .padding(16)
+                .background(
+                    RoundedRectangle(cornerRadius: 14)
+                        .foregroundStyle(Color.theme.white)
+                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0) // Shadow applied to the background
+                )
             }
-            .padding(16)
-            .frame(maxWidth: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 14)
-                    .foregroundStyle(Color.theme.white)
-            )
-            .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0)
         }
     }
     

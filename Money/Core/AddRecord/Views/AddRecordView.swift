@@ -163,60 +163,66 @@ extension AddRecordView {
     }
     
     private var categorySection: some View {
-        HStack(spacing: 10) {
-            Image(systemName: "square.grid.2x2")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 32, height: 32)
-                .symbolRenderingMode(.palette)
-                .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
-            
-            Text("Category")
-                .font(.system(size: 14, weight: .medium, design: .default))
-                .foregroundStyle(Color.theme.accent)
-            
-            Spacer()
-            
-            HStack {
-                Text(moneyViewModel.selectedCategory(for: selectedRecordType))
-                    .font(.system(size: 14, weight: .medium, design: .default))
-                    .foregroundStyle(Color.theme.accent.opacity(0.7))
-                
-                Image(systemName: "chevron.forward")
+            HStack(spacing: 10) {
+                Image(systemName: "square.grid.2x2")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 8.5, height: 12)
-                    .foregroundStyle(Color.theme.accent.opacity(0.7))
+                    .frame(width: 32, height: 32)
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
+                
+                Text("Category")
+                    .font(.system(size: 14, weight: .medium, design: .default))
+                    .foregroundStyle(Color.theme.accent)
+                
+                Spacer()
+                
+                HStack {
+                    Text(moneyViewModel.selectedCategory(for: selectedRecordType))
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .foregroundStyle(Color.theme.accent.opacity(0.7))
+                    
+                    Image(systemName: "chevron.forward")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 8.5, height: 12)
+                        .foregroundStyle(Color.theme.accent.opacity(0.7))
+                }
+            }
+            .onTapGesture {
+                isCategorySheetPresented = true
+            }
+            .sheet(isPresented: $isCategorySheetPresented) {
+                moneyViewModel.categoryListView(for: selectedRecordType)
             }
         }
-        .onTapGesture {
-            isCategorySheetPresented = true
-        }
-        .sheet(isPresented: $isCategorySheetPresented, onDismiss: {
-            moneyViewModel.resetCategory(for: selectedRecordType)
-        }) {
-            moneyViewModel.categoryListView(for: selectedRecordType)
-        }
-    }
     
     private var confirmButton: some View {
         Button(action: {
             guard let amount = Float(expenseCount ?? ""), amount > 0 else {
                 return
             }
-            // Ensure category is set to default if it's nil
-            let selectedCategory = moneyViewModel.selectedExpenseCategory ?? ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
             
-            moneyViewModel.addTransaction(
-                amount: selectedRecordType == .expense ? -amount : amount,
-                type: selectedRecordType,
-                date: selectedDate,
-                category: selectedCategory
-            )
+            if selectedRecordType == .expense {
+                let selectedCategory = moneyViewModel.selectedExpenseCategory ?? ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
+                moneyViewModel.addTransaction(
+                    amount: -amount,
+                    type: .expense,
+                    date: selectedDate,
+                    category: selectedCategory
+                )
+            } else {
+                let selectedCategory = moneyViewModel.selectedIncomeCategory ?? IncomeCategory(name: "Other", icon: "ellipsis.circle.fill")
+                moneyViewModel.addTransaction(
+                    amount: amount,
+                    type: .income,
+                    date: selectedDate,
+                    incomeCategory: selectedCategory
+                )
+            }
             
-            // Reset category to default after confirmation
-            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
-            
+            // Reset selected category after confirmation
+            moneyViewModel.resetCategory(for: selectedRecordType)
             dismiss()
         }) {
             HStack {

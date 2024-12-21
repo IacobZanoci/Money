@@ -95,13 +95,20 @@ class MoneyViewModel: ObservableObject {
     }
     
     /// Add a new transaction
-    func addTransaction(amount: Float, type: RecordType, date: Date, category: ExpenseCategory) {
+    func addTransaction(amount: Float, type: RecordType, date: Date, category: ExpenseCategory? = nil, incomeCategory: IncomeCategory? = nil) {
         let transaction = Transaction(context: container.viewContext)
         transaction.amount = abs(amount)
         transaction.type = type.rawValue
         transaction.date = date
-        transaction.categoryName = category.name
-        transaction.categoryIcon = category.icon
+        
+        switch type {
+        case .expense:
+            transaction.categoryName = category?.name ?? "Other"
+            transaction.categoryIcon = category?.icon ?? "ellipsis.circle.fill"
+        case .income:
+            transaction.categoryName = incomeCategory?.name ?? "Other"
+            transaction.categoryIcon = incomeCategory?.icon ?? "ellipsis.circle.fill"
+        }
         
         saveToCoreData()
         fetchTransactions()
@@ -147,5 +154,11 @@ class MoneyViewModel: ObservableObject {
     
     func selectIncomeCategory(_ incomeCategory: IncomeCategory) {
         selectedIncomeCategory = incomeCategory
+    }
+}
+
+extension MoneyViewModel {
+    var incomeRecords: [Transaction] {
+        transactions.filter { $0.type == RecordType.income.rawValue }
     }
 }
