@@ -315,16 +315,17 @@ extension HomeView {
                 }
             }
             
-            if !moneyViewModel.incomeRecords.isEmpty {
+            if !moneyViewModel.groupedIncomeRecords.isEmpty {
                 VStack(spacing: 0) {
-                    ForEach(moneyViewModel.incomeRecords.prefix(3), id: \.self) { record in
+                    ForEach(Array(moneyViewModel.groupedIncomeRecords.prefix(3).enumerated()), id: \.element.categoryName) { index, record in
                         IncomeHomeListItemView(
-                            iconName: record.categoryIcon ?? "briefcase.circle.fill",
-                            title: record.categoryName ?? "Income",
-                            incomeAmount: "+ $ \(String(format: "%.2f", record.amount))"
+                            iconName: record.categoryIcon,
+                            title: record.categoryName,
+                            incomeAmount: "+ $ \(String(format: "%.2f", record.totalAmount))"
                         )
                         
-                        if record != moneyViewModel.incomeRecords.prefix(3).last {
+                        // Add divider except for the last item
+                        if index != moneyViewModel.groupedIncomeRecords.prefix(3).count - 1 {
                             Divider()
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 16)
@@ -335,7 +336,7 @@ extension HomeView {
                 .background(
                     RoundedRectangle(cornerRadius: 14)
                         .foregroundStyle(Color.theme.white)
-                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0) // Shadow applied to the background
+                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0)
                 )
             } else {
                 VStack(spacing: 20) {
@@ -357,7 +358,7 @@ extension HomeView {
                 .background(
                     RoundedRectangle(cornerRadius: 14)
                         .foregroundStyle(Color.theme.white)
-                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0) // Shadow applied to the background
+                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0)
                 )
             }
         }

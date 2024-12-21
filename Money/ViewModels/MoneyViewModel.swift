@@ -161,4 +161,15 @@ extension MoneyViewModel {
     var incomeRecords: [Transaction] {
         transactions.filter { $0.type == RecordType.income.rawValue }
     }
+    
+    /// Group income records by category and sum their amounts
+    var groupedIncomeRecords: [(categoryName: String, categoryIcon: String, totalAmount: Float)] {
+        let grouped = Dictionary(grouping: incomeRecords, by: { $0.categoryName ?? "Unknown" })
+        
+        return grouped.map { category, transactions in
+            let totalAmount = transactions.reduce(0) { $0 + $1.amount }
+            let icon = transactions.first?.categoryIcon ?? "briefcase.circle.fill"
+            return (categoryName: category, categoryIcon: icon, totalAmount: totalAmount)
+        }
+    }
 }
