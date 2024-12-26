@@ -14,7 +14,6 @@ struct ExpenseContainerListAndDate: View {
     let totalAmount: String
     let transactions: [Transaction] // Transactions passed in
     
-    // DateFormatter for formatting the time
     private var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"

@@ -20,6 +20,8 @@
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift */; };
 		42A148B22D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift */; };
+		42A148B42D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */; };
+		42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
 		42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606612CCEB7DC0029BD7E /* ContentView.swift */; };
@@ -53,6 +55,8 @@
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTransactionItemView.swift; sourceTree = "<group>"; };
 		42A148B12D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseContainerListAndDate.swift; sourceTree = "<group>"; };
+		42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionMonthAmountView.swift; sourceTree = "<group>"; };
+		42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42D606602CCEB7DC0029BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */,
 				42A148AF2D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift */,
 				42A148B12D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift */,
+				42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */,
+				42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -447,9 +453,11 @@
 				423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */,
 				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
 				421E92502D1435B50049D82F /* RecordType.swift in Sources */,
+				42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
 				421E925E2D1717990049D82F /* ExpenseTransactionsView.swift in Sources */,
+				42A148B42D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift in Sources */,
 				421E92652D1764BC0049D82F /* IncomeTransactionsView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				421E92522D14364A0049D82F /* RecordTypeViewModel.swift in Sources */,
