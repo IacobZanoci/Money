@@ -18,6 +18,8 @@
 		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
 		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
+		42A148B02D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift */; };
+		42A148B22D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
 		42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606612CCEB7DC0029BD7E /* ContentView.swift */; };
@@ -49,6 +51,8 @@
 		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
 		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
+		42A148AF2D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTransactionItemView.swift; sourceTree = "<group>"; };
+		42A148B12D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseContainerListAndDate.swift; sourceTree = "<group>"; };
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42D606602CCEB7DC0029BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */,
+				42A148AF2D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift */,
+				42A148B12D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 			files = (
 				42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */,
 				423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */,
+				42A148B02D1D6A44006BC1D6 /* ExpenseTransactionItemView.swift in Sources */,
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
 				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
 				421E92632D171AA80049D82F /* IncomeHomeListItemView.swift in Sources */,
@@ -431,6 +438,7 @@
 				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */,
 				421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */,
+				42A148B22D1D6E53006BC1D6 /* ExpenseContainerListAndDate.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,

@@ -155,7 +155,32 @@ class MoneyViewModel: ObservableObject {
     func selectIncomeCategory(_ incomeCategory: IncomeCategory) {
         selectedIncomeCategory = incomeCategory
     }
+    
+    var groupedExpenseTransactions: [(date: String, transactions: [Transaction], totalAmount: Float)] {
+        let calendar = Calendar.current
+        
+        // Group transactions by date
+        let grouped = Dictionary(grouping: transactions.filter { $0.type == RecordType.expense.rawValue }) { transaction -> String in
+            let date = transaction.date ?? Date()
+            if calendar.isDateInToday(date) {
+                return "Today"
+            } else if calendar.isDateInYesterday(date) {
+                return "Yesterday"
+            } else {
+                let formatter = DateFormatter()
+                formatter.dateStyle = .medium
+                return formatter.string(from: date)
+            }
+        }
+        
+        // Map grouped data into a tuple of date, transactions, and total amount
+        return grouped.map { (key, value) in
+            let totalAmount = value.reduce(0) { $0 + $1.amount }
+            return (date: key, transactions: value, totalAmount: totalAmount)
+        }.sorted { $0.date > $1.date } // Sort by date descending
+    }
 }
+
 
 extension MoneyViewModel {
     var incomeRecords: [Transaction] {

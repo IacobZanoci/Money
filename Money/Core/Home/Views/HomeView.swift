@@ -324,7 +324,6 @@ extension HomeView {
                             incomeAmount: "+ $ \(String(format: "%.2f", record.totalAmount))"
                         )
                         
-                        // Add divider except for the last item
                         if index != moneyViewModel.groupedIncomeRecords.prefix(3).count - 1 {
                             Divider()
                                 .padding(.vertical, 10)
