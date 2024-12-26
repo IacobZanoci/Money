@@ -13,13 +13,15 @@ struct ExpenseTransactionsView: View {
     
     var body: some View {
         VStack {
-            // Your month/year selector and total amount display
+            // Month/year selector and total amount display
             TransactionMonthAmountView(
                 selectedMonth: $viewModel.selectedMonth,
                 selectedYear: $viewModel.selectedYear,
                 totalSpent: $viewModel.spentMoney,
                 isMonthPickerPresented: $isMonthPickerPresented
             )
+            .padding(.horizontal)
+            .padding(.top, 10)
             
             ScrollView {
                 VStack(spacing: 16) {
@@ -34,8 +36,12 @@ struct ExpenseTransactionsView: View {
                 .padding()
             }
         }
-        .onChange(of: viewModel.selectedMonth) { _ in viewModel.updateTotalSpent() }
-        .onChange(of: viewModel.selectedYear) { _ in viewModel.updateTotalSpent() }
+        .onChange(of: viewModel.selectedMonth) { _ in
+            viewModel.updateFilteredTransactions()
+        }
+        .onChange(of: viewModel.selectedYear) { _ in
+            viewModel.updateFilteredTransactions()
+        }
         .sheet(isPresented: $isMonthPickerPresented) {
             MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear)
         }
