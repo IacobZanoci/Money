@@ -21,20 +21,32 @@ struct MonthYearPicker: View {
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Select Month", selection: $selectedMonth) {
+                Picker(selection: $selectedMonth, label: Text("Select Month")
+                    .font(.system(size: 15, weight: .medium, design: .default))
+                    .foregroundColor(Color.theme.accent)
+                ) {
                     ForEach(months, id: \.self) { month in
                         Text(month)
                     }
                 }
                 
-                Picker("Select Year", selection: $selectedYear) {
+                Picker(selection: $selectedYear, label: Text("Select Year")
+                    .font(.system(size: 15, weight: .medium, design: .default))
+                    .foregroundColor(Color.theme.accent)
+                ) {
                     ForEach(years, id: \.self) { year in
                         Text(year)
                     }
                 }
             }
-            .navigationTitle("Select Month & Year")
+            .scrollContentBackground(.hidden)
+            .background(Color.theme.white)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Select Month & Year")
+                        .font(.system(size: 17, weight: .semibold, design: .default))
+                        .foregroundColor(Color.theme.accent)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         dismiss()
@@ -42,5 +54,6 @@ struct MonthYearPicker: View {
                 }
             }
         }
+        .background(Color.theme.white.edgesIgnoringSafeArea(.all))
     }
 }

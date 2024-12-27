@@ -44,6 +44,8 @@ struct ExpenseTransactionsView: View {
         }
         .sheet(isPresented: $isMonthPickerPresented) {
             MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear)
+                .presentationDetents([.medium, .fraction(0.3)])
+                .presentationDragIndicator(.visible) //Adds a drag indicator at the top
         }
         .navigationTitle("Expenses")
         .navigationBarTitleDisplayMode(.inline)
