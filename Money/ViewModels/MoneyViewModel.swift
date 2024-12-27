@@ -62,6 +62,7 @@ class MoneyViewModel: ObservableObject {
     var groupedExpenseTransactions: [(date: String, transactions: [Transaction], totalAmount: Float)] {
         let calendar = Calendar.current
         
+        // Group transactions by date
         let grouped = Dictionary(grouping: transactions.filter { $0.type == RecordType.expense.rawValue }) { transaction -> String in
             let date = transaction.date ?? Date()
             if calendar.isDateInToday(date) {
@@ -75,10 +76,13 @@ class MoneyViewModel: ObservableObject {
             }
         }
         
+        // Sort groups by date descending and their transactions descending
         return grouped.map { (key, value) in
-            let totalAmount = value.reduce(0) { $0 + $1.amount }
-            return (date: key, transactions: value, totalAmount: totalAmount)
-        }.sorted { $0.date > $1.date } // Sort by date descending
+            let sortedTransactions = value.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
+            let totalAmount = sortedTransactions.reduce(0) { $0 + $1.amount }
+            return (date: key, transactions: sortedTransactions, totalAmount: totalAmount)
+        }
+        .sorted { $0.transactions.first?.date ?? Date() > $1.transactions.first?.date ?? Date() }
     }
     
     var groupedIncomeRecords: [(categoryName: String, categoryIcon: String, totalAmount: Float)] {
