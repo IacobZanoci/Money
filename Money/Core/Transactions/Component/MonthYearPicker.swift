@@ -11,12 +11,12 @@ struct MonthYearPicker: View {
     @Binding var selectedMonth: String
     @Binding var selectedYear: String
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var viewModel: MoneyViewModel
     
     private let months = [
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
-    private let years = ["2023", "2024", "2025"]
     
     var body: some View {
         NavigationStack {
@@ -34,7 +34,7 @@ struct MonthYearPicker: View {
                     .font(.system(size: 15, weight: .medium, design: .default))
                     .foregroundColor(Color.theme.accent)
                 ) {
-                    ForEach(years, id: \.self) { year in
+                    ForEach(viewModel.distinctYears, id: \.self) { year in
                         Text(year)
                     }
                 }

@@ -39,6 +39,16 @@ class MoneyViewModel: ObservableObject {
     }
     
     // MARK: Computed Proprietes
+    var distinctYears: [String] {
+            let calendar = Calendar.current
+            let years = transactions.compactMap { transaction -> Int? in
+                guard let date = transaction.date else { return nil }
+                return calendar.component(.year, from: date)
+            }
+            let uniqueYears = Set(years) // Remove duplicates
+            return uniqueYears.sorted { $0 > $1 }.map { String($0) } // Sort in descending order
+        }
+    
     private var selectedMonthAsNumber: Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
@@ -181,40 +191,29 @@ class MoneyViewModel: ObservableObject {
     }
     
     func fetchTransactions(forCategory categoryName: String? = nil, type: RecordType? = nil) {
-        let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-        
-        var predicates: [NSPredicate] = []
-        
-        if let categoryName = categoryName {
-            predicates.append(NSPredicate(format: "categoryName == %@", categoryName))
-        }
-        
-        if let type = type {
-            predicates.append(NSPredicate(format: "type == %@", type.rawValue))
-        }
-        
-        if !predicates.isEmpty {
-            fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-        }
-        
-        do {
-            transactions = try container.viewContext.fetch(fetchRequest)
+            let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
             
-            // Debug print to verify saved data
-            for transaction in transactions {
-                print("""
-                ID: \(transaction.objectID)
-                Amount: \(transaction.amount)
-                Type: \(transaction.type ?? "N/A")
-                Date: \(transaction.date ?? Date())
-                Category Name: \(transaction.categoryName ?? "N/A")
-                Category Icon: \(transaction.categoryIcon ?? "N/A")
-                """)
+            var predicates: [NSPredicate] = []
+            
+            if let categoryName = categoryName {
+                predicates.append(NSPredicate(format: "categoryName == %@", categoryName))
             }
-        } catch {
-            print("Error fetching transactions: \(error.localizedDescription)")
+            
+            if let type = type {
+                predicates.append(NSPredicate(format: "type == %@", type.rawValue))
+            }
+            
+            if !predicates.isEmpty {
+                fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+            }
+            
+            do {
+                transactions = try container.viewContext.fetch(fetchRequest)
+                calculateTotals()
+            } catch {
+                print("Error fetching transactions: \(error.localizedDescription)")
+            }
         }
-    }
     
     // MARK: Category Management
     func selectedCategory(for type: RecordType) -> String {

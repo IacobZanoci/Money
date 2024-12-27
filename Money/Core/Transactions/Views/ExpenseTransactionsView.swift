@@ -43,7 +43,7 @@ struct ExpenseTransactionsView: View {
             viewModel.updateFilteredTransactions()
         }
         .sheet(isPresented: $isMonthPickerPresented) {
-            MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear)
+            MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear, viewModel: viewModel)
                 .presentationDetents([.medium, .fraction(0.3)])
                 .presentationDragIndicator(.visible)
         }
