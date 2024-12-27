@@ -42,15 +42,20 @@ struct MonthYearPicker: View {
             .scrollContentBackground(.hidden)
             .background(Color.theme.white)
             .toolbar {
-                ToolbarItem(placement: .principal) {
+                ToolbarItem(placement: .topBarLeading) {
                     Text("Select Month & Year")
                         .font(.system(size: 17, weight: .semibold, design: .default))
                         .foregroundColor(Color.theme.accent)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button(action: {
                         dismiss()
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(Color.theme.accent.opacity(0.5), Color.theme.accent.opacity(0.1))
+                            .font(.system(size: 22, weight: .semibold))
                     }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }
