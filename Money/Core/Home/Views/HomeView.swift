@@ -89,9 +89,10 @@ extension HomeView {
                 }
                 
                 HStack(alignment: .center) {
-                    Text("$ 0.00")
+                    let balance = moneyViewModel.dailyBalance
+                    Text("\(String(format: "$ %.2f", balance.amount))")
                         .font(.system(size: 32, weight: .semibold, design: .rounded))
-                        .foregroundStyle(Color.theme.green)
+                        .foregroundStyle(balance.isPositive ? Color.theme.green : Color.theme.red)
                 }
                 .padding(.bottom, 16)
             }
