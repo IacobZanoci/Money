@@ -100,7 +100,7 @@ extension HomeView {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
                         Group {
-                            Text("$ \(moneyViewModel.earnedMoney, specifier: "%.2f")")
+                            Text("$ \(moneyViewModel.earnedToday, specifier: "%.2f")")
                                 .font(.system(size: 18, weight: .medium, design: .default))
                                 .foregroundColor(Color.theme.white) +
                             Text("/$ 0")
@@ -138,7 +138,7 @@ extension HomeView {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("$ \(moneyViewModel.spentMoney, specifier: "%.2f")")
+                        Text("$ \(moneyViewModel.spentToday, specifier: "%.2f")")
                             .font(.system(size: 18, weight: .medium, design: .default))
                             .foregroundColor(Color.theme.white)
                         Text("Spent Today")

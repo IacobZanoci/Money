@@ -40,14 +40,32 @@ class MoneyViewModel: ObservableObject {
     
     // MARK: Computed Proprietes
     var distinctYears: [String] {
-            let calendar = Calendar.current
-            let years = transactions.compactMap { transaction -> Int? in
-                guard let date = transaction.date else { return nil }
-                return calendar.component(.year, from: date)
-            }
-            let uniqueYears = Set(years) // Remove duplicates
-            return uniqueYears.sorted { $0 > $1 }.map { String($0) } // Sort in descending order
+        let calendar = Calendar.current
+        let years = transactions.compactMap { transaction -> Int? in
+            guard let date = transaction.date else { return nil }
+            return calendar.component(.year, from: date)
         }
+        let uniqueYears = Set(years) // Remove duplicates
+        return uniqueYears.sorted { $0 > $1 }.map { String($0) } // Sort in descending order
+    }
+    
+    var spentToday: Float {
+        let calendar = Calendar.current
+        let todayTransactions = transactions.filter { transaction in
+            guard let date = transaction.date else { return false }
+            return calendar.isDateInToday(date) && transaction.type == RecordType.expense.rawValue
+        }
+        return todayTransactions.reduce(0) { $0 + $1.amount }
+    }
+    
+    var earnedToday: Float {
+        let calendar = Calendar.current
+        let todayTransactions = transactions.filter { transaction in
+            guard let date = transaction.date else { return false }
+            return calendar.isDateInToday(date) && transaction.type == RecordType.income.rawValue
+        }
+        return todayTransactions.reduce(0) { $0 + $1.amount }
+    }
     
     private var selectedMonthAsNumber: Int {
         let dateFormatter = DateFormatter()
@@ -191,29 +209,29 @@ class MoneyViewModel: ObservableObject {
     }
     
     func fetchTransactions(forCategory categoryName: String? = nil, type: RecordType? = nil) {
-            let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-            
-            var predicates: [NSPredicate] = []
-            
-            if let categoryName = categoryName {
-                predicates.append(NSPredicate(format: "categoryName == %@", categoryName))
-            }
-            
-            if let type = type {
-                predicates.append(NSPredicate(format: "type == %@", type.rawValue))
-            }
-            
-            if !predicates.isEmpty {
-                fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-            }
-            
-            do {
-                transactions = try container.viewContext.fetch(fetchRequest)
-                calculateTotals()
-            } catch {
-                print("Error fetching transactions: \(error.localizedDescription)")
-            }
+        let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
+        
+        var predicates: [NSPredicate] = []
+        
+        if let categoryName = categoryName {
+            predicates.append(NSPredicate(format: "categoryName == %@", categoryName))
         }
+        
+        if let type = type {
+            predicates.append(NSPredicate(format: "type == %@", type.rawValue))
+        }
+        
+        if !predicates.isEmpty {
+            fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        }
+        
+        do {
+            transactions = try container.viewContext.fetch(fetchRequest)
+            calculateTotals()
+        } catch {
+            print("Error fetching transactions: \(error.localizedDescription)")
+        }
+    }
     
     // MARK: Category Management
     func selectedCategory(for type: RecordType) -> String {
