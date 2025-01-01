@@ -39,6 +39,22 @@ class MoneyViewModel: ObservableObject {
     }
     
     // MARK: Computed Proprietes
+    var availableMonthsForSelectedYear: [String] {
+        let monthsWithTransactions = transactions.compactMap { transaction -> Int? in
+            guard let date = transaction.date else { return nil }
+            let calendar = Calendar.current
+            let year = calendar.component(.year, from: date)
+            let month = calendar.component(.month, from: date)
+            return year == Int(selectedYear) ? month : nil
+        }
+
+        let uniqueMonths = Set(monthsWithTransactions).sorted()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        
+        return uniqueMonths.map { dateFormatter.monthSymbols[$0 - 1] }
+    }
+    
     var distinctYears: [String] {
         let calendar = Calendar.current
         let years = transactions.compactMap { transaction -> Int? in

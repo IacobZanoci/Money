@@ -10,7 +10,9 @@ import SwiftUI
 struct MonthYearPicker: View {
     @Binding var selectedMonth: String
     @Binding var selectedYear: String
+    
     @Environment(\.dismiss) var dismiss
+    
     @ObservedObject var viewModel: MoneyViewModel
     
     private let months = [
@@ -25,8 +27,14 @@ struct MonthYearPicker: View {
                     .font(.system(size: 15, weight: .medium, design: .default))
                     .foregroundColor(Color.theme.accent)
                 ) {
-                    ForEach(months, id: \.self) { month in
+                    ForEach(viewModel.availableMonthsForSelectedYear, id: \.self) { month in
                         Text(month)
+                    }
+                }
+                .onChange(of: selectedYear) { _ in
+                    // Reset month if the selected month is unavailable for the new year
+                    if !viewModel.availableMonthsForSelectedYear.contains(selectedMonth) {
+                        selectedMonth = viewModel.availableMonthsForSelectedYear.first ?? ""
                     }
                 }
                 
