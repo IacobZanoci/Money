@@ -83,8 +83,8 @@ class MoneyViewModel: ObservableObject {
     
     private var filteredTransactions: [Transaction] {
         transactions.filter { transaction in
+            guard let transactionDate = transaction.date else { return false }
             let calendar = Calendar.current
-            let transactionDate = transaction.date ?? Date()
             let month = calendar.component(.month, from: transactionDate)
             let year = calendar.component(.year, from: transactionDate)
             return month == selectedMonthAsNumber && year == Int(selectedYear)
@@ -95,8 +95,7 @@ class MoneyViewModel: ObservableObject {
     var groupedExpenseTransactions: [(date: String, transactions: [Transaction], totalAmount: Float)] {
         let calendar = Calendar.current
         
-        // Group transactions by date
-        let grouped = Dictionary(grouping: transactions.filter { $0.type == RecordType.expense.rawValue }) { transaction -> String in
+        let grouped = Dictionary(grouping: filteredTransactions.filter { $0.type == RecordType.expense.rawValue }) { transaction -> String in
             let date = transaction.date ?? Date()
             if calendar.isDateInToday(date) {
                 return "Today"
@@ -109,7 +108,6 @@ class MoneyViewModel: ObservableObject {
             }
         }
         
-        // Sort groups by date descending and their transactions descending
         return grouped.map { (key, value) in
             let sortedTransactions = value.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
             let totalAmount = sortedTransactions.reduce(0) { $0 + $1.amount }

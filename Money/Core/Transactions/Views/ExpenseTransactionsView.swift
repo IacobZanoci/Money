@@ -36,12 +36,6 @@ struct ExpenseTransactionsView: View {
                 .padding()
             }
         }
-        .onChange(of: viewModel.selectedMonth) { _ in
-            viewModel.updateFilteredTransactions()
-        }
-        .onChange(of: viewModel.selectedYear) { _ in
-            viewModel.updateFilteredTransactions()
-        }
         .sheet(isPresented: $isMonthPickerPresented) {
             MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear, viewModel: viewModel)
                 .presentationDetents([.medium, .fraction(0.3)])
