@@ -17,7 +17,7 @@ struct ExpenseTransactionsView: View {
             TransactionMonthAmountView(
                 selectedMonth: $viewModel.selectedMonth,
                 selectedYear: $viewModel.selectedYear,
-                totalSpent: $viewModel.spentMoney,
+                totalSpent: .constant(viewModel.totalSpentForSelectedMonth),
                 isMonthPickerPresented: $isMonthPickerPresented
             )
             .padding(.horizontal)

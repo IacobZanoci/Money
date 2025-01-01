@@ -91,6 +91,12 @@ class MoneyViewModel: ObservableObject {
         }
     }
     
+    var totalSpentForSelectedMonth: Float {
+        filteredTransactions
+            .filter { $0.type == RecordType.expense.rawValue }
+            .reduce(0) { $0 + $1.amount }
+    }
+    
     // MARK: Grouped Data Computations
     var groupedExpenseTransactions: [(date: String, transactions: [Transaction], totalAmount: Float)] {
         let calendar = Calendar.current
@@ -132,22 +138,22 @@ class MoneyViewModel: ObservableObject {
     
     // MARK: Public Methods
     func updateFilteredTransactions() {
-        if selectedMonth == DateFormatter().monthSymbols[Calendar.current.component(.month, from: Date()) - 1] &&
-            selectedYear == String(Calendar.current.component(.year, from: Date())) {
-            // If the selected month and year match the current ones, show all transactions
-            fetchTransactions()
-        } else {
-            // Otherwise, filter transactions based on selected month and year
-            let filtered = transactions.filter { transaction in
-                let calendar = Calendar.current
-                let transactionDate = transaction.date ?? Date()
-                let month = calendar.component(.month, from: transactionDate)
-                let year = calendar.component(.year, from: transactionDate)
-                return month == selectedMonthAsNumber && year == Int(selectedYear)
-            }
-            transactions = filtered
+        // Update transactions and recalculate totals for the selected month/year
+        let filtered = transactions.filter { transaction in
+            let calendar = Calendar.current
+            let transactionDate = transaction.date ?? Date()
+            let month = calendar.component(.month, from: transactionDate)
+            let year = calendar.component(.year, from: transactionDate)
+            return month == selectedMonthAsNumber && year == Int(selectedYear)
         }
+        
+        transactions = filtered
         updateTotalSpent()
+    }
+    
+    func updateTotalSpent() {
+        let totalSpent = filteredTransactions.filter { $0.type == RecordType.expense.rawValue }.reduce(0) { $0 + $1.amount }
+        spentMoney = totalSpent
     }
     
     func totalAmount(forCategory categoryName: String, type: RecordType) -> Float {
@@ -173,11 +179,6 @@ class MoneyViewModel: ObservableObject {
         
         formatter.dateFormat = "EEEE d"
         return formatter.string(from: date)
-    }
-    
-    func updateTotalSpent() {
-        let totalSpent = groupedExpenseTransactions.reduce(0) { $0 + $1.totalAmount }
-        spentMoney = totalSpent
     }
     
     func calculateTotals() {
