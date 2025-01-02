@@ -173,8 +173,8 @@ class MoneyViewModel: ObservableObject {
     }
     
     func totalAmount(forCategory categoryName: String, type: RecordType) -> Float {
-        transactions
-            .filter { $0.type == type.rawValue && $0.categoryName == categoryName }
+        filteredTransactions
+            .filter { $0.categoryName == categoryName && $0.type == type.rawValue }
             .reduce(0) { $0 + $1.amount }
     }
     

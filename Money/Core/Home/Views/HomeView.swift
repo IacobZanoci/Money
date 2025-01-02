@@ -184,7 +184,7 @@ extension HomeView {
     private var spendingMonthlySectionView: some View {
         VStack(spacing: 12) {
             HStack {
-                Text("Spending in October")
+                Text("Spending in \(moneyViewModel.selectedMonth)")
                     .font(.system(size: 16, weight: .semibold, design: .default))
                     .foregroundStyle(Color.theme.accent)
                 
