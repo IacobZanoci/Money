@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+enum TransactionType {
+    case expense
+    case income
+}
+
 struct TransactionMonthAmountView: View {
     @Binding var selectedMonth: String
     @Binding var selectedYear: String
-    @Binding var totalSpent: Float
+    @Binding var totalAmount: Float
     @Binding var isMonthPickerPresented: Bool
+    var transactionType: TransactionType
     
     var body: some View {
         VStack {
@@ -32,9 +38,9 @@ struct TransactionMonthAmountView: View {
                 
                 Spacer()
                 
-                Text("- $ \(totalSpent, specifier: "%.2f")")
+                Text("\(transactionType == .expense ? "- $" : "+ $") \(totalAmount, specifier: "%.2f")")
                     .font(.system(size: 16, weight: .semibold, design: .rounded))
-                    .foregroundStyle(Color.theme.red)
+                    .foregroundStyle(transactionType == .expense ? Color.theme.red : Color.theme.green)
             }
         }
         .padding()

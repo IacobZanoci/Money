@@ -13,12 +13,12 @@ struct ExpenseTransactionsView: View {
     
     var body: some View {
         VStack {
-            // Month/year selector and total amount display
             TransactionMonthAmountView(
                 selectedMonth: $viewModel.selectedMonth,
                 selectedYear: $viewModel.selectedYear,
-                totalSpent: .constant(viewModel.totalSpentForSelectedMonth),
-                isMonthPickerPresented: $isMonthPickerPresented
+                totalAmount: .constant(viewModel.totalSpentForSelectedMonth),
+                isMonthPickerPresented: $isMonthPickerPresented,
+                transactionType: .expense
             )
             .padding(.horizontal)
             .padding(.top, 10)
@@ -26,10 +26,11 @@ struct ExpenseTransactionsView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     ForEach(viewModel.groupedExpenseTransactions, id: \.date) { group in
-                        ExpenseContainerListAndDate(
+                        TransactionContainerListAndDate(
                             date: group.date,
                             totalAmount: "- $\(String(format: "%.2f", group.totalAmount))",
-                            transactions: group.transactions
+                            transactions: group.transactions,
+                            transactionType: .expense
                         )
                     }
                 }

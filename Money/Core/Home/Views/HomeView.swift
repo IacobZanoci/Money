@@ -9,8 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var moneyViewModel: MoneyViewModel // Access the injected MoneyViewModel
-    
+    @EnvironmentObject var moneyViewModel: MoneyViewModel
     
     var body: some View {
         NavigationStack {
@@ -33,7 +32,7 @@ struct HomeView: View {
                 }
             }
             .onAppear {
-                moneyViewModel.fetchTransactions() // Load saved data when the view appears
+                moneyViewModel.fetchTransactions()
             }
             .ignoresSafeArea(edges: .bottom)
         }
@@ -190,7 +189,7 @@ extension HomeView {
                 Spacer()
                 
                 NavigationLink(destination: ExpenseTransactionsView()) {
-                    CircleButtonView(iconName: "chevron.right.circle")
+                    TextButtonView(text: "View all")
                 }
             }
             

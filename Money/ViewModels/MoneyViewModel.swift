@@ -47,7 +47,7 @@ class MoneyViewModel: ObservableObject {
             let month = calendar.component(.month, from: date)
             return year == Int(selectedYear) ? month : nil
         }
-
+        
         let uniqueMonths = Set(monthsWithTransactions).sorted()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
@@ -113,6 +113,12 @@ class MoneyViewModel: ObservableObject {
             .reduce(0) { $0 + $1.amount }
     }
     
+    var totalIncomeForSelectedMonth: Float {
+        filteredTransactions
+            .filter { $0.type == RecordType.income.rawValue }
+            .reduce(0) { $0 + $1.amount }
+    }
+    
     // MARK: Grouped Data Computations
     var groupedExpenseTransactions: [(date: String, transactions: [Transaction], totalAmount: Float)] {
         let calendar = Calendar.current
@@ -138,6 +144,31 @@ class MoneyViewModel: ObservableObject {
         .sorted { $0.transactions.first?.date ?? Date() > $1.transactions.first?.date ?? Date() }
     }
     
+    var groupedIncomeTransactions: [(date: String, transactions: [Transaction], totalAmount: Float)] {
+        let calendar = Calendar.current
+        
+        let grouped = Dictionary(grouping: filteredTransactions.filter { $0.type == RecordType.income.rawValue }) { transaction -> String in
+            let date = transaction.date ?? Date()
+            if calendar.isDateInToday(date) {
+                return "Today"
+            } else if calendar.isDateInYesterday(date) {
+                return "Yesterday"
+            } else {
+                let formatter = DateFormatter()
+                formatter.dateStyle = .medium
+                return formatter.string(from: date)
+            }
+        }
+        
+        return grouped.map { (key, value) in
+            let sortedTransactions = value.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
+            let totalAmount = sortedTransactions.reduce(0) { $0 + $1.amount }
+            return (date: key, transactions: sortedTransactions, totalAmount: totalAmount)
+        }
+        .sorted { $0.transactions.first?.date ?? Date() > $1.transactions.first?.date ?? Date() }
+    }
+    
+    // maybe delete
     var groupedIncomeRecords: [(categoryName: String, categoryIcon: String, totalAmount: Float)] {
         let grouped = Dictionary(grouping: incomeRecords, by: { $0.categoryName ?? "Unknown" })
         

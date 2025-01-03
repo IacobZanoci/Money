@@ -9,47 +9,44 @@ import SwiftUI
 
 struct IncomeTransactionsView: View {
     
-    @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @StateObject var viewModel = MoneyViewModel()
+    @State private var isMonthPickerPresented: Bool = false
     
     var body: some View {
         VStack {
-            Text("Income Transactions")
-                .font(.title)
-                .padding()
+            TransactionMonthAmountView(
+                selectedMonth: $viewModel.selectedMonth,
+                selectedYear: $viewModel.selectedYear,
+                totalAmount: .constant(viewModel.totalIncomeForSelectedMonth),
+                isMonthPickerPresented: $isMonthPickerPresented,
+                transactionType: .income
+            )
+            .padding(.horizontal)
+            .padding(.top, 10)
             
-            List {
-                ForEach(moneyViewModel.transactions.filter { $0.type == RecordType.income.rawValue }, id: \.objectID) { transaction in
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(transaction.categoryName ?? "Unknown")
-                                .font(.headline)
-                            Text("\(transaction.date ?? Date(), formatter: dateFormatter)")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
-                        
-                        Spacer()
-                        
-                        Text("$\(transaction.amount, specifier: "%.2f")")
-                            .font(.body)
-                            .foregroundColor(Color.theme.green)
+            ScrollView {
+                VStack(spacing: 16) {
+                    ForEach(viewModel.groupedIncomeTransactions, id: \.date) { group in
+                        TransactionContainerListAndDate(
+                            date: group.date,
+                            totalAmount: "+ $\(String(format: "%.2f", group.totalAmount))",
+                            transactions: group.transactions,
+                            transactionType: .income
+                        )
                     }
-                    .padding(.vertical, 4)
                 }
+                .padding()
             }
         }
-        .navigationTitle("Income")
+        .sheet(isPresented: $isMonthPickerPresented) {
+            MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear, viewModel: viewModel)
+                .presentationDetents([.medium, .fraction(0.3)])
+                .presentationDragIndicator(.visible)
+        }
+        .navigationTitle("Expenses")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
-
-private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    formatter.timeStyle = .none
-    return formatter
-}()
 
 #Preview {
     IncomeTransactionsView()

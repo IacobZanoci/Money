@@ -1,5 +1,5 @@
 //
-//  ExpenseContainerListAndDate.swift
+//  TransactionContainerListAndDate.swift
 //  Money
 //
 //  Created by Iacob Zanoci on 26/12/2024.
@@ -7,17 +7,22 @@
 
 import SwiftUI
 
-struct ExpenseContainerListAndDate: View {
+struct TransactionContainerListAndDate: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     
     let date: String
     let totalAmount: String
-    let transactions: [Transaction] // Transactions passed in
+    let transactions: [Transaction]
+    let transactionType: TransactionType
     
     private var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
         return formatter
+    }
+    
+    private var transactionColor: Color {
+        transactionType == .expense ? Color.theme.red : Color.theme.green
     }
     
     var body: some View {
@@ -39,11 +44,12 @@ struct ExpenseContainerListAndDate: View {
             
             // Display all transactions for the day, sorted by date (most recent first)
             ForEach(transactions.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }, id: \.objectID) { transaction in
-                ExpenseTransactionItemView(
+                TransactionItemView(
                     icon: transaction.categoryIcon ?? "questionmark.circle.fill",
                     title: transaction.categoryName ?? "Unknown",
                     time: timeFormatter.string(from: transaction.date ?? Date()),
-                    amount: "- $\(String(format: "%.2f", transaction.amount))"
+                    amount: "\(transactionType == .expense ? "-" : "+") $\(String(format: "%.2f", transaction.amount))",
+                    color: transactionColor
                 )
                 .padding(.top, 10)
             }
