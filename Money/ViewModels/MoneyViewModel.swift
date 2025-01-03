@@ -97,7 +97,7 @@ class MoneyViewModel: ObservableObject {
         return 1
     }
     
-    private var filteredTransactions: [Transaction] {
+    var filteredTransactions: [Transaction] {
         transactions.filter { transaction in
             guard let transactionDate = transaction.date else { return false }
             let calendar = Calendar.current

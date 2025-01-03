@@ -266,7 +266,7 @@ extension HomeView {
     private var incomeMonthlyView: some View {
         VStack(alignment: .center, spacing: 12) {
             HStack {
-                Text("Income in October")
+                Text("Income in \(moneyViewModel.selectedMonth)")
                     .font(.system(size: 16, weight: .semibold, design: .default))
                     .foregroundStyle(Color.theme.accent)
                 
@@ -277,16 +277,22 @@ extension HomeView {
                 }
             }
             
-            if !moneyViewModel.groupedIncomeRecords.isEmpty {
+            if !moneyViewModel.filteredTransactions.isEmpty {
                 VStack(spacing: 0) {
-                    ForEach(Array(moneyViewModel.groupedIncomeRecords.prefix(3).enumerated()), id: \.element.categoryName) { index, record in
+                    // Fetch the last 3 income transactions for the current month
+                    let lastThreeIncomeTransactions = moneyViewModel.filteredTransactions
+                        .filter { $0.type == RecordType.income.rawValue }
+                        .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
+                        .prefix(3)
+                    
+                    ForEach(Array(lastThreeIncomeTransactions.enumerated()), id: \.offset) { index, transaction in
                         IncomeHomeListItemView(
-                            iconName: record.categoryIcon,
-                            title: record.categoryName,
-                            incomeAmount: "+ $ \(String(format: "%.2f", record.totalAmount))"
+                            iconName: transaction.categoryIcon ?? "briefcase.circle.fill",
+                            title: transaction.categoryName ?? "Other",
+                            incomeAmount: "+ $ \(String(format: "%.2f", transaction.amount))"
                         )
                         
-                        if index != moneyViewModel.groupedIncomeRecords.prefix(3).count - 1 {
+                        if index != lastThreeIncomeTransactions.count - 1 {
                             Divider()
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 16)
