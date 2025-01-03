@@ -39,6 +39,13 @@ class MoneyViewModel: ObservableObject {
     }
     
     // MARK: Computed Proprietes
+    var currentFormattedDate: String {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        return dateFormatter.string(from: currentDate)
+    }
+    
     var availableMonthsForSelectedYear: [String] {
         let monthsWithTransactions = transactions.compactMap { transaction -> Int? in
             guard let date = transaction.date else { return nil }

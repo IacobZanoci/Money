@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @EnvironmentObject var viewModel: MoneyViewModel
     
     var body: some View {
         NavigationStack {
@@ -32,7 +32,7 @@ struct HomeView: View {
                 }
             }
             .onAppear {
-                moneyViewModel.fetchTransactions()
+                viewModel.fetchTransactions()
             }
             .ignoresSafeArea(edges: .bottom)
         }
@@ -42,14 +42,14 @@ struct HomeView: View {
 extension HomeView {
     
     private var headerHomeView: some View {
-        HStack(alignment: .center) {
+        return HStack(alignment: .center) {
             Text("money")
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .foregroundStyle(Color.theme.green)
             
             Spacer()
             
-            Text("October 30, 2024")
+            Text(viewModel.currentFormattedDate)
                 .font(.system(size: 12, weight: .semibold, design: .default))
                 .foregroundStyle(Color.theme.green)
                 .padding(.vertical, 10)
@@ -87,7 +87,7 @@ extension HomeView {
                 }
                 
                 HStack(alignment: .center) {
-                    let balance = moneyViewModel.dailyBalance
+                    let balance = viewModel.dailyBalance
                     Text("\(String(format: "$ %.2f", balance.amount))")
                         .font(.system(size: 32, weight: .semibold, design: .rounded))
                         .foregroundStyle(balance.isPositive ? Color.theme.green : Color.theme.red)
@@ -99,7 +99,7 @@ extension HomeView {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
                         Group {
-                            Text("$ \(moneyViewModel.earnedToday, specifier: "%.2f")")
+                            Text("$ \(viewModel.earnedToday, specifier: "%.2f")")
                                 .font(.system(size: 18, weight: .medium, design: .default))
                                 .foregroundColor(Color.theme.white) +
                             Text("/$ 0")
@@ -137,7 +137,7 @@ extension HomeView {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("$ \(moneyViewModel.spentToday, specifier: "%.2f")")
+                        Text("$ \(viewModel.spentToday, specifier: "%.2f")")
                             .font(.system(size: 18, weight: .medium, design: .default))
                             .foregroundColor(Color.theme.white)
                         Text("Spent Today")
@@ -182,7 +182,7 @@ extension HomeView {
     private var spendingMonthlySectionView: some View {
         VStack(spacing: 12) {
             HStack {
-                Text("Spending in \(moneyViewModel.selectedMonth)")
+                Text("Spending in \(viewModel.selectedMonth)")
                     .font(.system(size: 16, weight: .semibold, design: .default))
                     .foregroundStyle(Color.theme.accent)
                 
@@ -266,7 +266,7 @@ extension HomeView {
     private var incomeMonthlyView: some View {
         VStack(alignment: .center, spacing: 12) {
             HStack {
-                Text("Income in \(moneyViewModel.selectedMonth)")
+                Text("Income in \(viewModel.selectedMonth)")
                     .font(.system(size: 16, weight: .semibold, design: .default))
                     .foregroundStyle(Color.theme.accent)
                 
@@ -277,10 +277,10 @@ extension HomeView {
                 }
             }
             
-            if !moneyViewModel.filteredTransactions.isEmpty {
+            if !viewModel.filteredTransactions.isEmpty {
                 VStack(spacing: 0) {
                     // Fetch the last 3 income transactions for the current month
-                    let lastThreeIncomeTransactions = moneyViewModel.filteredTransactions
+                    let lastThreeIncomeTransactions = viewModel.filteredTransactions
                         .filter { $0.type == RecordType.income.rawValue }
                         .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
                         .prefix(3)
