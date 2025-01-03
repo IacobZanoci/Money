@@ -40,11 +40,13 @@ struct SpendingCategoryCardView: View {
         .padding(.leading, 16)
         .padding(.vertical, 16)
         .background(
-            RoundedRectangle(cornerRadius: 14)
-                .foregroundStyle(Color.theme.white)
-                .shadow(color: Color.black.opacity(0.1), radius: 0, x: 0, y: 0)
-                .shadow(color: Color.black.opacity(0.1), radius: 1.5)
-        )
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(Color.theme.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
+                    )
+            )
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
@@ -67,5 +69,6 @@ struct SpendingCategoryCardView: View {
         type: .expense,
         gradient: LinearGradient(colors: [Color.theme.food.opacity(0.5), Color.theme.food], startPoint: .bottomLeading, endPoint: .topTrailing)
     )
+    .padding()
     .environmentObject(MoneyViewModel())
 }

@@ -174,8 +174,8 @@ extension HomeView {
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .foregroundStyle(Color.theme.white)
-                .shadow(color: Color.black.opacity(0.07), radius: 0, x: 0, y: 0)
-                .shadow(color: Color.black.opacity(0.15), radius: 8, x: 0, y: 2)
+                .shadow(color: Color.black.opacity(0.2), radius: 0, x: 0, y: 0)
+                .shadow(color: Color.black.opacity(0.17), radius: 3, x: 0, y: 1.5)
         )
     }
     
@@ -302,8 +302,11 @@ extension HomeView {
                 .padding(.vertical, 16)
                 .background(
                     RoundedRectangle(cornerRadius: 14)
-                        .foregroundStyle(Color.theme.white)
-                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0)
+                        .fill(Color.theme.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
+                        )
                 )
             } else {
                 VStack(spacing: 20) {
@@ -321,11 +324,15 @@ extension HomeView {
                     
                     RoundedButtonTextView(text: "Add income")
                 }
+                .frame(maxWidth: .infinity)
                 .padding(16)
                 .background(
                     RoundedRectangle(cornerRadius: 14)
-                        .foregroundStyle(Color.theme.white)
-                        .shadow(color: Color.black.opacity(0.1), radius: 1.5, x: 0, y: 0)
+                        .fill(Color.theme.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
+                        )
                 )
             }
         }
