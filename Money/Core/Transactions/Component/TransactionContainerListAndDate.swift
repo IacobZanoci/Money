@@ -57,9 +57,11 @@ struct TransactionContainerListAndDate: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .foregroundStyle(Color.theme.white)
-                .shadow(color: Color.black.opacity(0.1), radius: 0, x: 0, y: 0)
-                .shadow(color: Color.black.opacity(0.1), radius: 1.5)
+                .fill(Color.theme.white)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
+                )
         )
     }
 }

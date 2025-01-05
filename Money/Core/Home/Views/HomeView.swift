@@ -98,14 +98,9 @@ extension HomeView {
             HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Group {
-                            Text("$ \(viewModel.earnedToday, specifier: "%.2f")")
-                                .font(.system(size: 18, weight: .medium, design: .default))
-                                .foregroundColor(Color.theme.white) +
-                            Text("/$ 0")
-                                .font(.system(size: 13, weight: .medium, design: .default))
-                                .foregroundColor(Color.theme.white.opacity(0.85))
-                        }
+                        Text("$ \(viewModel.earnedToday, specifier: "%.2f")")
+                            .font(.system(size: 18, weight: .medium, design: .default))
+                            .foregroundStyle(Color.theme.white)
                         Text("Earned Today")
                             .font(.system(size: 12, weight: .medium, design: .default))
                             .foregroundStyle(Color.theme.white)

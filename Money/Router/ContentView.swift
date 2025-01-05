@@ -39,7 +39,7 @@ struct ContentView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: geometry.size.width / 8 - 6, height: geometry.size.width / 8 - 6)
-                                .foregroundStyle(Color.theme.green)
+                                .foregroundStyle(Color.theme.accent.opacity(0.8))
                         }
                         .onTapGesture {
                             isShowingAddRecordSheet.toggle()
