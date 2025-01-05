@@ -184,7 +184,7 @@ extension HomeView {
                 Spacer()
                 
                 NavigationLink(destination: ExpenseTransactionsView()) {
-                    TextButtonView(text: "View all")
+                    TextButtonView(text: "View All")
                 }
             }
             
@@ -268,7 +268,7 @@ extension HomeView {
                 Spacer()
                 
                 NavigationLink(destination: IncomeTransactionsView()) {
-                    TextButtonView(text: "View all")
+                    TextButtonView(text: "View All")
                 }
             }
             
