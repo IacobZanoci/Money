@@ -31,4 +31,12 @@ struct ColorTheme {
     let transport = Color("transportCategoryColor")
     let other = Color("otherCategoryColor")
     
+    // SettingsView Buttons Images
+    let appearance = Color("settingsButtonAppearanceColor")
+    let currency = Color("settingsButtonCurrencyColor")
+    let tip = Color("settingsButtonTipColor")
+    let bug = Color("settingsButtonBugColor")
+    let featureRequest = Color("settingsButtonFeatureRequestColor")
+    let rateAppStore = Color("settingsButtonRateAppStoreColor")
+    let xTwitter = Color("settingsButtonXTwitterColor")
 }
