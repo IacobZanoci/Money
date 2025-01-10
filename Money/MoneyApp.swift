@@ -13,7 +13,7 @@ struct MoneyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewRouter: ViewRouter())
+            TabBarView(viewRouter: ViewRouter())
                 .environmentObject(moneyViewModel) // Inject moneyViewModel to the root view
         }
     }

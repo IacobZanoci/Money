@@ -20,10 +20,12 @@ struct ColorTheme {
     let background = Color("BackgroundColor")
     let accent = Color("AccentColor")
     let green = Color("GreenThemeColor")
-    let white = Color("WhiteThemeColor") //should elimine in all code and delete
     let red = Color("RedThemeColor")
-    
+    let white = Color("WhiteThemeColor") //should elimine in all code and delete
     let cardColor = Color("CardColor")
+    
+    // MARK: Tab View
+    let tabBarBackground = Color("TabBarBackgroundColor")
     
     // MARK: HomeView
     let whiteComponent = Color("WhiteComponentColor")

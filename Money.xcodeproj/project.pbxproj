@@ -25,7 +25,7 @@
 		42B64F7D2D2AD85500B3AA62 /* SettingsViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
-		42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606612CCEB7DC0029BD7E /* ContentView.swift */; };
+		42D606662CCEB7DC0029BD7E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606612CCEB7DC0029BD7E /* TabBarView.swift */; };
 		42D606672CCEB7DC0029BD7E /* MoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606622CCEB7DC0029BD7E /* MoneyApp.swift */; };
 		42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606702CD0EBCD0029BD7E /* HomeView.swift */; };
 		42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606722CD0EBE90029BD7E /* SettingsView.swift */; };
@@ -62,7 +62,7 @@
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42D606602CCEB7DC0029BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		42D606612CCEB7DC0029BD7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		42D606612CCEB7DC0029BD7E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		42D606622CCEB7DC0029BD7E /* MoneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyApp.swift; sourceTree = "<group>"; };
 		42D606702CD0EBCD0029BD7E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42D606722CD0EBE90029BD7E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -216,11 +216,14 @@
 		42D606682CD0EB3D0029BD7E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				42D606772CD3C15D0029BD7E /* Components */,
+				42D606612CCEB7DC0029BD7E /* TabBarView.swift */,
+				42D606702CD0EBCD0029BD7E /* HomeView.swift */,
+				42D606722CD0EBE90029BD7E /* SettingsView.swift */,
 				421E925B2D1717820049D82F /* Transactions */,
 				42D606692CD0EB540029BD7E /* Home */,
 				42E966CB2CD927B1006F16AE /* AddRecord */,
 				42D6066A2CD0EB5E0029BD7E /* Settings */,
-				42D606772CD3C15D0029BD7E /* Components */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -228,7 +231,6 @@
 		42D606692CD0EB540029BD7E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				42D6066B2CD0EB810029BD7E /* Views */,
 				42D6066D2CD0EB900029BD7E /* ViewModels */,
 				423F2A8D2D0AFEBA0043B327 /* Components */,
 			);
@@ -239,18 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				42B64F7B2D2AD81700B3AA62 /* Components */,
-				42D6066E2CD0EBAA0029BD7E /* Views */,
 				42D6066F2CD0EBB00029BD7E /* ViewModels */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		42D6066B2CD0EB810029BD7E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				42D606702CD0EBCD0029BD7E /* HomeView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		42D6066D2CD0EB900029BD7E /* ViewModels */ = {
@@ -258,14 +251,6 @@
 			children = (
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		42D6066E2CD0EBAA0029BD7E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				42D606722CD0EBE90029BD7E /* SettingsView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		42D6066F2CD0EBB00029BD7E /* ViewModels */ = {
@@ -286,6 +271,7 @@
 		42D606772CD3C15D0029BD7E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				42D606842CD56BCD0029BD7E /* TabBarItemView.swift */,
 				42D606782CD3C1B40029BD7E /* Buttons */,
 			);
 			path = Components;
@@ -306,18 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				42D606892CD5713D0029BD7E /* ViewRouter.swift */,
-				42D606882CD570E80029BD7E /* Components */,
-				42D606612CCEB7DC0029BD7E /* ContentView.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		42D606882CD570E80029BD7E /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				42D606842CD56BCD0029BD7E /* TabBarItemView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		42E966CB2CD927B1006F16AE /* AddRecord */ = {
@@ -462,7 +438,7 @@
 				42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */,
 				427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */,
 				423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */,
-				42D606662CCEB7DC0029BD7E /* ContentView.swift in Sources */,
+				42D606662CCEB7DC0029BD7E /* TabBarView.swift in Sources */,
 				421E92502D1435B50049D82F /* RecordType.swift in Sources */,
 				42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,

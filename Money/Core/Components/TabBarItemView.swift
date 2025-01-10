@@ -22,14 +22,15 @@ struct TabBarItemView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: width, height: height)
                 .padding(.top, 10)
+                .foregroundColor(viewRouter.currentWindow == assignedWindow ? Color.theme.green : Color.theme.accent.opacity(0.5))
             Text(tabName)
                 .font(.system(size: 10, weight: .medium, design: .default))
-                .foregroundStyle(viewRouter.currentWindow == assignedWindow ? Color.theme.accent : Color.theme.accent.opacity(0.5))
+                .foregroundStyle(viewRouter.currentWindow == assignedWindow ? Color.theme.green : Color.theme.accent.opacity(0.5))
             Spacer()
         }
         .onTapGesture {
             viewRouter.currentWindow = assignedWindow
         }
-        .foregroundStyle(viewRouter.currentWindow == assignedWindow ? Color.theme.accent : Color.theme.accent.opacity(0.5))
+        .foregroundStyle(viewRouter.currentWindow == assignedWindow ? Color.theme.green : Color.theme.accent.opacity(0.5))
     }
 }
