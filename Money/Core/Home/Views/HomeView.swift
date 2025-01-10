@@ -62,7 +62,7 @@ extension HomeView {
             Spacer()
             
             HStack(alignment: .center, spacing: 24) {
-                Image(systemName: "bell")
+                Image(systemName: "heart")
                     .font(.system(size: 20))
                     .foregroundStyle(Color.theme.accent)
                 Image(systemName: "plus")
@@ -76,14 +76,15 @@ extension HomeView {
     private var spendingTrackerView: some View {
         VStack {
             VStack(spacing: 8) {
-                HStack {
-                    CircleButtonView(iconName: "questionmark.circle")
-                    Spacer()
+                ZStack {
                     Text("Spending Tracker")
                         .font(.system(size: 16, weight: .semibold, design: .default))
                         .foregroundStyle(Color.theme.accent)
-                    Spacer()
-                    CircleButtonView(iconName: "ellipsis.circle")
+                    
+                    HStack {
+                        Spacer()
+                        CircleButtonView(iconName: "questionmark.circle")
+                    }
                 }
                 
                 HStack(alignment: .center) {
@@ -191,67 +192,57 @@ extension HomeView {
             VStack(spacing: 16) {
                 HStack(spacing: 16) {
                     SpendingCategoryCardView(
-                        categoryName: "Food",
-                        type: .expense,
-                        gradient: LinearGradient(
-                            colors: [Color.theme.food.opacity(0.5), Color.theme.food],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing
-                        )
+                        categoryName: "Groceries",
+                        iconColor: Color.theme.groceries,
+                        type: .expense
                     )
                     
                     SpendingCategoryCardView(
                         categoryName: "Entertainment",
-                        type: .expense,
-                        gradient: LinearGradient(
-                            colors: [Color.theme.entertainment.opacity(0.5), Color.theme.entertainment],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing
-                        )
+                        iconColor: Color.theme.entertainment,
+                        type: .expense
                     )
                 }
                 
                 HStack(spacing: 16) {
                     SpendingCategoryCardView(
                         categoryName: "Shopping",
-                        type: .expense,
-                        gradient: LinearGradient(
-                            colors: [Color.theme.food.opacity(0.5), Color.theme.food],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing
-                        )
+                        iconColor: Color.theme.shopping,
+                        type: .expense
                     )
                     
                     SpendingCategoryCardView(
                         categoryName: "Subscriptions",
-                        type: .expense,
-                        gradient: LinearGradient(
-                            colors: [Color.theme.entertainment.opacity(0.5), Color.theme.entertainment],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing
-                        )
+                        iconColor: Color.theme.subscription,
+                        type: .expense
                     )
                 }
                 
                 HStack(spacing: 16) {
                     SpendingCategoryCardView(
                         categoryName: "Transport",
-                        type: .expense,
-                        gradient: LinearGradient(
-                            colors: [Color.theme.shopping.opacity(0.5), Color.theme.shopping],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing
-                        )
+                        iconColor: Color.theme.transport,
+                        type: .expense
+                    )
+                    
+                    SpendingCategoryCardView(
+                        categoryName: "Utilities",
+                        iconColor: Color.theme.utilities,
+                        type: .expense
+                    )
+                }
+                
+                HStack(spacing: 16) {
+                    SpendingCategoryCardView(
+                        categoryName: "Gifts",
+                        iconColor: Color.theme.gift,
+                        type: .expense
                     )
                     
                     SpendingCategoryCardView(
                         categoryName: "Other",
-                        type: .expense,
-                        gradient: LinearGradient(
-                            colors: [Color.theme.transport.opacity(0.5), Color.theme.transport],
-                            startPoint: .bottomLeading,
-                            endPoint: .topTrailing
-                        )
+                        iconColor: Color.theme.other,
+                        type: .expense
                     )
                 }
             }

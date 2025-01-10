@@ -11,19 +11,23 @@ struct SpendingCategoryCardView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel // Access ViewModel
     
     let categoryName: String
+    let iconColor: Color
     let type: RecordType
-    let gradient: LinearGradient
     
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
             Image(systemName: iconName(for: categoryName))
-                .foregroundStyle(Color.theme.white)
-                .font(.system(size: 18))
+                .foregroundStyle(iconColor)
+                .font(.system(size: 24))
                 .frame(width: 8, height: 8)
                 .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(gradient)
+                        .fill(Color.theme.whiteComponent)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .stroke(Color.theme.accent.opacity(0.15), lineWidth: 1.3)
+                        )
                 )
             
             VStack(alignment: .leading, spacing: 4) {
@@ -41,7 +45,7 @@ struct SpendingCategoryCardView: View {
         .padding(.vertical, 16)
         .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.theme.white)
+                    .fill(Color.theme.cardColor)
                     .overlay(
                         RoundedRectangle(cornerRadius: 14)
                             .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
@@ -52,22 +56,24 @@ struct SpendingCategoryCardView: View {
     
     private func iconName(for category: String) -> String {
         switch category {
-        case "Food": return "fork.knife"
+        case "Groceries": return "basket.fill"
         case "Entertainment": return "figure"
         case "Shopping": return "bag.fill"
-        case "Subscriptions": return "creditcard.fill"
-        case "Transport": return "car.fill"
+        case "Subscriptions": return "checkmark.arrow.trianglehead.counterclockwise"
+        case "Transport": return "bus.fill"
+        case "Utilities": return "lightbulb.fill"
+        case "Gifts": return "gift.fill"
         case "Other": return "ellipsis.circle.fill"
-        default: return "questionmark.circle.fill"
+        default: return "ellipsis.circle.fill"
         }
     }
 }
 
 #Preview {
     SpendingCategoryCardView(
-        categoryName: "Food",
-        type: .expense,
-        gradient: LinearGradient(colors: [Color.theme.food.opacity(0.5), Color.theme.food], startPoint: .bottomLeading, endPoint: .topTrailing)
+        categoryName: "Groceries",
+        iconColor: Color.theme.groceries,
+        type: .expense
     )
     .padding()
     .environmentObject(MoneyViewModel())

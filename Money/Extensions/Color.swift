@@ -16,20 +16,27 @@ extension Color {
 
 struct ColorTheme {
     
-    // App Colors
-    let background = Color("BackgroundColor")
-    let accent = Color("AccentColor")
-    let green = Color("GreenThemeColor")
-    let white = Color("WhiteThemeColor")
-    let red = Color("RedThemeColor")
+    // MARK: HomeView
+    let whiteComponent = Color("WhiteComponentColor")
     
-    // Spending Category Card (HomeView)
-    let food = Color("foodCategoryColor")
+    //spendingMonthlySectionView
+    let groceries = Color("groceriesCategoryColor")
     let entertainment = Color("entertainmentCategoryColor")
     let shopping = Color("shoppingCategoryColor")
     let subscription = Color("subscriptionCategoryColor")
     let transport = Color("transportCategoryColor")
+    let utilities = Color("utilitiesCategoryColor")
+    let gift = Color("gitCategoryColor")
     let other = Color("otherCategoryColor")
+    
+    // App Colors
+    let background = Color("BackgroundColor")
+    let accent = Color("AccentColor")
+    let green = Color("GreenThemeColor")
+    let white = Color("WhiteThemeColor") //should elimine in all code and delete
+    let red = Color("RedThemeColor")
+    
+    let cardColor = Color("CardColor")
     
     // SettingsView Buttons Images
     let appearance = Color("settingsButtonAppearanceColor")
