@@ -40,7 +40,8 @@ struct TransactionContainerListAndDate: View {
             }
             
             Divider()
-                .padding(.top, 10)
+                .padding(.top, 6)
+            
             
             // Display all transactions for the day, sorted by date (most recent first)
             ForEach(transactions.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }, id: \.objectID) { transaction in
@@ -57,11 +58,28 @@ struct TransactionContainerListAndDate: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.theme.white)
+                .fill(Color.theme.whiteComponent)
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
                         .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
                 )
         )
+    }
+}
+
+
+struct TransactionContainerListAndDate_Previews: PreviewProvider {
+    static var previews: some View {
+        TransactionContainerListAndDate(
+            date: "January 10, 2025",
+            totalAmount: "+ $120.50",
+            transactions: [
+                
+            ],
+            transactionType: .expense
+        )
+        .previewLayout(.sizeThatFits)
+        .padding()
+        .environmentObject(MoneyViewModel()) // Assuming MoneyViewModel is available
     }
 }

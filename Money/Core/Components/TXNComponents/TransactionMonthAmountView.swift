@@ -46,11 +46,32 @@ struct TransactionMonthAmountView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.theme.accent.opacity(0.05))
+                .fill(Color.theme.monthAmountBG)
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
                         .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
                 )
         )
+    }
+}
+
+
+struct TransactionMonthAmountView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        @State var selectedMonth: String = "January"
+        @State var selectedYear: String = "2025"
+        @State var totalAmount: Float = 250.00
+        @State var isMonthPickerPresented: Bool = false
+
+        return TransactionMonthAmountView(
+            selectedMonth: $selectedMonth,
+            selectedYear: $selectedYear,
+            totalAmount: $totalAmount,
+            isMonthPickerPresented: $isMonthPickerPresented,
+            transactionType: .expense
+        )
+        .previewLayout(.sizeThatFits)
+        .padding()
     }
 }

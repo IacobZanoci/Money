@@ -30,6 +30,9 @@ struct ColorTheme {
     // MARK: HomeView
     let whiteComponent = Color("WhiteComponentColor")
     
+    // MARK: Transactions Views
+    let monthAmountBG = Color("MonthAndAmountBackground")
+    
     //spendingMonthlySectionView
     let groceries = Color("groceriesCategoryColor")
     let entertainment = Color("entertainmentCategoryColor")

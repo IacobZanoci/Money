@@ -17,11 +17,17 @@ struct TransactionItemView: View {
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             HStack(spacing: 10) {
-                Image(systemName: icon)
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(color)
-                    .frame(width: 30)
+                ZStack {
+                    Circle()
+                        .fill(color)
+                        .frame(width: 30, height: 30)
+                    
+                    Image(systemName: icon)
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundStyle(Color.theme.white)
+                        .frame(width: 18, height: 18)
+                }
                 
                 VStack(alignment: .leading) {
                     Text(title)
@@ -38,8 +44,23 @@ struct TransactionItemView: View {
             VStack {
                 Text(amount)
                     .font(.system(size: 12, weight: .semibold, design: .rounded))
-                    .foregroundStyle(color).opacity(0.8)
+                    .foregroundStyle(Color.theme.accent).opacity(0.8)
             }
         }
+    }
+}
+
+
+struct TransactionItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        TransactionItemView(
+            icon: "basket.fill",
+            title: "Groceries",
+            time: "12:30 PM",
+            amount: "- $45.99",
+            color: Color.theme.red
+        )
+        .previewLayout(.sizeThatFits)
+        .padding()
     }
 }
