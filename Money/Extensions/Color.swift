@@ -16,6 +16,15 @@ extension Color {
 
 struct ColorTheme {
     
+    // App Colors
+    let background = Color("BackgroundColor")
+    let accent = Color("AccentColor")
+    let green = Color("GreenThemeColor")
+    let white = Color("WhiteThemeColor") //should elimine in all code and delete
+    let red = Color("RedThemeColor")
+    
+    let cardColor = Color("CardColor")
+    
     // MARK: HomeView
     let whiteComponent = Color("WhiteComponentColor")
     
@@ -29,14 +38,12 @@ struct ColorTheme {
     let gift = Color("gitCategoryColor")
     let other = Color("otherCategoryColor")
     
-    // App Colors
-    let background = Color("BackgroundColor")
-    let accent = Color("AccentColor")
-    let green = Color("GreenThemeColor")
-    let white = Color("WhiteThemeColor") //should elimine in all code and delete
-    let red = Color("RedThemeColor")
+    //incomeMonthlyView
+    let imageBackground = Color("imageBackgroundColor")
     
-    let cardColor = Color("CardColor")
+    //Buttons Colors
+    let textChevronButton = Color("textChevronButtonColor")
+    
     
     // SettingsView Buttons Images
     let appearance = Color("settingsButtonAppearanceColor")

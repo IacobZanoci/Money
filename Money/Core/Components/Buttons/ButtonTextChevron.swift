@@ -1,5 +1,5 @@
 //
-//  TextButtonView.swift
+//  ButtonTextChevron.swift
 //  Money
 //
 //  Created by Iacob Zanoci on 31/10/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextButtonView: View {
+struct ButtonTextChevron: View {
     
     let text: String
     
@@ -25,11 +25,11 @@ struct TextButtonView: View {
         .padding(.vertical, 8)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(Color.theme.accent.opacity(0.08))
+                .foregroundStyle(Color.theme.textChevronButton)
         )
     }
 }
 
 #Preview {
-    TextButtonView(text: "View All")
+    ButtonTextChevron(text: "View All")
 }

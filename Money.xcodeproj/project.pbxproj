@@ -32,7 +32,7 @@
 		42D606762CD0F2B10029BD7E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606752CD0F2B10029BD7E /* Color.swift */; };
 		42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606792CD3C1D60029BD7E /* CircleButtonView.swift */; };
 		42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */; };
-		42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */; };
+		42D6067F2CD3FAB70029BD7E /* ButtonTextChevron.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6067E2CD3FAB70029BD7E /* ButtonTextChevron.swift */; };
 		42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */; };
 		42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606842CD56BCD0029BD7E /* TabBarItemView.swift */; };
 		42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D606892CD5713D0029BD7E /* ViewRouter.swift */; };
@@ -69,7 +69,7 @@
 		42D606752CD0F2B10029BD7E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		42D606792CD3C1D60029BD7E /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategoryCardView.swift; sourceTree = "<group>"; };
-		42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
+		42D6067E2CD3FAB70029BD7E /* ButtonTextChevron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextChevron.swift; sourceTree = "<group>"; };
 		42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonTextView.swift; sourceTree = "<group>"; };
 		42D606842CD56BCD0029BD7E /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		42D606892CD5713D0029BD7E /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				42D606792CD3C1D60029BD7E /* CircleButtonView.swift */,
-				42D6067E2CD3FAB70029BD7E /* TextButtonView.swift */,
+				42D6067E2CD3FAB70029BD7E /* ButtonTextChevron.swift */,
 				42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */,
 				42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */,
 			);
@@ -453,7 +453,7 @@
 				42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */,
 				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
 				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
-				42D6067F2CD3FAB70029BD7E /* TextButtonView.swift in Sources */,
+				42D6067F2CD3FAB70029BD7E /* ButtonTextChevron.swift in Sources */,
 				421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */,
 				42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,

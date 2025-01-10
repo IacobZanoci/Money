@@ -169,7 +169,7 @@ extension HomeView {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(Color.theme.white)
+                .foregroundStyle(Color.theme.cardColor)
                 .shadow(color: Color.black.opacity(0.2), radius: 0, x: 0, y: 0)
                 .shadow(color: Color.black.opacity(0.17), radius: 3, x: 0, y: 1.5)
         )
@@ -185,7 +185,7 @@ extension HomeView {
                 Spacer()
                 
                 NavigationLink(destination: ExpenseTransactionsView()) {
-                    TextButtonView(text: "View All")
+                    ButtonTextChevron(text: "View All")
                 }
             }
             
@@ -259,7 +259,7 @@ extension HomeView {
                 Spacer()
                 
                 NavigationLink(destination: IncomeTransactionsView()) {
-                    TextButtonView(text: "View All")
+                    ButtonTextChevron(text: "View All")
                 }
             }
             
@@ -288,7 +288,7 @@ extension HomeView {
                 .padding(.vertical, 16)
                 .background(
                     RoundedRectangle(cornerRadius: 14)
-                        .fill(Color.theme.white)
+                        .fill(Color.theme.whiteComponent)
                         .overlay(
                             RoundedRectangle(cornerRadius: 14)
                                 .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
@@ -314,7 +314,7 @@ extension HomeView {
                 .padding(16)
                 .background(
                     RoundedRectangle(cornerRadius: 14)
-                        .fill(Color.theme.white)
+                        .fill(Color.theme.whiteComponent)
                         .overlay(
                             RoundedRectangle(cornerRadius: 14)
                                 .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)

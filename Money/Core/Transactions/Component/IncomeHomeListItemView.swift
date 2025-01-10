@@ -18,11 +18,17 @@ struct IncomeHomeListItemView: View {
     var body: some View {
         HStack {
             HStack(spacing: 7) {
-                Image(systemName: iconName)
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(Color.theme.green)
-                    .frame(width: 30)
+                ZStack {
+                    Circle()
+                        .fill(Color.theme.imageBackground)
+                        .frame(width: 30, height: 30)
+                    
+                    Image(systemName: iconName)
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundStyle(Color.theme.green)
+                        .frame(width: 30, height: 30)
+                }
                 
                 Text(title)
                     .font(.system(size: 12, weight: .medium, design: .default))
@@ -32,7 +38,7 @@ struct IncomeHomeListItemView: View {
             VStack {
                 Text(incomeAmount)
                     .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(Color.theme.green)
+                    .foregroundStyle(Color.theme.accent.opacity(0.7))
             }
         }
         .padding(.horizontal)
