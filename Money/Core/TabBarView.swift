@@ -45,7 +45,7 @@ struct TabBarView: View {
                             isShowingAddRecordSheet.toggle()
                         }
                         .sheet(isPresented: $isShowingAddRecordSheet) {
-                            AddRecordView(viewModel: RecordTypeViewModel())
+                            AddRecordView()
                                 .environmentObject(moneyViewModel)
                         }
                         .offset(y: -geometry.size.height / 8 / 8)

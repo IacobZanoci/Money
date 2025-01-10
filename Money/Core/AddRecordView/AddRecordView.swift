@@ -10,8 +10,6 @@ import SwiftUI
 struct AddRecordView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     
-    @ObservedObject var viewModel: RecordTypeViewModel
-    
     @State private var expenseCount: String? = ""
     @State private var selectedRecordType: RecordType = .expense
     @Environment(\.dismiss) var dismiss
@@ -277,6 +275,6 @@ extension AddRecordView {
 }
 
 #Preview {
-    AddRecordView(viewModel: RecordTypeViewModel())
+    AddRecordView()
         .environmentObject(MoneyViewModel())
 }

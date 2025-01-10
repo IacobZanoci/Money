@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		421E92502D1435B50049D82F /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E924F2D1435B50049D82F /* RecordType.swift */; };
-		421E92522D14364A0049D82F /* RecordTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92512D14364A0049D82F /* RecordTypeViewModel.swift */; };
 		421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92532D15804A0049D82F /* IncomeCategoryListView.swift */; };
 		421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92552D1580C10049D82F /* IncomeCategory.swift */; };
 		421E925E2D1717990049D82F /* ExpenseTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */; };
@@ -44,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		421E924F2D1435B50049D82F /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
-		421E92512D14364A0049D82F /* RecordTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTypeViewModel.swift; sourceTree = "<group>"; };
 		421E92532D15804A0049D82F /* IncomeCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryListView.swift; sourceTree = "<group>"; };
 		421E92552D1580C10049D82F /* IncomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategory.swift; sourceTree = "<group>"; };
 		421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTransactionsView.swift; sourceTree = "<group>"; };
@@ -107,51 +105,12 @@
 			path = AddRecordModel;
 			sourceTree = "<group>";
 		};
-		421E925B2D1717820049D82F /* Transactions */ = {
-			isa = PBXGroup;
-			children = (
-				421E925F2D171A610049D82F /* Component */,
-				421E925C2D17178D0049D82F /* Views */,
-			);
-			path = Transactions;
-			sourceTree = "<group>";
-		};
-		421E925C2D17178D0049D82F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */,
-				421E92642D1764BC0049D82F /* IncomeTransactionsView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		421E925F2D171A610049D82F /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */,
-				42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */,
-				42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */,
-				42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */,
-				42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
 		423F2A8C2D0AF6740043B327 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
 				42F6F8352D09AA0800D489A8 /* PersistenceController.swift */,
 			);
 			path = Persistence;
-			sourceTree = "<group>";
-		};
-		423F2A8D2D0AFEBA0043B327 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */,
-				423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		427D82FC2CECA082008A5238 /* Models */ = {
@@ -164,12 +123,67 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		42B64F7B2D2AD81700B3AA62 /* Components */ = {
+		42B8107D2D3196BA003542B2 /* TransactionsView */ = {
+			isa = PBXGroup;
+			children = (
+				421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */,
+				421E92642D1764BC0049D82F /* IncomeTransactionsView.swift */,
+			);
+			path = TransactionsView;
+			sourceTree = "<group>";
+		};
+		42B8107E2D319732003542B2 /* TXNComponents */ = {
+			isa = PBXGroup;
+			children = (
+				42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */,
+				42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */,
+				42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */,
+				42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */,
+				421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */,
+			);
+			path = TXNComponents;
+			sourceTree = "<group>";
+		};
+		42B8107F2D3197E4003542B2 /* TabBarComponents */ = {
+			isa = PBXGroup;
+			children = (
+				42D606842CD56BCD0029BD7E /* TabBarItemView.swift */,
+			);
+			path = TabBarComponents;
+			sourceTree = "<group>";
+		};
+		42B810802D31982C003542B2 /* HomeComponents */ = {
+			isa = PBXGroup;
+			children = (
+				42D6067C2CD3C6430029BD7E /* SpendingCategoryCardView.swift */,
+			);
+			path = HomeComponents;
+			sourceTree = "<group>";
+		};
+		42B810812D319889003542B2 /* AddRecordView */ = {
+			isa = PBXGroup;
+			children = (
+				421E92532D15804A0049D82F /* IncomeCategoryListView.swift */,
+				423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */,
+				42E966CE2CD927ED006F16AE /* AddRecordView.swift */,
+			);
+			path = AddRecordView;
+			sourceTree = "<group>";
+		};
+		42B810822D3199D7003542B2 /* AddRecordComponents */ = {
+			isa = PBXGroup;
+			children = (
+				423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */,
+			);
+			path = AddRecordComponents;
+			sourceTree = "<group>";
+		};
+		42B810832D319A1F003542B2 /* SettingsComponents */ = {
 			isa = PBXGroup;
 			children = (
 				42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */,
 			);
-			path = Components;
+			path = SettingsComponents;
 			sourceTree = "<group>";
 		};
 		42D606442CCEB71D0029BD7E = {
@@ -216,48 +230,14 @@
 		42D606682CD0EB3D0029BD7E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				42D606772CD3C15D0029BD7E /* Components */,
 				42D606612CCEB7DC0029BD7E /* TabBarView.swift */,
 				42D606702CD0EBCD0029BD7E /* HomeView.swift */,
 				42D606722CD0EBE90029BD7E /* SettingsView.swift */,
-				421E925B2D1717820049D82F /* Transactions */,
-				42D606692CD0EB540029BD7E /* Home */,
-				42E966CB2CD927B1006F16AE /* AddRecord */,
-				42D6066A2CD0EB5E0029BD7E /* Settings */,
+				42B810812D319889003542B2 /* AddRecordView */,
+				42B8107D2D3196BA003542B2 /* TransactionsView */,
+				42D606772CD3C15D0029BD7E /* Components */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		42D606692CD0EB540029BD7E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				42D6066D2CD0EB900029BD7E /* ViewModels */,
-				423F2A8D2D0AFEBA0043B327 /* Components */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		42D6066A2CD0EB5E0029BD7E /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				42B64F7B2D2AD81700B3AA62 /* Components */,
-				42D6066F2CD0EBB00029BD7E /* ViewModels */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		42D6066D2CD0EB900029BD7E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		42D6066F2CD0EBB00029BD7E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		42D606742CD0F29E0029BD7E /* Extensions */ = {
@@ -271,7 +251,11 @@
 		42D606772CD3C15D0029BD7E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				42D606842CD56BCD0029BD7E /* TabBarItemView.swift */,
+				42B810832D319A1F003542B2 /* SettingsComponents */,
+				42B810822D3199D7003542B2 /* AddRecordComponents */,
+				42B810802D31982C003542B2 /* HomeComponents */,
+				42B8107F2D3197E4003542B2 /* TabBarComponents */,
+				42B8107E2D319732003542B2 /* TXNComponents */,
 				42D606782CD3C1B40029BD7E /* Buttons */,
 			);
 			path = Components;
@@ -294,33 +278,6 @@
 				42D606892CD5713D0029BD7E /* ViewRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		42E966CB2CD927B1006F16AE /* AddRecord */ = {
-			isa = PBXGroup;
-			children = (
-				42E966CC2CD927CD006F16AE /* Views */,
-				42E966CD2CD927DA006F16AE /* ViewModels */,
-			);
-			path = AddRecord;
-			sourceTree = "<group>";
-		};
-		42E966CC2CD927CD006F16AE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				42E966CE2CD927ED006F16AE /* AddRecordView.swift */,
-				423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */,
-				421E92532D15804A0049D82F /* IncomeCategoryListView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		42E966CD2CD927DA006F16AE /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				421E92512D14364A0049D82F /* RecordTypeViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		42F6F8282D04CAF700D489A8 /* Services */ = {
@@ -447,7 +404,6 @@
 				42A148B42D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift in Sources */,
 				421E92652D1764BC0049D82F /* IncomeTransactionsView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
-				421E92522D14364A0049D82F /* RecordTypeViewModel.swift in Sources */,
 				42B64F7D2D2AD85500B3AA62 /* SettingsViewButton.swift in Sources */,
 				42D606672CCEB7DC0029BD7E /* MoneyApp.swift in Sources */,
 			);
