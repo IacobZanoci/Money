@@ -48,7 +48,7 @@ struct MonthYearPicker: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(Color.theme.white)
+            .background(Color.theme.background)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("Select Month & Year")
@@ -68,5 +68,22 @@ struct MonthYearPicker: View {
             }
         }
         .background(Color.theme.white.edgesIgnoringSafeArea(.all))
+    }
+}
+
+
+struct MonthYearPicker_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        @State var sampleMonth = "January"
+        @State var sampleYear = "2024"
+        
+        let sampleViewModel = MoneyViewModel()
+
+        return MonthYearPicker(
+            selectedMonth: $sampleMonth,
+            selectedYear: $sampleYear,
+            viewModel: sampleViewModel
+        )
     }
 }
