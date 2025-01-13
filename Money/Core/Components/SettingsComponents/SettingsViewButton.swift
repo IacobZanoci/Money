@@ -18,9 +18,16 @@ struct SettingsViewButton: View {
     var body: some View {
         HStack {
             HStack(spacing: 7) {
-                Image(systemName: image)
-                    .font(.system(size: 26))
-                    .foregroundStyle(colorName)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 3)
+                        .frame(width: 22, height: 22)
+                        .foregroundStyle(Color.theme.white)
+                        .overlay(
+                            Image(systemName: image)
+                                .font(.system(size: 26))
+                                .foregroundStyle(colorName)
+                        )
+                }
                 Text(title)
                     .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundStyle(Color.theme.accent)
@@ -47,7 +54,7 @@ struct SettingsViewButton: View {
         .padding(.vertical, 12)
         .background(
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color.theme.white)
+                .fill(Color.theme.whiteComponent)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
