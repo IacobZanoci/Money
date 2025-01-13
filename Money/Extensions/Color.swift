@@ -33,6 +33,10 @@ struct ColorTheme {
     // MARK: Transactions Views
     let monthAmountBG = Color("MonthAndAmountBackground")
     
+    // MARK: AddRecord Views
+    let searchBarBackground = Color("SearchBarBackgroundColor")
+    let searchBarTextColor = Color("SearchBarTextColor")
+    
     //spendingMonthlySectionView
     let groceries = Color("groceriesCategoryColor")
     let entertainment = Color("entertainmentCategoryColor")

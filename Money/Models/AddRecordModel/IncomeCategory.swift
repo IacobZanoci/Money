@@ -21,14 +21,14 @@ struct IncomeCategory: Identifiable {
         }
     
     static let incomeCategory: [IncomeCategory] = [
-        IncomeCategory(id: UUID(), name: "Salary", icon: "briefcase.circle.fill"),
-        IncomeCategory(id: UUID(), name: "Freelance", icon: "hammer.circle.fill"),
-        IncomeCategory(id: UUID(), name: "Investments", icon: "chart.line.uptrend.xyaxis.circle.fill"),
-        IncomeCategory(id: UUID(), name: "Rental Income", icon: "house.lodge.circle.fill"),
-        IncomeCategory(id: UUID(), name: "Bonuses", icon: "star.circle.fill"),
-        IncomeCategory(id: UUID(), name: "Gifts", icon: "gift.circle.fill"),
-        IncomeCategory(id: UUID(), name: "Business Income", icon: "storefront.circle.fill"),
-        IncomeCategory(id: UUID(), name: "Royalty", icon: "person.crop.circle.dashed.circle.fill"),
+        IncomeCategory(id: UUID(), name: "Salary", icon: "briefcase.fill"),
+        IncomeCategory(id: UUID(), name: "Freelance", icon: "hammer.fill"),
+        IncomeCategory(id: UUID(), name: "Investments", icon: "chart.line.uptrend.xyaxis"),
+        IncomeCategory(id: UUID(), name: "Rental Income", icon: "building.2.fill"),
+        IncomeCategory(id: UUID(), name: "Bonuses", icon: "star.fill"),
+        IncomeCategory(id: UUID(), name: "Gifts", icon: "gift.fill"),
+        IncomeCategory(id: UUID(), name: "Business Income", icon: "storefront.fill"),
+        IncomeCategory(id: UUID(), name: "Royalty", icon: "person.crop.circle.dashed"),
         IncomeCategory(id: UUID(), name: "Other", icon: "ellipsis.circle.fill"),
     ]
 }
