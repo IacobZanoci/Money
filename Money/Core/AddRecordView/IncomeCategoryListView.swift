@@ -30,8 +30,7 @@ struct IncomeCategoryListView: View {
                 title: "Categories",
                 icon: "chevron.left",
                 iconColor: Color.theme.green,
-                titleColor: Color.theme.accent,
-                borderColor: Color.theme.accent
+                titleColor: Color.theme.accent
             ) {
                 dismiss()
             }

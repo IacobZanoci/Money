@@ -12,7 +12,6 @@ struct CustomNavBar: View {
     let icon: String
     let iconColor: Color
     let titleColor: Color
-    let borderColor: Color
     let action: () -> Void
 
     var body: some View {
@@ -36,17 +35,11 @@ struct CustomNavBar: View {
             }
             .padding(.vertical, 14)
             .padding(.horizontal)
-            .background(Color.theme.white)
+            .background(Color.theme.background)
 
-            // Add a visible bottom border
-            Rectangle()
-                .fill(borderColor)
-                .frame(height: 1)
-                .opacity(0.15)
+            Divider()
+                .background(Color.theme.accent).opacity(0.3)
         }
-        .background(
-            Color.theme.white
-        )
     }
 }
 
@@ -55,8 +48,7 @@ struct CustomNavBar: View {
         title: "Add Record",
         icon: "xmark",
         iconColor: Color.theme.red,
-        titleColor: Color.theme.accent,
-        borderColor: Color.theme.accent
+        titleColor: Color.theme.accent
     ) {
         print("Dismiss button pressed")
     }

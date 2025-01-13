@@ -21,36 +21,41 @@ struct AddRecordView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                navBarHeader
+            
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
                 
-                ScrollView {
-                    VStack(spacing: 16) {
-                        pickerRecordType
-                        ExpenseIncomeCountView
-                        Divider()
-                        dateAndTimeSection
-                        Divider()
-                        categorySection
-                        Divider()
+                VStack {
+                    navBarHeader
+                    
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            pickerRecordType
+                            ExpenseIncomeCountView
+                            Divider()
+                            dateAndTimeSection
+                            Divider()
+                            categorySection
+                            Divider()
+                        }
+                        .padding()
                     }
-                    .padding()
+                    
+                    VStack(spacing: 16) {
+                        Divider()
+                        confirmButton
+                            .padding(.horizontal)
+                    }
+                    .padding(.bottom, 10)
                 }
-                
-                VStack(spacing: 16) {
-                    Divider()
-                    confirmButton
-                        .padding(.horizontal)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        isTextFieldFocused = true
+                    }
                 }
-                .padding(.bottom, 10)
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    isTextFieldFocused = true
+                .onTapGesture {
+                    isTextFieldFocused = false
                 }
-            }
-            .onTapGesture {
-                isTextFieldFocused = false
             }
         }
     }
@@ -61,8 +66,7 @@ extension AddRecordView {
         CustomNavBar(title: "Add Record",
                      icon: "xmark",
                      iconColor: selectedRecordType == .expense ? Color.theme.red : Color.theme.green,
-                     titleColor: Color.theme.accent,
-                     borderColor: Color.theme.accent) {
+                     titleColor: Color.theme.accent) {
             moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
             dismiss()
         }
@@ -107,7 +111,7 @@ extension AddRecordView {
         .padding(.horizontal)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(Color.theme.white)
+                .foregroundStyle(Color.theme.whiteComponent)
                 .shadow(color: Color.black.opacity(0.07), radius: 0, x: 0, y: 0)
                 .shadow(color: Color.black.opacity(0.10), radius: 8, x: 0, y: 1.5)
         )
@@ -161,39 +165,39 @@ extension AddRecordView {
     }
     
     private var categorySection: some View {
-            HStack(spacing: 10) {
-                Image(systemName: "square.grid.2x2")
+        HStack(spacing: 10) {
+            Image(systemName: "square.grid.2x2")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 32, height: 32)
+                .symbolRenderingMode(.palette)
+                .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
+            
+            Text("Category")
+                .font(.system(size: 14, weight: .medium, design: .default))
+                .foregroundStyle(Color.theme.accent)
+            
+            Spacer()
+            
+            HStack {
+                Text(moneyViewModel.selectedCategory(for: selectedRecordType))
+                    .font(.system(size: 14, weight: .medium, design: .default))
+                    .foregroundStyle(Color.theme.accent.opacity(0.7))
+                
+                Image(systemName: "chevron.forward")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 32, height: 32)
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
-                
-                Text("Category")
-                    .font(.system(size: 14, weight: .medium, design: .default))
-                    .foregroundStyle(Color.theme.accent)
-                
-                Spacer()
-                
-                HStack {
-                    Text(moneyViewModel.selectedCategory(for: selectedRecordType))
-                        .font(.system(size: 14, weight: .medium, design: .default))
-                        .foregroundStyle(Color.theme.accent.opacity(0.7))
-                    
-                    Image(systemName: "chevron.forward")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 8.5, height: 12)
-                        .foregroundStyle(Color.theme.accent.opacity(0.7))
-                }
-            }
-            .onTapGesture {
-                isCategorySheetPresented = true
-            }
-            .sheet(isPresented: $isCategorySheetPresented) {
-                moneyViewModel.categoryListView(for: selectedRecordType)
+                    .frame(width: 8.5, height: 12)
+                    .foregroundStyle(Color.theme.accent.opacity(0.7))
             }
         }
+        .onTapGesture {
+            isCategorySheetPresented = true
+        }
+        .sheet(isPresented: $isCategorySheetPresented) {
+            moneyViewModel.categoryListView(for: selectedRecordType)
+        }
+    }
     
     private var confirmButton: some View {
         Button(action: {
@@ -223,18 +227,22 @@ extension AddRecordView {
             moneyViewModel.resetCategory(for: selectedRecordType)
             dismiss()
         }) {
-            HStack {
-                Spacer()
+            ZStack {
                 Text("Confirm")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundStyle(Color.theme.white)
-                Spacer()
-                Image(systemName: "checkmark")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 15, height: 15)
-                    .foregroundStyle(Color.theme.white)
+                HStack {
+                    Spacer()
+                    Image(systemName: "checkmark")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 15, height: 15)
+                        .foregroundStyle(Color.theme.white)
+                        .opacity(Float(expenseCount ?? "") ?? 0 > 0 ? 1 : 0)
+                }
+                
             }
+            .frame(maxWidth: .infinity, alignment: .center)
             .padding(.vertical, 14)
             .padding(.horizontal)
             .background(
@@ -242,7 +250,6 @@ extension AddRecordView {
                     .fill(buttonBackgroundColor)
             )
         }
-        .frame(maxWidth: .infinity)
         .disabled(Float(expenseCount ?? "") ?? 0 <= 0)
     }
     
