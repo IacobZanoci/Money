@@ -46,6 +46,12 @@ class MoneyViewModel: ObservableObject {
         return dateFormatter.string(from: currentDate)
     }
     
+    func time(for transaction: Transaction) -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "h:mm a"
+            return formatter.string(from: transaction.date ?? Date())
+        }
+    
     var availableMonthsForSelectedYear: [String] {
         let monthsWithTransactions = transactions.compactMap { transaction -> Int? in
             guard let date = transaction.date else { return nil }
@@ -261,6 +267,13 @@ class MoneyViewModel: ObservableObject {
             transaction.categoryIcon = incomeCategory?.icon ?? "ellipsis.circle.fill"
         }
         
+        saveToCoreData()
+        fetchTransactions()
+        calculateTotals()
+    }
+    
+    func delete(transaction: Transaction) {
+        container.viewContext.delete(transaction)
         saveToCoreData()
         fetchTransactions()
         calculateTotals()

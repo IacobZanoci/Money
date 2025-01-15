@@ -9,11 +9,14 @@ import SwiftUI
 
 struct TransactionContainerListAndDate: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @ObservedObject var viewModel: TransactionViewModel
     
     let date: String
     let totalAmount: String
     let transactions: [Transaction]
     let transactionType: TransactionType
+    @Binding var isEditing: Bool
+    let onDelete: (Transaction) -> Void
     
     private var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -36,23 +39,48 @@ struct TransactionContainerListAndDate: View {
                 
                 Text(totalAmount)
                     .font(.system(size: 14, weight: .semibold, design: .rounded))
-                    .foregroundStyle(Color.theme.accent).opacity(0.5)
+                    .foregroundStyle(Color.theme.accent.opacity(0.5))
             }
             
             Divider()
                 .padding(.top, 6)
             
-            
-            // Display all transactions for the day, sorted by date (most recent first)
             ForEach(transactions.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }, id: \.objectID) { transaction in
-                TransactionItemView(
-                    icon: transaction.categoryIcon ?? "questionmark.circle.fill",
-                    title: transaction.categoryName ?? "Unknown",
-                    time: timeFormatter.string(from: transaction.date ?? Date()),
-                    amount: "\(transactionType == .expense ? "-" : "+") $\(String(format: "%.2f", transaction.amount))",
-                    color: transactionColor
-                )
-                .padding(.top, 10)
+                HStack(alignment: .center) {
+                    if isEditing {
+                        Button(action: {
+                            onDelete(transaction)
+                        }) {
+                            Image(systemName: "minus.circle.fill")
+                                .font(.system(size: 20))
+                                .foregroundColor(.red)
+                                .frame(width: 24, height: 24)
+                                .padding(.top, 9)
+                        }
+                        .padding(.trailing, 0)
+                        .opacity(viewModel.slideIn ? 1 : 0)
+                        .animation(.easeIn(duration: 0.3), value: viewModel.slideIn)
+                    }
+                    
+                    TransactionItemView(
+                        icon: transaction.categoryIcon ?? "questionmark.circle.fill",
+                        title: transaction.categoryName ?? "Unknown",
+                        time: timeFormatter.string(from: transaction.date ?? Date()),
+                        amount: "\(transactionType == .expense ? "-" : "+") $\(String(format: "%.2f", transaction.amount))",
+                        color: transactionColor
+                    )
+                    .padding(.top, 10)
+                    .scaleEffect(isEditing ? 0.95 : 1)
+                    .animation(.easeInOut(duration: 0.3), value: isEditing)
+                }
+                .onAppear {
+                    viewModel.triggerSlideIn()
+                }
+                .onChange(of: isEditing) { newValue in
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        viewModel.slideIn = newValue
+                    }
+                }
             }
         }
         .padding()
@@ -68,18 +96,18 @@ struct TransactionContainerListAndDate: View {
 }
 
 
-struct TransactionContainerListAndDate_Previews: PreviewProvider {
-    static var previews: some View {
-        TransactionContainerListAndDate(
-            date: "January 10, 2025",
-            totalAmount: "+ $120.50",
-            transactions: [
-                
-            ],
-            transactionType: .expense
-        )
-        .previewLayout(.sizeThatFits)
-        .padding()
-        .environmentObject(MoneyViewModel()) // Assuming MoneyViewModel is available
-    }
-}
+//struct TransactionContainerListAndDate_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TransactionContainerListAndDate(
+//            date: "January 10, 2025",
+//            totalAmount: "+ $120.50",
+//            transactions: [
+//
+//            ],
+//            transactionType: .expense
+//        )
+//        .previewLayout(.sizeThatFits)
+//        .padding()
+//        .environmentObject(MoneyViewModel()) // Assuming MoneyViewModel is available
+//    }
+//}

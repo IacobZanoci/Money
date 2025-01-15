@@ -16,6 +16,8 @@
 		423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */; };
 		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
 		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
+		424866552D380AF300832374 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866542D380AF300832374 /* TransactionViewModel.swift */; };
+		424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */; };
 		42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */; };
@@ -51,6 +53,8 @@
 		423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
 		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
+		424866542D380AF300832374 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteConfirmationSheet.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
 		42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerListAndDate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,14 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		424866532D38092900832374 /* TransactionViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				424866542D380AF300832374 /* TransactionViewModel.swift */,
+			);
+			path = TransactionViewModel;
+			sourceTree = "<group>";
+		};
 		427D82FC2CECA082008A5238 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +152,7 @@
 				42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */,
 				42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */,
 				421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */,
+				424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */,
 			);
 			path = TXNComponents;
 			sourceTree = "<group>";
@@ -291,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				42F6F82E2D099E0D00D489A8 /* MoneyViewModel.swift */,
+				424866532D38092900832374 /* TransactionViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -387,8 +401,10 @@
 				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
 				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* ButtonTextChevron.swift in Sources */,
+				424866552D380AF300832374 /* TransactionViewModel.swift in Sources */,
 				421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */,
 				42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */,
+				424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,
