@@ -21,14 +21,13 @@ struct IncomeHomeListItemView: View {
             HStack(spacing: 7) {
                 ZStack {
                     Circle()
-                        .fill(Color.theme.imageBackground)
+                        .fill(Color.theme.green)
                         .frame(width: 30, height: 30)
-                    
-                    Image(systemName: iconName)
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundStyle(Color.theme.green)
-                        .frame(width: 30, height: 30)
+                        .overlay(
+                            Image(systemName: iconName)
+                                .font(.system(size: 14.5))
+                                .foregroundStyle(Color.theme.white)
+                        )
                 }
                 
                 Text(title)
@@ -51,7 +50,7 @@ struct IncomeHomeListItemView: View {
 
 #Preview {
     IncomeHomeListItemView(
-        iconName: "briefcase.circle.fill",
+        iconName: "briefcase.fill",
         title: "Salary",
         amount: 3300
     )

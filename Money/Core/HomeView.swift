@@ -288,7 +288,7 @@ extension HomeView {
                     
                     ForEach(Array(lastThreeIncomeTransactions.enumerated()), id: \.offset) { index, transaction in
                         IncomeHomeListItemView(
-                            iconName: transaction.categoryIcon ?? "briefcase.circle.fill",
+                            iconName: transaction.categoryIcon ?? "ellipsis.circle.fill",
                             title: transaction.categoryName ?? "Other",
                             amount: Double(transaction.amount)
                         )
