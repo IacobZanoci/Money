@@ -88,9 +88,13 @@ extension HomeView {
                     }
                 }
                 
-                HStack(alignment: .center) {
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
                     let balance = viewModel.dailyBalance
-                    Text("\(currencySettings.selectedCurrency) \(String(format: "%.2f", balance.amount))")
+                    Text(currencySettings.selectedCurrency)
+                        .font(.system(size: 25, weight: .semibold, design: .rounded))
+                        .foregroundStyle(balance.isPositive ? Color.theme.green.opacity(0.8) : Color.theme.red.opacity(0.8))
+                    
+                    Text(String(format: "%.2f", balance.amount))
                         .font(.system(size: 32, weight: .semibold, design: .rounded))
                         .foregroundStyle(balance.isPositive ? Color.theme.green : Color.theme.red)
                 }
@@ -100,9 +104,14 @@ extension HomeView {
             HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("$ \(viewModel.earnedToday, specifier: "%.2f")")
-                            .font(.system(size: 18, weight: .medium, design: .default))
-                            .foregroundStyle(Color.theme.white)
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text(currencySettings.selectedCurrency)
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color.theme.white.opacity(0.85))
+                            Text(String(format: "%.2f", viewModel.earnedToday))
+                                .font(.system(size: 18, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color.theme.white)
+                        }
                         Text("Earned Today")
                             .font(.system(size: 12, weight: .medium, design: .default))
                             .foregroundStyle(Color.theme.white)
@@ -134,9 +143,14 @@ extension HomeView {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("$ \(viewModel.spentToday, specifier: "%.2f")")
-                            .font(.system(size: 18, weight: .medium, design: .default))
-                            .foregroundColor(Color.theme.white)
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text(currencySettings.selectedCurrency)
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color.theme.white.opacity(0.85))
+                            Text(String(format: "%.2f", viewModel.spentToday))
+                                .font(.system(size: 18, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color.theme.white)
+                        }
                         Text("Spent Today")
                             .font(.system(size: 12, weight: .medium, design: .default))
                             .foregroundStyle(Color.theme.white)

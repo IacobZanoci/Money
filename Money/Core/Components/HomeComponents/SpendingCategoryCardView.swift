@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SpendingCategoryCardView: View {
-    @EnvironmentObject var moneyViewModel: MoneyViewModel // Access ViewModel
+    @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @EnvironmentObject var currencySettings: CurrencySettings
     
     let categoryName: String
     let iconColor: Color
@@ -32,12 +33,17 @@ struct SpendingCategoryCardView: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(categoryName)
-                    .font(.system(size: 12, weight: .medium, design: .default))
-                    .foregroundStyle(Color.theme.accent.opacity(0.8))
+                    .font(.system(size: 13, weight: .medium, design: .default))
+                    .foregroundStyle(Color.theme.accent.opacity(0.9))
                 
-                Text(String(format: "$%.2f", moneyViewModel.totalAmount(forCategory: categoryName, type: type)))
-                    .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(Color.theme.accent)
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    Text(currencySettings.selectedCurrency)
+                        .font(.system(size: 12, weight: .medium, design: .rounded))
+                        .foregroundStyle(Color.theme.accent.opacity(0.85))
+                    Text(String(format: "%.2f", moneyViewModel.totalAmount(forCategory: categoryName, type: type)))
+                        .font(.system(size: 15, weight: .medium, design: .rounded))
+                        .foregroundStyle(Color.theme.accent)
+                }
             }
             Spacer()
         }
@@ -77,4 +83,5 @@ struct SpendingCategoryCardView: View {
     )
     .padding()
     .environmentObject(MoneyViewModel())
+    .environmentObject(CurrencySettings())
 }
