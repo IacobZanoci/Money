@@ -290,7 +290,7 @@ extension HomeView {
                         IncomeHomeListItemView(
                             iconName: transaction.categoryIcon ?? "briefcase.circle.fill",
                             title: transaction.categoryName ?? "Other",
-                            incomeAmount: "+ $ \(String(format: "%.2f", transaction.amount))"
+                            amount: Double(transaction.amount)
                         )
                         
                         if index != lastThreeIncomeTransactions.count - 1 {

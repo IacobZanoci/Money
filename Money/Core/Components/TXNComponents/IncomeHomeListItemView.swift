@@ -10,10 +10,11 @@ import SwiftUI
 struct IncomeHomeListItemView: View {
     
     @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @EnvironmentObject var currencySettings: CurrencySettings
     
     let iconName: String
     let title: String
-    let incomeAmount: String
+    let amount: Double
     
     var body: some View {
         HStack {
@@ -35,10 +36,13 @@ struct IncomeHomeListItemView: View {
                     .foregroundStyle(Color.theme.accent)
             }
             Spacer()
-            VStack {
-                Text(incomeAmount)
-                    .font(.system(size: 14, weight: .medium, design: .rounded))
+            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                Text(currencySettings.selectedCurrency)
+                    .font(.system(size: 12, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
+                Text(String(format: "%.2f", amount))
+                    .font(.system(size: 14, weight: .medium, design: .rounded))
+                    .foregroundStyle(Color.theme.accent)
             }
         }
         .padding(.horizontal)
@@ -46,6 +50,11 @@ struct IncomeHomeListItemView: View {
 }
 
 #Preview {
-    IncomeHomeListItemView(iconName: "briefcase.circle.fill", title: "Salary", incomeAmount: "+ $ 3 300")
-        .environmentObject(MoneyViewModel())
+    IncomeHomeListItemView(
+        iconName: "briefcase.circle.fill",
+        title: "Salary",
+        amount: 3300
+    )
+    .environmentObject(CurrencySettings())
+    .environmentObject(CurrencySettings())
 }
