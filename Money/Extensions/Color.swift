@@ -54,7 +54,7 @@ struct ColorTheme {
     //Buttons Colors
     let textChevronButton = Color("textChevronButtonColor")
     
-    
+    // MARK: Settings
     // SettingsView Buttons Images
     let appearance = Color("settingsButtonAppearanceColor")
     let currency = Color("settingsButtonCurrencyColor")
@@ -63,4 +63,7 @@ struct ColorTheme {
     let featureRequest = Color("settingsButtonFeatureRequestColor")
     let rateAppStore = Color("settingsButtonRateAppStoreColor")
     let xTwitter = Color("settingsButtonXTwitterColor")
+    
+    // Currency list background
+    let currencyListBackground = Color("currencyListBackgroundColor")
 }

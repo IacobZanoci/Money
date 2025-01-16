@@ -25,6 +25,7 @@
 		42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */; };
 		42A148B42D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */; };
 		42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */; };
+		42B084D62D39737A00E8115A /* CurrencyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B084D52D39737A00E8115A /* CurrencyData.swift */; };
 		42B64F7D2D2AD85500B3AA62 /* SettingsViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerListAndDate.swift; sourceTree = "<group>"; };
 		42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionMonthAmountView.swift; sourceTree = "<group>"; };
 		42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
+		42B084D52D39737A00E8115A /* CurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyData.swift; sourceTree = "<group>"; };
 		42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewButton.swift; sourceTree = "<group>"; };
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				424866582D38512100832374 /* CurrencySettings.swift */,
+				42B084D52D39737A00E8115A /* CurrencyData.swift */,
 			);
 			path = SettingsModel;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,
+				42B084D62D39737A00E8115A /* CurrencyData.swift in Sources */,
 				42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */,
 				427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */,
 				423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */,

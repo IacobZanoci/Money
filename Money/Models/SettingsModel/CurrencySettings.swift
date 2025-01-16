@@ -15,7 +15,7 @@ class CurrencySettings: ObservableObject {
     }
     
     init() {
-        // Load the saved currency, default is "$"
-        self.selectedCurrency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "$"
+        // Load the saved currency, default is "USD"
+        self.selectedCurrency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     }
 }
