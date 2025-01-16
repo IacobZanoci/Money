@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @EnvironmentObject var currencySettings: CurrencySettings
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -39,11 +42,11 @@ struct SettingsView: View {
                                                    showType: true)
                             }
                             
-                            NavigationLink(destination: EmptyView()) {
+                            NavigationLink(destination: CurrencySettingsView()) {
                                 SettingsViewButton(image: "dollarsign.square.fill",
                                                    colorName: Color.theme.currency,
                                                    title: "Currency",
-                                                   type: "MDL",
+                                                   type: currencySettings.selectedCurrency,
                                                    showType: true)
                             }
                         }
@@ -109,4 +112,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environmentObject(CurrencySettings())
 }

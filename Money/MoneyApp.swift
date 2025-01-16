@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct MoneyApp: App {
+    @StateObject private var currencySettings = CurrencySettings()
     @StateObject private var moneyViewModel = MoneyViewModel()
     
     var body: some Scene {
         WindowGroup {
             TabBarView(viewRouter: ViewRouter())
-                .environmentObject(moneyViewModel) // Inject moneyViewModel to the root view
+                .environmentObject(moneyViewModel)
+                .environmentObject(currencySettings)
         }
     }
 }

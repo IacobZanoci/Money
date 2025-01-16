@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var viewModel: MoneyViewModel
+    @EnvironmentObject var currencySettings: CurrencySettings
     
     var body: some View {
         NavigationStack {
@@ -89,7 +90,7 @@ extension HomeView {
                 
                 HStack(alignment: .center) {
                     let balance = viewModel.dailyBalance
-                    Text("\(String(format: "$ %.2f", balance.amount))")
+                    Text("\(currencySettings.selectedCurrency) \(String(format: "%.2f", balance.amount))")
                         .font(.system(size: 32, weight: .semibold, design: .rounded))
                         .foregroundStyle(balance.isPositive ? Color.theme.green : Color.theme.red)
                 }
@@ -330,4 +331,5 @@ extension HomeView {
 #Preview {
     HomeView()
         .environmentObject(MoneyViewModel())
+        .environmentObject(CurrencySettings())
 }
