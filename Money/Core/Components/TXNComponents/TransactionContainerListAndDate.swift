@@ -52,6 +52,7 @@ struct TransactionContainerListAndDate: View {
             
             Divider()
                 .padding(.trailing, -16)
+                .padding(.bottom, 10)
             
             ForEach(transactions.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }, id: \.objectID) { transaction in
                 HStack(alignment: .center) {
@@ -77,7 +78,7 @@ struct TransactionContainerListAndDate: View {
                         amount: "\(transactionType == .expense ? "-" : "+") \(currencySettings.selectedCurrency) \(String(format: "%.2f", transaction.amount))",
                         color: transactionColor
                     )
-                    .padding(.top, 14)
+                    .padding(.bottom, 16)
                     .scaleEffect(isEditing ? 0.95 : 1)
                     .animation(.easeInOut(duration: 0.3), value: isEditing)
                 }
@@ -92,6 +93,7 @@ struct TransactionContainerListAndDate: View {
             }
         }
         .padding()
+        .padding(.bottom, -16)
         .background(
             RoundedRectangle(cornerRadius: 14)
                 .fill(Color.theme.whiteComponent)
