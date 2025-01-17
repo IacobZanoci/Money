@@ -36,7 +36,7 @@ struct IncomeHomeListItemView: View {
             }
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: 4) {
-                Text(currencySettings.selectedCurrency)
+                Text("+ \(currencySettings.selectedCurrency)")
                     .font(.system(size: 12, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
                 Text(String(format: "%.2f", amount))
