@@ -67,7 +67,7 @@ struct IncomeTransactionsView: View {
             )
             .presentationDetents([.fraction(0.26)])
         }
-        .navigationTitle("Expenses")
+        .navigationTitle("Income")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
