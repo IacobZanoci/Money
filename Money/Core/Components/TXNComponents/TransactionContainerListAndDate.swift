@@ -9,10 +9,12 @@ import SwiftUI
 
 struct TransactionContainerListAndDate: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @EnvironmentObject var currencySettings: CurrencySettings
+    
     @ObservedObject var viewModel: TransactionViewModel
     
     let date: String
-    let totalAmount: String
+    let totalAmount: Float
     let transactions: [Transaction]
     let transactionType: TransactionType
     @Binding var isEditing: Bool
@@ -37,9 +39,14 @@ struct TransactionContainerListAndDate: View {
                 
                 Spacer()
                 
-                Text(totalAmount)
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
-                    .foregroundStyle(Color.theme.accent.opacity(0.5))
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    Text("\(transactionType == .expense ? "- " : "+ ")\(currencySettings.selectedCurrency)")
+                        .font(.system(size: 12, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color.theme.accent.opacity(0.85))
+                    Text(String(format: "%.2f", totalAmount))
+                        .font(.system(size: 14, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color.theme.accent.opacity(0.9))
+                }
             }
             
             Divider()
@@ -94,20 +101,3 @@ struct TransactionContainerListAndDate: View {
         )
     }
 }
-
-
-//struct TransactionContainerListAndDate_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TransactionContainerListAndDate(
-//            date: "January 10, 2025",
-//            totalAmount: "+ $120.50",
-//            transactions: [
-//
-//            ],
-//            transactionType: .expense
-//        )
-//        .previewLayout(.sizeThatFits)
-//        .padding()
-//        .environmentObject(MoneyViewModel()) // Assuming MoneyViewModel is available
-//    }
-//}

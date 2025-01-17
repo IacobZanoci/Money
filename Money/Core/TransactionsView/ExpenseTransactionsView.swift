@@ -33,7 +33,7 @@ struct ExpenseTransactionsView: View {
                         TransactionContainerListAndDate(
                             viewModel: transactionViewModel,
                             date: group.date,
-                            totalAmount: "- $\(String(format: "%.2f", group.totalAmount))",
+                            totalAmount: group.totalAmount,
                             transactions: group.transactions,
                             transactionType: .expense,
                             isEditing: $isEditing,
