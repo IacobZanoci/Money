@@ -48,9 +48,10 @@ struct TransactionContainerListAndDate: View {
                         .foregroundStyle(Color.theme.accent.opacity(0.9))
                 }
             }
+            .padding(.bottom, 6)
             
             Divider()
-                .padding(.top, 6)
+                .padding(.trailing, -16)
             
             ForEach(transactions.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }, id: \.objectID) { transaction in
                 HStack(alignment: .center) {
@@ -73,10 +74,10 @@ struct TransactionContainerListAndDate: View {
                         icon: transaction.categoryIcon ?? "questionmark.circle.fill",
                         title: transaction.categoryName ?? "Unknown",
                         time: timeFormatter.string(from: transaction.date ?? Date()),
-                        amount: "\(transactionType == .expense ? "-" : "+") $\(String(format: "%.2f", transaction.amount))",
+                        amount: "\(transactionType == .expense ? "-" : "+") \(currencySettings.selectedCurrency) \(String(format: "%.2f", transaction.amount))",
                         color: transactionColor
                     )
-                    .padding(.top, 10)
+                    .padding(.top, 14)
                     .scaleEffect(isEditing ? 0.95 : 1)
                     .animation(.easeInOut(duration: 0.3), value: isEditing)
                 }
