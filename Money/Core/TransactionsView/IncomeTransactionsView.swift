@@ -9,6 +9,8 @@ import SwiftUI
 
 struct IncomeTransactionsView: View {
     @EnvironmentObject var viewModel: MoneyViewModel
+    @EnvironmentObject var currencySettings: CurrencySettings
+    
     @StateObject var transactionViewModel = TransactionViewModel()
     
     @State private var isMonthPickerPresented: Bool = false
@@ -82,4 +84,5 @@ struct IncomeTransactionsView: View {
 #Preview {
     IncomeTransactionsView()
         .environmentObject(MoneyViewModel())
+        .environmentObject(CurrencySettings())
 }
