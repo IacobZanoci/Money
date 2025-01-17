@@ -13,6 +13,9 @@ enum TransactionType {
 }
 
 struct TransactionMonthAmountView: View {
+    
+    @EnvironmentObject var currencySettings: CurrencySettings
+    
     @Binding var selectedMonth: String
     @Binding var selectedYear: String
     @Binding var totalAmount: Float
@@ -38,9 +41,20 @@ struct TransactionMonthAmountView: View {
                 
                 Spacer()
                 
-                Text("\(transactionType == .expense ? "- $" : "+ $") \(totalAmount, specifier: "%.2f")")
-                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                    .foregroundStyle(transactionType == .expense ? Color.theme.red : Color.theme.green)
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    Text("\(transactionType == .expense ? "- " : "+ ")\(currencySettings.selectedCurrency)")
+                        .font(.system(size: 14, weight: .semibold, design: .rounded))
+                        .foregroundStyle(transactionType == .expense
+                                         ? Color.theme.red.opacity(0.7)
+                                         : Color.theme.green.opacity(0.7)
+                        )
+                    Text(String(format: "%.2f", totalAmount))
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .foregroundStyle(transactionType == .expense
+                                         ? Color.theme.red
+                                         : Color.theme.green
+                        )
+                }
             }
         }
         .padding()
@@ -63,7 +77,7 @@ struct TransactionMonthAmountView_Previews: PreviewProvider {
         @State var selectedYear: String = "2025"
         @State var totalAmount: Float = 250.00
         @State var isMonthPickerPresented: Bool = false
-
+        
         return TransactionMonthAmountView(
             selectedMonth: $selectedMonth,
             selectedYear: $selectedYear,
@@ -71,7 +85,9 @@ struct TransactionMonthAmountView_Previews: PreviewProvider {
             isMonthPickerPresented: $isMonthPickerPresented,
             transactionType: .expense
         )
+        .environmentObject(CurrencySettings())
         .previewLayout(.sizeThatFits)
         .padding()
     }
 }
+
