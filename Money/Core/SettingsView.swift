@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var themeViewModel: ThemeSettingViewModel
     
     var body: some View {
         NavigationStack {
@@ -34,11 +35,11 @@ struct SettingsView: View {
                         }
                         
                         VStack(spacing: 10) {
-                            NavigationLink(destination: EmptyView()) {
+                            NavigationLink(destination: AppearanceSettingView()) {
                                 SettingsViewButton(image: "square.righthalf.filled",
                                                    colorName: Color.theme.appearance,
                                                    title: "Appearance",
-                                                   type: "System",
+                                                   type: themeViewModel.selectedTheme.displayThemeName,
                                                    showType: true)
                             }
                             
@@ -113,4 +114,5 @@ struct SettingsView: View {
 #Preview {
     SettingsView()
         .environmentObject(CurrencySettings())
+        .environmentObject(ThemeSettingViewModel())
 }

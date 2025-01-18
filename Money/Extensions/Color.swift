@@ -66,4 +66,11 @@ struct ColorTheme {
     
     // Currency list background
     let currencyListBackground = Color("currencyListBackgroundColor")
+    
+    // Appearance list
+    let appearanceListBackground = Color("AppearanceListBackgroundColor")
+    
+    let systemAppearanceImageColor = Color("SystemAppearanceImageColor")
+    let lightAppearanceImageColor = Color("LightAppearanceImageColor")
+    let darkAppearanceImageColor = Color("DarkAppearanceImageColor")
 }

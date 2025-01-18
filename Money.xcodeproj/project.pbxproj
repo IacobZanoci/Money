@@ -26,6 +26,9 @@
 		42A148B42D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */; };
 		42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */; };
 		42B084D62D39737A00E8115A /* CurrencyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B084D52D39737A00E8115A /* CurrencyData.swift */; };
+		42B334762D3AE56A006C6B01 /* ThemeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B334752D3AE56A006C6B01 /* ThemeSettingViewModel.swift */; };
+		42B334782D3AE5BF006C6B01 /* AppearanceSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B334772D3AE5BF006C6B01 /* AppearanceSettingView.swift */; };
+		42B3347B2D3BD130006C6B01 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B3347A2D3BD130006C6B01 /* Theme.swift */; };
 		42B64F7D2D2AD85500B3AA62 /* SettingsViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 		42A148B32D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionMonthAmountView.swift; sourceTree = "<group>"; };
 		42A148B52D1DA6FB006BC1D6 /* MonthYearPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
 		42B084D52D39737A00E8115A /* CurrencyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyData.swift; sourceTree = "<group>"; };
+		42B334752D3AE56A006C6B01 /* ThemeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingViewModel.swift; sourceTree = "<group>"; };
+		42B334772D3AE5BF006C6B01 /* AppearanceSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingView.swift; sourceTree = "<group>"; };
+		42B3347A2D3BD130006C6B01 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewButton.swift; sourceTree = "<group>"; };
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -123,18 +129,19 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		424866532D38092900832374 /* TransactionViewModel */ = {
+		424866532D38092900832374 /* TransactionViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				424866542D380AF300832374 /* TransactionViewModel.swift */,
 			);
-			path = TransactionViewModel;
+			path = TransactionViewModels;
 			sourceTree = "<group>";
 		};
 		4248665A2D3851ED00832374 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				4248665B2D38521600832374 /* CurrencySettingsView.swift */,
+				42B334772D3AE5BF006C6B01 /* AppearanceSettingView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -155,8 +162,24 @@
 			children = (
 				424866582D38512100832374 /* CurrencySettings.swift */,
 				42B084D52D39737A00E8115A /* CurrencyData.swift */,
+				42B3347A2D3BD130006C6B01 /* Theme.swift */,
 			);
 			path = SettingsModel;
+			sourceTree = "<group>";
+		};
+		42B334742D3AE558006C6B01 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		42B334792D3BC2AC006C6B01 /* SettingsViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				42B334752D3AE56A006C6B01 /* ThemeSettingViewModel.swift */,
+			);
+			path = SettingsViewModels;
 			sourceTree = "<group>";
 		};
 		42B8107D2D3196BA003542B2 /* TransactionsView */ = {
@@ -250,13 +273,13 @@
 		42D606632CCEB7DC0029BD7E /* Money */ = {
 			isa = PBXGroup;
 			children = (
+				42B334742D3AE558006C6B01 /* Services */,
 				42D606622CCEB7DC0029BD7E /* MoneyApp.swift */,
 				42D606602CCEB7DC0029BD7E /* Assets.xcassets */,
 				427D82FC2CECA082008A5238 /* Models */,
 				423F2A8C2D0AF6740043B327 /* Persistence */,
 				42F6F82D2D099DE300D489A8 /* ViewModels */,
 				42D606682CD0EB3D0029BD7E /* Core */,
-				42F6F8282D04CAF700D489A8 /* Services */,
 				42D606742CD0F29E0029BD7E /* Extensions */,
 				42D606872CD570BA0029BD7E /* Router */,
 				42D6065F2CCEB7DC0029BD7E /* Preview Content */,
@@ -318,18 +341,12 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		42F6F8282D04CAF700D489A8 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		42F6F82D2D099DE300D489A8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				42B334792D3BC2AC006C6B01 /* SettingsViewModels */,
 				42F6F82E2D099E0D00D489A8 /* MoneyViewModel.swift */,
-				424866532D38092900832374 /* TransactionViewModel */,
+				424866532D38092900832374 /* TransactionViewModels */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -424,9 +441,11 @@
 				42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */,
 				42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */,
 				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
+				42B334782D3AE5BF006C6B01 /* AppearanceSettingView.swift in Sources */,
 				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* ButtonTextChevron.swift in Sources */,
 				424866552D380AF300832374 /* TransactionViewModel.swift in Sources */,
+				42B3347B2D3BD130006C6B01 /* Theme.swift in Sources */,
 				421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */,
 				42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */,
 				424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */,
@@ -438,6 +457,7 @@
 				427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */,
 				423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */,
 				42D606662CCEB7DC0029BD7E /* TabBarView.swift in Sources */,
+				42B334762D3AE56A006C6B01 /* ThemeSettingViewModel.swift in Sources */,
 				421E92502D1435B50049D82F /* RecordType.swift in Sources */,
 				424866592D38512100832374 /* CurrencySettings.swift in Sources */,
 				42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */,
