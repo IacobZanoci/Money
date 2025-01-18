@@ -29,6 +29,7 @@
 		42B334762D3AE56A006C6B01 /* ThemeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B334752D3AE56A006C6B01 /* ThemeSettingViewModel.swift */; };
 		42B334782D3AE5BF006C6B01 /* AppearanceSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B334772D3AE5BF006C6B01 /* AppearanceSettingView.swift */; };
 		42B3347B2D3BD130006C6B01 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B3347A2D3BD130006C6B01 /* Theme.swift */; };
+		42B3347E2D3C333B006C6B01 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B3347D2D3C333B006C6B01 /* ViewExtensions.swift */; };
 		42B64F7D2D2AD85500B3AA62 /* SettingsViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */; };
 		42D606642CCEB7DC0029BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */; };
 		42D606652CCEB7DC0029BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D606602CCEB7DC0029BD7E /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		42B334752D3AE56A006C6B01 /* ThemeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingViewModel.swift; sourceTree = "<group>"; };
 		42B334772D3AE5BF006C6B01 /* AppearanceSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingView.swift; sourceTree = "<group>"; };
 		42B3347A2D3BD130006C6B01 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		42B3347D2D3C333B006C6B01 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		42B64F7C2D2AD85500B3AA62 /* SettingsViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewButton.swift; sourceTree = "<group>"; };
 		42D6064D2CCEB71D0029BD7E /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6065E2CCEB7DC0029BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			path = SettingsViewModels;
 			sourceTree = "<group>";
 		};
+		42B3347C2D3C3317006C6B01 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				42B3347D2D3C333B006C6B01 /* ViewExtensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		42B8107D2D3196BA003542B2 /* TransactionsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +283,7 @@
 		42D606632CCEB7DC0029BD7E /* Money */ = {
 			isa = PBXGroup;
 			children = (
+				42B3347C2D3C3317006C6B01 /* Utilities */,
 				42B334742D3AE558006C6B01 /* Services */,
 				42D606622CCEB7DC0029BD7E /* MoneyApp.swift */,
 				42D606602CCEB7DC0029BD7E /* Assets.xcassets */,
@@ -439,6 +450,7 @@
 				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
 				421E92632D171AA80049D82F /* IncomeHomeListItemView.swift in Sources */,
 				42D6068A2CD5713D0029BD7E /* ViewRouter.swift in Sources */,
+				42B3347E2D3C333B006C6B01 /* ViewExtensions.swift in Sources */,
 				42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */,
 				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
 				42B334782D3AE5BF006C6B01 /* AppearanceSettingView.swift in Sources */,

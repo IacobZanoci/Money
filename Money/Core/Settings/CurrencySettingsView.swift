@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CurrencySettingsView: View {
     @EnvironmentObject var currencySettingViewModel: CurrencySettingsViewModel
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State private var isThemeSelected = false
     
     var body: some View {
         NavigationStack {
@@ -38,6 +41,7 @@ struct CurrencySettingsView: View {
                         .contentShape(Rectangle())
                         .onTapGesture {
                             currencySettingViewModel.selectedCurrency = currency.code
+                            isThemeSelected = true
                         }
                         .listRowBackground(Color.theme.currencyListBackground)
                         .listRowSeparatorTint(Color.theme.accent.opacity(0.25))
@@ -52,6 +56,7 @@ struct CurrencySettingsView: View {
             .scrollContentBackground(.hidden)
             .navigationTitle("Currency")
             .navigationBarTitleDisplayMode(.inline)
+            .dismissAfterSelection(seconds: 0.4, presentationMode: presentationMode, isSelected: isThemeSelected)
         }
     }
 }

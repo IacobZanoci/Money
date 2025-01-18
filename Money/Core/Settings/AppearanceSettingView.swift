@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AppearanceSettingView: View {
     @EnvironmentObject var themeViewModel: ThemeSettingViewModel
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State private var isThemeSelected = false
     
     var body: some View {
         NavigationStack {
@@ -37,6 +40,7 @@ struct AppearanceSettingView: View {
                         .contentShape(Rectangle())
                         .onTapGesture {
                             themeViewModel.selectedTheme = theme
+                            isThemeSelected = true
                         }
                         .listRowBackground(Color.theme.appearanceListBackground)
                         .listRowSeparatorTint(Color.theme.accent.opacity(0.25))
@@ -56,6 +60,7 @@ struct AppearanceSettingView: View {
             .scrollContentBackground(.hidden)
             .navigationTitle("Appearance")
             .navigationBarTitleDisplayMode(.inline)
+            .dismissAfterSelection(seconds: 0.4, presentationMode: presentationMode, isSelected: isThemeSelected)
         }
     }
 }
