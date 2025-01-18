@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var viewModel: MoneyViewModel
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
     var body: some View {
         NavigationStack {
@@ -90,7 +90,7 @@ extension HomeView {
                 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
                     let balance = viewModel.dailyBalance
-                    Text(currencySettings.selectedCurrency)
+                    Text(currencySettingsViewModel.selectedCurrency)
                         .font(.system(size: 25, weight: .semibold, design: .rounded))
                         .foregroundStyle(balance.isPositive ? Color.theme.green.opacity(0.8) : Color.theme.red.opacity(0.8))
                     
@@ -105,7 +105,7 @@ extension HomeView {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text(currencySettings.selectedCurrency)
+                            Text(currencySettingsViewModel.selectedCurrency)
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white.opacity(0.85))
                             Text(String(format: "%.2f", viewModel.earnedToday))
@@ -144,7 +144,7 @@ extension HomeView {
                 VStack(alignment: .leading, spacing: 4) {
                     VStack(alignment: .leading, spacing: 4) {
                         HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text(currencySettings.selectedCurrency)
+                            Text(currencySettingsViewModel.selectedCurrency)
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white.opacity(0.85))
                             Text(String(format: "%.2f", viewModel.spentToday))
@@ -345,5 +345,5 @@ extension HomeView {
 #Preview {
     HomeView()
         .environmentObject(MoneyViewModel())
-        .environmentObject(CurrencySettings())
+        .environmentObject(CurrencySettingsViewModel())
 }

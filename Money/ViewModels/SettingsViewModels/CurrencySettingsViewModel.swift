@@ -1,5 +1,5 @@
 //
-//  CurrencySettings.swift
+//  CurrencySettingsViewModel.swift
 //  Money
 //
 //  Created by Iacob Zanoci on 15/01/2025.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-class CurrencySettings: ObservableObject {
+class CurrencySettingsViewModel: ObservableObject {
+    
     @Published var selectedCurrency: String {
         didSet {
             UserDefaults.standard.set(selectedCurrency, forKey: "selectedCurrency")
@@ -15,7 +16,7 @@ class CurrencySettings: ObservableObject {
     }
     
     init() {
-        // Load the saved currency, default is "USD"
+        // Default: USD
         self.selectedCurrency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     }
 }

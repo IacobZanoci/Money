@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CurrencySettingsView: View {
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingViewModel: CurrencySettingsViewModel
     
     var body: some View {
         NavigationStack {
@@ -29,7 +29,7 @@ struct CurrencySettingsView: View {
                                     .foregroundStyle(Color.theme.accent)
                             }
                             Spacer()
-                            if currencySettings.selectedCurrency == currency.code {
+                            if currencySettingViewModel.selectedCurrency == currency.code {
                                 Image(systemName: "checkmark")
                                     .font(.system(size: 12.5))
                                     .foregroundColor(Color.theme.accent.opacity(0.7))
@@ -37,7 +37,7 @@ struct CurrencySettingsView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            currencySettings.selectedCurrency = currency.code
+                            currencySettingViewModel.selectedCurrency = currency.code
                         }
                         .listRowBackground(Color.theme.currencyListBackground)
                         .listRowSeparatorTint(Color.theme.accent.opacity(0.25))
@@ -58,5 +58,5 @@ struct CurrencySettingsView: View {
 
 #Preview {
     CurrencySettingsView()
-        .environmentObject(CurrencySettings())
+        .environmentObject(CurrencySettingsViewModel())
 }

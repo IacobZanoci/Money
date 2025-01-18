@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MoneyApp: App {
-    @StateObject private var currencySettings = CurrencySettings()
+    @StateObject private var currencySettingsViewModel = CurrencySettingsViewModel()
     @StateObject private var moneyViewModel = MoneyViewModel()
     @StateObject private var themeViewModel = ThemeSettingViewModel()
     
@@ -17,7 +17,7 @@ struct MoneyApp: App {
         WindowGroup {
             TabBarView(viewRouter: ViewRouter())
                 .environmentObject(moneyViewModel)
-                .environmentObject(currencySettings)
+                .environmentObject(currencySettingsViewModel)
                 .environmentObject(themeViewModel)
                 .preferredColorScheme(themeViewModel.selectedTheme == .light ? .light : (themeViewModel.selectedTheme == .dark ? .dark : nil))
         }

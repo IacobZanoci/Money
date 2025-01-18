@@ -10,7 +10,7 @@ import SwiftUI
 struct IncomeHomeListItemView: View {
     
     @EnvironmentObject var moneyViewModel: MoneyViewModel
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
     let iconName: String
     let title: String
@@ -36,7 +36,7 @@ struct IncomeHomeListItemView: View {
             }
             Spacer()
             HStack(alignment: .firstTextBaseline, spacing: 4) {
-                Text("+ \(currencySettings.selectedCurrency)")
+                Text("+ \(currencySettingsViewModel.selectedCurrency)")
                     .font(.system(size: 12, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
                 Text(String(format: "%.2f", amount))
@@ -54,6 +54,6 @@ struct IncomeHomeListItemView: View {
         title: "Salary",
         amount: 3300
     )
-    .environmentObject(CurrencySettings())
-    .environmentObject(CurrencySettings())
+    .environmentObject(CurrencySettingsViewModel())
+    .environmentObject(CurrencySettingsViewModel())
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpenseTransactionsView: View {
     @EnvironmentObject var viewModel: MoneyViewModel
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
     @StateObject var transactionViewModel = TransactionViewModel()
     
@@ -83,5 +83,5 @@ struct ExpenseTransactionsView: View {
 #Preview {
     ExpenseTransactionsView()
         .environmentObject(MoneyViewModel())
-        .environmentObject(CurrencySettings())
+        .environmentObject(CurrencySettingsViewModel())
 }

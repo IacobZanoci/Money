@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SpendingCategoryCardView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
     let categoryName: String
     let iconColor: Color
@@ -37,7 +37,7 @@ struct SpendingCategoryCardView: View {
                     .foregroundStyle(Color.theme.accent.opacity(0.9))
                 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
-                    Text(currencySettings.selectedCurrency)
+                    Text(currencySettingsViewModel.selectedCurrency)
                         .font(.system(size: 12, weight: .medium, design: .rounded))
                         .foregroundStyle(Color.theme.accent.opacity(0.85))
                     Text(String(format: "%.2f", moneyViewModel.totalAmount(forCategory: categoryName, type: type)))
@@ -83,5 +83,5 @@ struct SpendingCategoryCardView: View {
     )
     .padding()
     .environmentObject(MoneyViewModel())
-    .environmentObject(CurrencySettings())
+    .environmentObject(CurrencySettingsViewModel())
 }

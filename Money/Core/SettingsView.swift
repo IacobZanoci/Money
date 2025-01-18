@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     @EnvironmentObject var themeViewModel: ThemeSettingViewModel
     
     var body: some View {
@@ -47,7 +47,7 @@ struct SettingsView: View {
                                 SettingsViewButton(image: "dollarsign.square.fill",
                                                    colorName: Color.theme.currency,
                                                    title: "Currency",
-                                                   type: currencySettings.selectedCurrency,
+                                                   type: currencySettingsViewModel.selectedCurrency,
                                                    showType: true)
                             }
                         }
@@ -113,6 +113,6 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-        .environmentObject(CurrencySettings())
+        .environmentObject(CurrencySettingsViewModel())
         .environmentObject(ThemeSettingViewModel())
 }

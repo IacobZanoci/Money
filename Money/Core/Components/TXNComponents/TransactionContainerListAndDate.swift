@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TransactionContainerListAndDate: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
     @ObservedObject var viewModel: TransactionViewModel
     
@@ -40,7 +40,7 @@ struct TransactionContainerListAndDate: View {
                 Spacer()
                 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
-                    Text("\(transactionType == .expense ? "- " : "+ ")\(currencySettings.selectedCurrency)")
+                    Text("\(transactionType == .expense ? "- " : "+ ")\(currencySettingsViewModel.selectedCurrency)")
                         .font(.system(size: 12, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.theme.accent.opacity(0.85))
                     Text(String(format: "%.2f", totalAmount))
@@ -75,7 +75,7 @@ struct TransactionContainerListAndDate: View {
                         icon: transaction.categoryIcon ?? "questionmark.circle.fill",
                         title: transaction.categoryName ?? "Unknown",
                         time: timeFormatter.string(from: transaction.date ?? Date()),
-                        amount: "\(transactionType == .expense ? "-" : "+") \(currencySettings.selectedCurrency) \(String(format: "%.2f", transaction.amount))",
+                        amount: "\(transactionType == .expense ? "-" : "+") \(currencySettingsViewModel.selectedCurrency) \(String(format: "%.2f", transaction.amount))",
                         color: transactionColor
                     )
                     .padding(.bottom, 16)

@@ -18,7 +18,7 @@
 		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
 		424866552D380AF300832374 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866542D380AF300832374 /* TransactionViewModel.swift */; };
 		424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */; };
-		424866592D38512100832374 /* CurrencySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866582D38512100832374 /* CurrencySettings.swift */; };
+		424866592D38512100832374 /* CurrencySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866582D38512100832374 /* CurrencySettingsViewModel.swift */; };
 		4248665C2D38521600832374 /* CurrencySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248665B2D38521600832374 /* CurrencySettingsView.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */; };
@@ -61,7 +61,7 @@
 		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
 		424866542D380AF300832374 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteConfirmationSheet.swift; sourceTree = "<group>"; };
-		424866582D38512100832374 /* CurrencySettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettings.swift; sourceTree = "<group>"; };
+		424866582D38512100832374 /* CurrencySettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsViewModel.swift; sourceTree = "<group>"; };
 		4248665B2D38521600832374 /* CurrencySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsView.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		427D82FC2CECA082008A5238 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				42B084D12D39087E00E8115A /* SettingsModel */,
+				42B084D12D39087E00E8115A /* SettingsModels */,
 				421E924E2D1435330049D82F /* AddRecordModel */,
 				421E924D2D1435230049D82F /* HomeModel */,
 				42F6F8342D09A9F400D489A8 /* CoreData */,
@@ -157,14 +157,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		42B084D12D39087E00E8115A /* SettingsModel */ = {
+		42B084D12D39087E00E8115A /* SettingsModels */ = {
 			isa = PBXGroup;
 			children = (
-				424866582D38512100832374 /* CurrencySettings.swift */,
 				42B084D52D39737A00E8115A /* CurrencyData.swift */,
 				42B3347A2D3BD130006C6B01 /* Theme.swift */,
 			);
-			path = SettingsModel;
+			path = SettingsModels;
 			sourceTree = "<group>";
 		};
 		42B334742D3AE558006C6B01 /* Services */ = {
@@ -177,6 +176,7 @@
 		42B334792D3BC2AC006C6B01 /* SettingsViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				424866582D38512100832374 /* CurrencySettingsViewModel.swift */,
 				42B334752D3AE56A006C6B01 /* ThemeSettingViewModel.swift */,
 			);
 			path = SettingsViewModels;
@@ -459,7 +459,7 @@
 				42D606662CCEB7DC0029BD7E /* TabBarView.swift in Sources */,
 				42B334762D3AE56A006C6B01 /* ThemeSettingViewModel.swift in Sources */,
 				421E92502D1435B50049D82F /* RecordType.swift in Sources */,
-				424866592D38512100832374 /* CurrencySettings.swift in Sources */,
+				424866592D38512100832374 /* CurrencySettingsViewModel.swift in Sources */,
 				42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,

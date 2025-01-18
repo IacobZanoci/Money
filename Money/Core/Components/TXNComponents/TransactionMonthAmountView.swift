@@ -14,7 +14,7 @@ enum TransactionType {
 
 struct TransactionMonthAmountView: View {
     
-    @EnvironmentObject var currencySettings: CurrencySettings
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
     @Binding var selectedMonth: String
     @Binding var selectedYear: String
@@ -42,7 +42,7 @@ struct TransactionMonthAmountView: View {
                 Spacer()
                 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
-                    Text("\(transactionType == .expense ? "- " : "+ ")\(currencySettings.selectedCurrency)")
+                    Text("\(transactionType == .expense ? "- " : "+ ")\(currencySettingsViewModel.selectedCurrency)")
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(transactionType == .expense
                                          ? Color.theme.red.opacity(0.7)
@@ -85,7 +85,7 @@ struct TransactionMonthAmountView_Previews: PreviewProvider {
             isMonthPickerPresented: $isMonthPickerPresented,
             transactionType: .expense
         )
-        .environmentObject(CurrencySettings())
+        .environmentObject(CurrencySettingsViewModel())
         .previewLayout(.sizeThatFits)
         .padding()
     }
