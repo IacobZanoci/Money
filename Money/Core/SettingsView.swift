@@ -20,7 +20,7 @@ struct SettingsView: View {
             ZStack {
                 Color.theme.background.ignoresSafeArea()
                 
-                VStack(spacing: 16) {
+                VStack(spacing: 20) {
                     
                     VStack(alignment: .leading) {
                         Text("Settings")
@@ -141,7 +141,7 @@ struct SettingsView: View {
                     }
                     Spacer()
                 }
-                .padding(.horizontal)
+                .padding()
             }
         }
     }
