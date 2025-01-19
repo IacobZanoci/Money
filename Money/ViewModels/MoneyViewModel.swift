@@ -42,7 +42,7 @@ class MoneyViewModel: ObservableObject {
     var currentFormattedDate: String {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        dateFormatter.dateFormat = "MMMM dd"
         return dateFormatter.string(from: currentDate)
     }
     
