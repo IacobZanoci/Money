@@ -94,7 +94,14 @@ struct SettingsView: View {
                                                    showType: false)
                             }
                             
-                            NavigationLink(destination: EmptyView()) {
+                            Button(action: {
+                                if let appUrl = URL(string: "twitter://user?screen_name=iacobzanoci"),
+                                   UIApplication.shared.canOpenURL(appUrl) {
+                                    UIApplication.shared.open(appUrl)
+                                } else if let webUrl = URL(string: "https://x.com/iacobzanoci") {
+                                    UIApplication.shared.open(webUrl)
+                                }
+                            }) {
                                 SettingsViewButton(image: "x.square.fill",
                                                    colorName: Color.theme.xTwitter,
                                                    title: "Follow Iacob on X",
