@@ -12,7 +12,7 @@ struct SettingsView: View {
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     @EnvironmentObject var themeViewModel: ThemeSettingViewModel
     
-    @StateObject private var featureRequestViewModel = FeatureRequestViewModel()
+    @StateObject private var emailRequestViewModel = EmailRequestViewModel()
     @State private var showMailErrorAlert = false
     
     var body: some View {
@@ -73,17 +73,30 @@ struct SettingsView: View {
                                                    showType: false)
                             }
                             
-                            NavigationLink(destination: EmptyView()) {
+                            Button(action: {
+                                if emailRequestViewModel.canSendMail {
+                                    emailRequestViewModel.openMailApp(for: .reportBug)
+                                } else {
+                                    showMailErrorAlert = true
+                                }
+                            }) {
                                 SettingsViewButton(image: "hand.raised.square.fill",
                                                    colorName: Color.theme.bug,
                                                    title: "Report Bug",
                                                    type: "",
                                                    showType: false)
                             }
+                            .alert(isPresented: $showMailErrorAlert) {
+                                Alert(
+                                    title: Text("Mail Not Available"),
+                                    message: Text("Your device is not configured to send emails."),
+                                    dismissButton: .default(Text("OK"))
+                                )
+                            }
                             
                             Button(action: {
-                                if featureRequestViewModel.canSendMail {
-                                    featureRequestViewModel.openMailApp()
+                                if emailRequestViewModel.canSendMail {
+                                    emailRequestViewModel.openMailApp(for: .featureRequest)
                                 } else {
                                     showMailErrorAlert = true
                                 }

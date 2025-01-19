@@ -1,5 +1,5 @@
 //
-//  FeatureRequestViewModel.swift
+//  EmailRequestViewModel.swift
 //  Money
 //
 //  Created by Iacob Zanoci on 19/01/2025.
@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-class FeatureRequestViewModel: ObservableObject {
+class EmailRequestViewModel: ObservableObject {
     
     @Published var canSendMail: Bool = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
     let recipientEmail: String = "iacobzanoci.work@gmail.com"
-    let emailSubject: String = "Feature Request"
     
-    var emailBody: String {
+    func generateEmailBody(for emailType: EmailType) -> String {
         let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "Unknown App"
         let iosVersion = UIDevice.current.systemVersion
         let deviceModel = DeviceInfo.getDeviceName()
@@ -32,11 +31,11 @@ class FeatureRequestViewModel: ObservableObject {
         """
     }
     
-    func openMailApp() {
-        let subjectEncoded = emailSubject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    func openMailApp(for emailType: EmailType) {
+        let emailBody = generateEmailBody(for: emailType)
+        let subjectEncoded = emailType.subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let bodyEncoded = emailBody.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let email = recipientEmail
-        let mailURL = URL(string: "mailto:\(email)?subject=\(subjectEncoded)&body=\(bodyEncoded)")!
+        let mailURL = URL(string: "mailto:\(recipientEmail)?subject=\(subjectEncoded)&body=\(bodyEncoded)")!
         
         if UIApplication.shared.canOpenURL(mailURL) {
             UIApplication.shared.open(mailURL)
