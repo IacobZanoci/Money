@@ -13,6 +13,8 @@
 		421E925E2D1717990049D82F /* ExpenseTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */; };
 		421E92632D171AA80049D82F /* IncomeHomeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */; };
 		421E92652D1764BC0049D82F /* IncomeTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92642D1764BC0049D82F /* IncomeTransactionsView.swift */; };
+		423014F02D3D4B1C00A7EBC2 /* FeatureRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423014EF2D3D4B1C00A7EBC2 /* FeatureRequestViewModel.swift */; };
+		423014F72D3D531800A7EBC2 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423014F62D3D531800A7EBC2 /* DeviceInfo.swift */; };
 		423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */; };
 		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
 		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
@@ -57,6 +59,9 @@
 		421E925D2D1717990049D82F /* ExpenseTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTransactionsView.swift; sourceTree = "<group>"; };
 		421E92622D171AA80049D82F /* IncomeHomeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeHomeListItemView.swift; sourceTree = "<group>"; };
 		421E92642D1764BC0049D82F /* IncomeTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeTransactionsView.swift; sourceTree = "<group>"; };
+		423014EF2D3D4B1C00A7EBC2 /* FeatureRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRequestViewModel.swift; sourceTree = "<group>"; };
+		423014F42D3D4D6B00A7EBC2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		423014F62D3D531800A7EBC2 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
 		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
@@ -124,6 +129,14 @@
 			path = AddRecordModel;
 			sourceTree = "<group>";
 		};
+		423014F32D3D4D6B00A7EBC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				423014F42D3D4D6B00A7EBC2 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		423F2A8C2D0AF6740043B327 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +178,7 @@
 			children = (
 				42B084D52D39737A00E8115A /* CurrencyData.swift */,
 				42B3347A2D3BD130006C6B01 /* Theme.swift */,
+				423014F62D3D531800A7EBC2 /* DeviceInfo.swift */,
 			);
 			path = SettingsModels;
 			sourceTree = "<group>";
@@ -181,6 +195,7 @@
 			children = (
 				424866582D38512100832374 /* CurrencySettingsViewModel.swift */,
 				42B334752D3AE56A006C6B01 /* ThemeSettingViewModel.swift */,
+				423014EF2D3D4B1C00A7EBC2 /* FeatureRequestViewModel.swift */,
 			);
 			path = SettingsViewModels;
 			sourceTree = "<group>";
@@ -261,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				42D606632CCEB7DC0029BD7E /* Money */,
+				423014F32D3D4D6B00A7EBC2 /* Frameworks */,
 				42D6064E2CCEB71D0029BD7E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -462,6 +478,7 @@
 				42B3347B2D3BD130006C6B01 /* Theme.swift in Sources */,
 				421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */,
 				42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */,
+				423014F02D3D4B1C00A7EBC2 /* FeatureRequestViewModel.swift in Sources */,
 				424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
@@ -483,6 +500,7 @@
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				42B64F7D2D2AD85500B3AA62 /* SettingsViewButton.swift in Sources */,
 				4248665C2D38521600832374 /* CurrencySettingsView.swift in Sources */,
+				423014F72D3D531800A7EBC2 /* DeviceInfo.swift in Sources */,
 				42D606672CCEB7DC0029BD7E /* MoneyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

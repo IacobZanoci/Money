@@ -12,6 +12,9 @@ struct SettingsView: View {
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     @EnvironmentObject var themeViewModel: ThemeSettingViewModel
     
+    @StateObject private var featureRequestViewModel = FeatureRequestViewModel()
+    @State private var showMailErrorAlert = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -78,12 +81,25 @@ struct SettingsView: View {
                                                    showType: false)
                             }
                             
-                            NavigationLink(destination: EmptyView()) {
+                            Button(action: {
+                                if featureRequestViewModel.canSendMail {
+                                    featureRequestViewModel.openMailApp()
+                                } else {
+                                    showMailErrorAlert = true
+                                }
+                            }) {
                                 SettingsViewButton(image: "plus.square.fill",
                                                    colorName: Color.theme.featureRequest,
                                                    title: "Feature Request",
                                                    type: "",
                                                    showType: false)
+                            }
+                            .alert(isPresented: $showMailErrorAlert) {
+                                Alert(
+                                    title: Text("Mail Not Available"),
+                                    message: Text("Your device is not configured to send emails."),
+                                    dismissButton: .default(Text("OK"))
+                                )
                             }
                             
                             NavigationLink(destination: EmptyView()) {
