@@ -24,7 +24,7 @@ struct CurrencySettingsView: View {
                                     .font(.system(size: 14, weight: .medium, design: .rounded))
                                     .foregroundStyle(Color.theme.accent.opacity(0.7))
                             }
-                            .frame(width: 32, alignment: .leading)
+                            .frame(width: 34, alignment: .leading)
                             
                             HStack {
                                 Text(currency.name)
