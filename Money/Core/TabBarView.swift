@@ -10,6 +10,8 @@ import SwiftUI
 struct TabBarView: View {
     @StateObject var viewRouter: ViewRouter
     @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    @EnvironmentObject var themeSettingsViewModel: ThemeSettingViewModel
     
     @State private var isShowingAddRecordSheet = false
     
@@ -27,19 +29,24 @@ struct TabBarView: View {
                 
                 VStack(spacing: 0) {
                     Rectangle()
-                        .frame(height: 0.5)
-                        .foregroundColor(Color.theme.accent.opacity(0.15))
+                        .frame(height: 0.2)
+                        .foregroundColor(Color.theme.accent.opacity(0.05))
                     
                     HStack {
                         Spacer()
-                        TabBarItemView(viewRouter: viewRouter, assignedWindow: .home, width: geometry.size.width / 5, height: geometry.size.height / 36, systemIconName: "house.fill", tabName: "Home")
+                        TabBarItemView(viewRouter: viewRouter,
+                                       assignedWindow: .home,
+                                       width: geometry.size.width / 5,
+                                       height: geometry.size.height / 34,
+                                       systemIconName: "square.text.square.fill")
                         Spacer(minLength: geometry.size.width / 7)
                         ZStack {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: geometry.size.width / 8 - 6, height: geometry.size.width / 8 - 6)
-                                .foregroundStyle(Color.theme.accent.opacity(0.5))
+                                .frame(width: geometry.size.width / 8.5 - 8,
+                                       height: geometry.size.height / 9 - 10)
+                                .foregroundStyle(Color.theme.accent.opacity(0.95))
                         }
                         .onTapGesture {
                             isShowingAddRecordSheet.toggle()
@@ -53,13 +60,13 @@ struct TabBarView: View {
                         TabBarItemView(viewRouter: viewRouter,
                                        assignedWindow: .settings,
                                        width: geometry.size.width / 5,
-                                       height: geometry.size.height / 36,
-                                       systemIconName: "gear",
-                                       tabName: "Settings"
+                                       height: geometry.size.height / 34,
+                                       systemIconName: "square.grid.2x2.fill"
                         )
                         Spacer()
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height / 10)
+                    .frame(width: geometry.size.width,
+                           height: geometry.size.height / 10)
                     .background(Color.theme.tabBarBackground)
                 }
             }
@@ -71,4 +78,6 @@ struct TabBarView: View {
 #Preview {
     TabBarView(viewRouter: ViewRouter())
         .environmentObject(MoneyViewModel())
+        .environmentObject(CurrencySettingsViewModel())
+        .environmentObject(ThemeSettingViewModel())
 }

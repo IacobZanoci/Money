@@ -13,7 +13,7 @@ struct TabBarItemView: View {
     let assignedWindow: Windows
     
     let width, height: CGFloat
-    let systemIconName, tabName: String
+    let systemIconName: String
     
     var body: some View {
         VStack {
@@ -21,16 +21,13 @@ struct TabBarItemView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: width, height: height)
-                .padding(.top, 10)
-                .foregroundColor(viewRouter.currentWindow == assignedWindow ? Color.theme.green : Color.theme.accent.opacity(0.5))
-            Text(tabName)
-                .font(.system(size: 10, weight: .medium, design: .default))
-                .foregroundStyle(viewRouter.currentWindow == assignedWindow ? Color.theme.green : Color.theme.accent.opacity(0.5))
+                .padding(.top, 16)
+                .foregroundColor(viewRouter.currentWindow == assignedWindow ? Color.theme.accent.opacity(0.85) : Color.theme.accent.opacity(0.2))
             Spacer()
         }
         .onTapGesture {
             viewRouter.currentWindow = assignedWindow
         }
-        .foregroundStyle(viewRouter.currentWindow == assignedWindow ? Color.theme.green : Color.theme.accent.opacity(0.5))
+        .foregroundStyle(viewRouter.currentWindow == assignedWindow ? Color.theme.accent : Color.theme.accent.opacity(0.3))
     }
 }
