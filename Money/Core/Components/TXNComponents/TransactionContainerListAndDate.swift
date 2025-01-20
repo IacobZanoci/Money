@@ -48,14 +48,14 @@ struct TransactionContainerListAndDate: View {
                         .foregroundStyle(Color.theme.accent.opacity(0.9))
                 }
             }
-            .padding(.bottom, 6)
+            .padding(.bottom, 4)
             
             Divider()
                 .padding(.trailing, -16)
-                .padding(.bottom, 10)
+                .padding(.bottom, 2)
             
             ForEach(transactions.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }, id: \.objectID) { transaction in
-                HStack(alignment: .center) {
+                HStack(alignment: .center, spacing: 8) {
                     if isEditing {
                         Button(action: {
                             onDelete(transaction)
@@ -64,9 +64,7 @@ struct TransactionContainerListAndDate: View {
                                 .font(.system(size: 20))
                                 .foregroundColor(.red)
                                 .frame(width: 24, height: 24)
-                                .padding(.top, 9)
                         }
-                        .padding(.trailing, 0)
                         .opacity(viewModel.slideIn ? 1 : 0)
                         .animation(.easeIn(duration: 0.3), value: viewModel.slideIn)
                     }
@@ -78,7 +76,7 @@ struct TransactionContainerListAndDate: View {
                         amount: "\(transactionType == .expense ? "-" : "+") \(currencySettingsViewModel.selectedCurrency) \(String(format: "%.2f", transaction.amount))",
                         color: transactionColor
                     )
-                    .padding(.bottom, 16)
+                    .padding(.vertical, 4)
                     .scaleEffect(isEditing ? 0.95 : 1)
                     .animation(.easeInOut(duration: 0.3), value: isEditing)
                 }
@@ -92,8 +90,9 @@ struct TransactionContainerListAndDate: View {
                 }
             }
         }
-        .padding()
-        .padding(.bottom, -16)
+        .padding(.horizontal, 16)
+        .padding(.top, 16)
+        .padding(.bottom, 12)
         .background(
             RoundedRectangle(cornerRadius: 14)
                 .fill(Color.theme.whiteComponent)
