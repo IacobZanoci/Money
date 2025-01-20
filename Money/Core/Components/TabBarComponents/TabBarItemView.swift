@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct TabBarItemView: View {
-    
     @StateObject var viewRouter: ViewRouter
-    let assignedWindow: Windows
     
+    let assignedWindow: Windows
     let width, height: CGFloat
     let systemIconName: String
     
@@ -25,6 +24,7 @@ struct TabBarItemView: View {
                 .foregroundColor(viewRouter.currentWindow == assignedWindow ? Color.theme.accent.opacity(0.85) : Color.theme.accent.opacity(0.2))
             Spacer()
         }
+        .contentShape(Rectangle())
         .onTapGesture {
             viewRouter.currentWindow = assignedWindow
         }
