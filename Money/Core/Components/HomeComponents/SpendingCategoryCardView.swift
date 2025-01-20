@@ -63,9 +63,9 @@ struct SpendingCategoryCardView: View {
     private func iconName(for category: String) -> String {
         switch category {
         case "Groceries": return "basket.fill"
-        case "Entertainment": return "figure"
+        case "Entertainment": return "figure.mixed.cardio"
         case "Shopping": return "bag.fill"
-        case "Subscriptions": return "checkmark.arrow.trianglehead.counterclockwise"
+        case "Subscriptions": return "arrow.triangle.2.circlepath.circle.fill"
         case "Transport": return "bus.fill"
         case "Utilities": return "lightbulb.fill"
         case "Gifts": return "gift.fill"

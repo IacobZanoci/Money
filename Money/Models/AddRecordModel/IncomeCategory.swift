@@ -27,7 +27,7 @@ struct IncomeCategory: Identifiable {
         IncomeCategory(id: UUID(), name: "Rental Income", icon: "building.2.fill"),
         IncomeCategory(id: UUID(), name: "Bonuses", icon: "star.fill"),
         IncomeCategory(id: UUID(), name: "Gifts", icon: "gift.fill"),
-        IncomeCategory(id: UUID(), name: "Business Income", icon: "storefront.fill"),
+        IncomeCategory(id: UUID(), name: "Business Income", icon: "case.fill"),
         IncomeCategory(id: UUID(), name: "Royalty", icon: "person.crop.circle.dashed"),
         IncomeCategory(id: UUID(), name: "Other", icon: "ellipsis.circle.fill"),
     ]
