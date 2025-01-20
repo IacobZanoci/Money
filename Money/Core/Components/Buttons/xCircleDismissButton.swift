@@ -14,7 +14,7 @@ struct xCircleDismissButton: View {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
         }) {
-            Image(systemName: "x.circle.fill")
+            Image(systemName: "xmark.circle.fill")
                 .font(.system(size: 24))
                 .foregroundStyle(Color.theme.xCircleDismissButtonPrimaryColor,
                                  Color.theme.xCircleDismissButtonAccentColor)
