@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
+    @State private var isShowingAddRecordSheet = false
     @State private var showInfoSheet = false
     @State private var sheetHeight: CGFloat = .zero
     
@@ -66,12 +67,25 @@ extension HomeView {
             Spacer()
             
             HStack(alignment: .center, spacing: 24) {
-                Image(systemName: "heart")
-                    .font(.system(size: 20))
-                    .foregroundStyle(Color.theme.accent)
-                Image(systemName: "plus")
-                    .font(.system(size: 20))
-                    .foregroundStyle(Color.theme.accent)
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "heart")
+                        .font(.system(size: 20))
+                        .foregroundStyle(Color.theme.accent)
+                }
+                
+                Button(action: {
+                    isShowingAddRecordSheet.toggle()
+                }) {
+                    Image(systemName: "plus")
+                        .font(.system(size: 20))
+                        .foregroundStyle(Color.theme.accent)
+                }
+                .sheet(isPresented: $isShowingAddRecordSheet) {
+                    AddRecordView()
+                        .environmentObject(viewModel)
+                }
             }
         }
         .padding(.top, 6)
