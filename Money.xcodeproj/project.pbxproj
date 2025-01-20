@@ -16,6 +16,9 @@
 		423014F02D3D4B1C00A7EBC2 /* EmailRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423014EF2D3D4B1C00A7EBC2 /* EmailRequestViewModel.swift */; };
 		423014F72D3D531800A7EBC2 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423014F62D3D531800A7EBC2 /* DeviceInfo.swift */; };
 		423014FA2D3D591200A7EBC2 /* EmailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423014F92D3D591200A7EBC2 /* EmailType.swift */; };
+		423014FE2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423014FD2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift */; };
+		423015002D3E66AA00A7EBC2 /* xCircleDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423014FF2D3E66AA00A7EBC2 /* xCircleDismissButton.swift */; };
+		423015022D3E6D1A00A7EBC2 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423015012D3E6D1A00A7EBC2 /* PreferenceKeys.swift */; };
 		423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */; };
 		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
 		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
@@ -64,6 +67,9 @@
 		423014F42D3D4D6B00A7EBC2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		423014F62D3D531800A7EBC2 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		423014F92D3D591200A7EBC2 /* EmailType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailType.swift; sourceTree = "<group>"; };
+		423014FD2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSpendingTrackerCard.swift; sourceTree = "<group>"; };
+		423014FF2D3E66AA00A7EBC2 /* xCircleDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xCircleDismissButton.swift; sourceTree = "<group>"; };
+		423015012D3E6D1A00A7EBC2 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
 		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
@@ -139,6 +145,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		423014FC2D3E64F600A7EBC2 /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				423014FD2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift */,
+			);
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
 		423F2A8C2D0AF6740043B327 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				42B3347D2D3C333B006C6B01 /* ViewExtensions.swift */,
+				423015012D3E6D1A00A7EBC2 /* PreferenceKeys.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -322,6 +337,7 @@
 		42D606682CD0EB3D0029BD7E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				423014FC2D3E64F600A7EBC2 /* HomeViews */,
 				4248665A2D3851ED00832374 /* Settings */,
 				42D606612CCEB7DC0029BD7E /* TabBarView.swift */,
 				42D606702CD0EBCD0029BD7E /* HomeView.swift */,
@@ -361,6 +377,7 @@
 				42D6067E2CD3FAB70029BD7E /* ButtonTextChevron.swift */,
 				42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */,
 				42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */,
+				423014FF2D3E66AA00A7EBC2 /* xCircleDismissButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -486,6 +503,7 @@
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,
 				42D606852CD56BCD0029BD7E /* TabBarItemView.swift in Sources */,
+				423015022D3E6D1A00A7EBC2 /* PreferenceKeys.swift in Sources */,
 				42B084D62D39737A00E8115A /* CurrencyData.swift in Sources */,
 				42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */,
 				427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */,
@@ -495,8 +513,10 @@
 				421E92502D1435B50049D82F /* RecordType.swift in Sources */,
 				424866592D38512100832374 /* CurrencySettingsViewModel.swift in Sources */,
 				423014FA2D3D591200A7EBC2 /* EmailType.swift in Sources */,
+				423015002D3E66AA00A7EBC2 /* xCircleDismissButton.swift in Sources */,
 				42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
+				423014FE2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
 				421E925E2D1717990049D82F /* ExpenseTransactionsView.swift in Sources */,
 				42A148B42D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift in Sources */,

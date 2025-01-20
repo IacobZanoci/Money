@@ -12,6 +12,9 @@ struct HomeView: View {
     @EnvironmentObject var viewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     
+    @State private var showInfoSheet = false
+    @State private var sheetHeight: CGFloat = .zero
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -84,7 +87,32 @@ extension HomeView {
                     
                     HStack {
                         Spacer()
-                        CircleButtonView(iconName: "questionmark.circle")
+                        Button(action: {
+                            showInfoSheet = true
+                        }) {
+                            CircleButtonView(iconName: "questionmark.circle")
+                        }
+                        .sheet(isPresented: $showInfoSheet) {
+                            ZStack {
+                                Color.theme.cardColor
+                                    .edgesIgnoringSafeArea(.all)
+                                
+                                VStack {
+                                    InfoSpendingTrackerCard()
+                                }
+                                .background(Color.theme.cardColor)
+                                .overlay {
+                                    GeometryReader { geometry in
+                                        Color.clear.preference(key: InnerHeightPreferenceKey.self, value: geometry.size.height)
+                                    }
+                                }
+                                .onPreferenceChange(InnerHeightPreferenceKey.self) { newHeight in
+                                    sheetHeight = newHeight
+                                }
+                                .presentationDetents([.height(sheetHeight)])
+                                .presentationDragIndicator(.visible)
+                            }
+                        }
                     }
                 }
                 
@@ -338,9 +366,7 @@ extension HomeView {
             }
         }
     }
-    
 }
-
 
 #Preview {
     HomeView()

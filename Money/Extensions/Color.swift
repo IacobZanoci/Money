@@ -30,6 +30,9 @@ struct ColorTheme {
     // MARK: HomeView
     let whiteComponent = Color("WhiteComponentColor")
     
+    // Indo Spending Tracker Card
+    let infoSpendingTrackerCardBackground = Color("InfoSpendingTrackerCardBackground")
+    
     // MARK: Transactions Views
     let monthAmountBG = Color("MonthAndAmountBackground")
     let cancelButton = Color("CancelButtonColor")
@@ -53,6 +56,9 @@ struct ColorTheme {
     
     //Buttons Colors
     let textChevronButton = Color("textChevronButtonColor")
+    
+    let xCircleDismissButtonPrimaryColor = Color("xCircleDismissButtonPrimaryColor")
+    let xCircleDismissButtonAccentColor = Color("xCircleDismissButtonAccentColor")
     
     // MARK: Settings
     // SettingsView Buttons Images
