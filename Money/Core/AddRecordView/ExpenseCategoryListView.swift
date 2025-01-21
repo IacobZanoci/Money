@@ -26,11 +26,10 @@ struct ExpenseCategoryListView: View {
         ZStack {
             Color.theme.background.ignoresSafeArea()
             
-            VStack(spacing: 0) {
-                // Custom Navigation Bar
+            VStack(spacing: 10) {
                 CustomNavBar(
                     title: "Categories",
-                    icon: "chevron.left",
+                    icon: "arrow.left",
                     iconColor: Color.theme.red,
                     titleColor: Color.theme.accent
                 ) {

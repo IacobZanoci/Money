@@ -21,7 +21,7 @@
 		423015022D3E6D1A00A7EBC2 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423015012D3E6D1A00A7EBC2 /* PreferenceKeys.swift */; };
 		423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */; };
 		423F2A912D0C4ABB0043B327 /* ExpenseCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */; };
-		423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */; };
+		423F2A932D0D90E70043B327 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F2A922D0D90E70043B327 /* CustomNavBar.swift */; };
 		424866552D380AF300832374 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866542D380AF300832374 /* TransactionViewModel.swift */; };
 		424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */; };
 		424866592D38512100832374 /* CurrencySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866582D38512100832374 /* CurrencySettingsViewModel.swift */; };
@@ -72,7 +72,7 @@
 		423015012D3E6D1A00A7EBC2 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		423F2A8E2D0C470E0043B327 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		423F2A902D0C4ABB0043B327 /* ExpenseCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryListView.swift; sourceTree = "<group>"; };
-		423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordNavBar.swift; sourceTree = "<group>"; };
+		423F2A922D0D90E70043B327 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		424866542D380AF300832374 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteConfirmationSheet.swift; sourceTree = "<group>"; };
 		424866582D38512100832374 /* CurrencySettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsViewModel.swift; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		42B810822D3199D7003542B2 /* AddRecordComponents */ = {
 			isa = PBXGroup;
 			children = (
-				423F2A922D0D90E70043B327 /* AddRecordNavBar.swift */,
+				423F2A922D0D90E70043B327 /* CustomNavBar.swift */,
 			);
 			path = AddRecordComponents;
 			sourceTree = "<group>";
@@ -475,7 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */,
-				423F2A932D0D90E70043B327 /* AddRecordNavBar.swift in Sources */,
+				423F2A932D0D90E70043B327 /* CustomNavBar.swift in Sources */,
 				42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */,
 				42D606712CD0EBCD0029BD7E /* HomeView.swift in Sources */,
 				42D6067D2CD3C6430029BD7E /* SpendingCategoryCardView.swift in Sources */,
