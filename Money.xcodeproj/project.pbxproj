@@ -26,6 +26,7 @@
 		424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */; };
 		424866592D38512100832374 /* CurrencySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424866582D38512100832374 /* CurrencySettingsViewModel.swift */; };
 		4248665C2D38521600832374 /* CurrencySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248665B2D38521600832374 /* CurrencySettingsView.swift */; };
+		424C6B582D3FE5350061722B /* xMarkDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B572D3FE5350061722B /* xMarkDismissButton.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */; };
 		42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */; };
@@ -76,6 +77,7 @@
 		424866562D3828AF00832374 /* DeleteConfirmationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteConfirmationSheet.swift; sourceTree = "<group>"; };
 		424866582D38512100832374 /* CurrencySettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsViewModel.swift; sourceTree = "<group>"; };
 		4248665B2D38521600832374 /* CurrencySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsView.swift; sourceTree = "<group>"; };
+		424C6B572D3FE5350061722B /* xMarkDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xMarkDismissButton.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
 		42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerListAndDate.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				42D606802CD403D70029BD7E /* RoundedButtonTextView.swift */,
 				42E966D02CD94612006F16AE /* AddRecordNavBarButton.swift */,
 				423014FF2D3E66AA00A7EBC2 /* xCircleDismissButton.swift */,
+				424C6B572D3FE5350061722B /* xMarkDismissButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */,
 				42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */,
 				423014F02D3D4B1C00A7EBC2 /* EmailRequestViewModel.swift in Sources */,
+				424C6B582D3FE5350061722B /* xMarkDismissButton.swift in Sources */,
 				424866572D3828AF00832374 /* DeleteConfirmationSheet.swift in Sources */,
 				42D606812CD403D70029BD7E /* RoundedButtonTextView.swift in Sources */,
 				42D606732CD0EBE90029BD7E /* SettingsView.swift in Sources */,

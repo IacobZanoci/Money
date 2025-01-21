@@ -27,10 +27,10 @@ struct AddRecordView: View {
                 
                 VStack {
                     navBarHeader
+                        .padding(.top, 16)
                     
                     ScrollView {
                         VStack(spacing: 16) {
-                            pickerRecordType
                             ExpenseIncomeCountView
                             Divider()
                             dateAndTimeSection
@@ -63,23 +63,26 @@ struct AddRecordView: View {
 
 extension AddRecordView {
     private var navBarHeader: some View {
-        CustomNavBar(title: "Add Record",
-                     icon: "xmark",
-                     iconColor: selectedRecordType == .expense ? Color.theme.red : Color.theme.green,
-                     titleColor: Color.theme.accent) {
-            moneyViewModel.selectedExpenseCategory = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
-            dismiss()
-        }
-    }
-    
-    private var pickerRecordType: some View {
-        Picker("Record Type", selection: $selectedRecordType) {
-            ForEach(RecordType.allCases) { recordType in
-                Text(recordType.rawValue.capitalized)
-                    .tag(recordType)
+        ZStack() {
+            xMarkDismissButton(color: selectedRecordType == .expense ? Color.theme.red.opacity(0.8) : Color.theme.green.opacity(0.8))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 16)
+            
+            HStack {
+                Spacer()
+                Picker("Record Type", selection: $selectedRecordType) {
+                    ForEach(RecordType.allCases) { recordType in
+                        Text(recordType.rawValue.capitalized)
+                            .tag(recordType)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .frame(width: 230)
+                .clipped()
+                Spacer()
             }
+            .frame(maxWidth: .infinity, alignment: .center)
         }
-        .pickerStyle(SegmentedPickerStyle())
     }
     
     private var ExpenseIncomeCountView: some View {
