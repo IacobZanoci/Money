@@ -17,7 +17,7 @@ struct AddRecordView: View {
     @FocusState private var isTextFieldFocused: Bool
     @State private var isCategorySheetPresented: Bool = false
     @State private var isDatePickerPresented: Bool = false
-    @State private var selectedDate: Date = Date() // Holds the selected date
+    @State private var selectedDate: Date = Date()
     
     var body: some View {
         NavigationStack {
@@ -86,22 +86,33 @@ extension AddRecordView {
     }
     
     private var ExpenseIncomeCountView: some View {
-        HStack {
-            Text(selectedRecordType == .expense ? "Expense" : "Income")
-                .font(.system(size: 16, weight: .semibold, design: .default))
-                .foregroundStyle(Color.theme.accent)
-            
-            Spacer()
+        ZStack {
+            VStack {
+                Text(selectedRecordType == .expense ? "Expense" : "Income")
+                    .font(.system(size: 16, weight: .semibold, design: .default))
+                    .foregroundStyle(Color.theme.accent)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack(spacing: 0) {
                 Text(selectedRecordType == .expense ? "- $ " : "+ $ ")
                     .font(.system(size: 32, weight: .semibold, design: .rounded))
                     .foregroundColor(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
                 
-                TextField("0", text: Binding(
-                    get: { expenseCount ?? "0" },
-                    set: { expenseCount = $0 }
-                ))
+                TextField(
+                    "0",
+                    text: Binding(
+                        get: { expenseCount ?? "" },
+                        set: { newValue in
+                            let sanitized = newValue.filter { $0.isNumber || $0 == "." }
+                            if sanitized.filter({ $0 == "." }).count > 1 {
+                                expenseCount = String(sanitized.dropLast())
+                            } else {
+                                expenseCount = sanitized
+                            }
+                        }
+                    ).max(7)
+                )
                 .font(.system(size: 32, weight: .semibold, design: .default))
                 .foregroundColor(Color.theme.accent)
                 .keyboardType(.decimalPad)
@@ -109,7 +120,9 @@ extension AddRecordView {
                 .fixedSize()
                 .focused($isTextFieldFocused)
             }
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
+        .frame(maxWidth: .infinity)
         .padding(.vertical, 30)
         .padding(.horizontal)
         .background(
@@ -226,7 +239,6 @@ extension AddRecordView {
                 )
             }
             
-            // Reset selected category after confirmation
             moneyViewModel.resetCategory(for: selectedRecordType)
             dismiss()
         }) {
