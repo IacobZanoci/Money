@@ -9,15 +9,17 @@ import SwiftUI
 
 struct AddRecordView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
-    
-    @State private var expenseCount: String? = ""
-    @State private var selectedRecordType: RecordType = .expense
     @Environment(\.dismiss) var dismiss
     
+    // Data-related
+    @State private var expenseCount: String? = ""
+    @State private var selectedRecordType: RecordType = .expense
+    @State private var selectedDate: Date = Date()
+    
+    // UI-related
     @FocusState private var isTextFieldFocused: Bool
     @State private var isCategorySheetPresented: Bool = false
     @State private var isDatePickerPresented: Bool = false
-    @State private var selectedDate: Date = Date()
     @State private var sheetHeight: CGFloat = .zero
     
     var body: some View {
@@ -105,12 +107,7 @@ extension AddRecordView {
                     text: Binding(
                         get: { expenseCount ?? "" },
                         set: { newValue in
-                            let sanitized = newValue.filter { $0.isNumber || $0 == "." }
-                            if sanitized.filter({ $0 == "." }).count > 1 {
-                                expenseCount = String(sanitized.dropLast())
-                            } else {
-                                expenseCount = sanitized
-                            }
+                            expenseCount = RecordAmountFormatter.formatRecordAmountCount(newValue)
                         }
                     ).max(7)
                 )

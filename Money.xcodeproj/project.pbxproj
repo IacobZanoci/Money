@@ -30,6 +30,7 @@
 		424C6B5F2D4035DA0061722B /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B5E2D4035DA0061722B /* Binding+Extensions.swift */; };
 		424C6B612D410B9F0061722B /* DateFormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B602D410B9F0061722B /* DateFormatterUtility.swift */; };
 		424C6B632D41119B0061722B /* ButtonBackgroundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */; };
+		424C6B652D4133AD0061722B /* RecordAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */; };
 		42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */; };
@@ -84,6 +85,7 @@
 		424C6B5E2D4035DA0061722B /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
 		424C6B602D410B9F0061722B /* DateFormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtility.swift; sourceTree = "<group>"; };
 		424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundHelper.swift; sourceTree = "<group>"; };
+		424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAmountFormatter.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
 		42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerListAndDate.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				423015012D3E6D1A00A7EBC2 /* PreferenceKeys.swift */,
 				424C6B602D410B9F0061722B /* DateFormatterUtility.swift */,
 				424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */,
+				424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				42B3347E2D3C333B006C6B01 /* ViewExtensions.swift in Sources */,
 				42E966D12CD94612006F16AE /* AddRecordNavBarButton.swift in Sources */,
 				423F2A8F2D0C470E0043B327 /* ExpenseCategory.swift in Sources */,
+				424C6B652D4133AD0061722B /* RecordAmountFormatter.swift in Sources */,
 				42B334782D3AE5BF006C6B01 /* AppearanceSettingView.swift in Sources */,
 				42F6F82F2D099E0D00D489A8 /* MoneyViewModel.swift in Sources */,
 				42D6067F2CD3FAB70029BD7E /* ButtonTextChevron.swift in Sources */,
