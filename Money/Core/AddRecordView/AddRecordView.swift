@@ -18,6 +18,11 @@ struct AddRecordView: View {
     @State private var isCategorySheetPresented: Bool = false
     @State private var isDatePickerPresented: Bool = false
     @State private var selectedDate: Date = Date()
+    @State private var sheetHeight: CGFloat = .zero
+    
+    private var formattedDate: String {
+        moneyViewModel.formattedDate(for: selectedDate)
+    }
     
     var body: some View {
         NavigationStack {
@@ -159,7 +164,6 @@ extension AddRecordView {
             
             Spacer()
             
-            // Display formatted date & time, and tap to open the date picker
             Button(action: {
                 isDatePickerPresented.toggle()
             }) {
@@ -168,14 +172,31 @@ extension AddRecordView {
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
             }
             .sheet(isPresented: $isDatePickerPresented) {
-                DatePicker(
-                    "Select Date & Time",
-                    selection: $selectedDate,
-                    displayedComponents: [.date, .hourAndMinute]
-                )
-                .datePickerStyle(WheelDatePickerStyle())
-                .presentationDetents([.medium, .large])
-                .padding()
+                ZStack {
+                    Color.theme.cardColor
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    VStack {
+                        DatePicker(
+                            "",
+                            selection: $selectedDate,
+                            displayedComponents: [.date, .hourAndMinute]
+                        )
+                        .datePickerStyle(WheelDatePickerStyle())
+                        .padding()
+                    }
+                    .background(Color.theme.cardColor)
+                    .overlay {
+                        GeometryReader { geometry in
+                            Color.clear.preference(key: InnerHeightPreferenceKey.self, value: geometry.size.height)
+                        }
+                    }
+                    .onPreferenceChange(InnerHeightPreferenceKey.self) { newHeight in
+                        sheetHeight = newHeight
+                    }
+                    .presentationDetents([.height(sheetHeight)])
+                    .presentationDragIndicator(.visible)
+                }
             }
         }
     }
@@ -273,25 +294,6 @@ extension AddRecordView {
             return selectedRecordType == .expense ? Color.theme.red : Color.theme.green
         } else {
             return Color.gray.opacity(0.5)
-        }
-    }
-    
-    private var formattedDate: String {
-        let calendar = Calendar.current
-        let today = calendar.isDateInToday(selectedDate)
-        
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateStyle = .none
-        timeFormatter.timeStyle = .short
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        
-        if today {
-            return "Today at \(timeFormatter.string(from: selectedDate))"
-        } else {
-            return "\(dateFormatter.string(from: selectedDate)) at \(timeFormatter.string(from: selectedDate))"
         }
     }
 }

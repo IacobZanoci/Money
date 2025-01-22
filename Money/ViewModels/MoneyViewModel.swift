@@ -38,6 +38,18 @@ class MoneyViewModel: ObservableObject {
         calculateTotals()
     }
     
+    // MARK: Date Utilities
+    func formattedDate(for date: Date) -> String {
+        DateFormatterUtil.formatDate(date)
+    }
+    
+    func time(for transaction: Transaction) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: transaction.date ?? Date())
+    }
+    
+    
     // MARK: Computed Proprietes
     var currentFormattedDate: String {
         let currentDate = Date()
@@ -45,12 +57,6 @@ class MoneyViewModel: ObservableObject {
         dateFormatter.dateFormat = "MMMM dd"
         return dateFormatter.string(from: currentDate)
     }
-    
-    func time(for transaction: Transaction) -> String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "h:mm a"
-            return formatter.string(from: transaction.date ?? Date())
-        }
     
     var availableMonthsForSelectedYear: [String] {
         let monthsWithTransactions = transactions.compactMap { transaction -> Int? in
