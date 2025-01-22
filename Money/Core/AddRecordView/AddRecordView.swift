@@ -18,6 +18,7 @@ struct AddRecordView: View {
     
     // UI-related
     @FocusState private var isTextFieldFocused: Bool
+    @State private var profileSegmentIndex: Int = 0
     @State private var isCategorySheetPresented: Bool = false
     @State private var isDatePickerPresented: Bool = false
     @State private var sheetHeight: CGFloat = .zero
@@ -81,6 +82,13 @@ extension AddRecordView {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .frame(width: 230)
+                .onTapGesture {
+                    if selectedRecordType == .expense {
+                        selectedRecordType = .income
+                    } else {
+                        selectedRecordType = .expense
+                    }
+                }
                 .clipped()
                 Spacer()
             }
