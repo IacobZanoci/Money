@@ -64,32 +64,6 @@ struct IncomeCategoryListView: View {
                 .padding(.top)
                 
                 VStack(spacing: 24) {
-                    VStack(spacing: 16) {
-                        HStack {
-                            Text("RECENTLY USED")
-                                .font(.system(size: 14, weight: .semibold, design: .default))
-                                .foregroundStyle(Color.theme.accent)
-                            Spacer()
-                        }
-                        
-                        HStack(spacing: 10) {
-                            Circle()
-                                .frame(width: 50, height: 50)
-                                .foregroundStyle(Color.theme.green)
-                                .overlay(
-                                    Image(systemName: "square.grid.2x2.fill")
-                                        .font(.system(size: 24))
-                                        .foregroundStyle(Color.theme.white)
-                                )
-                            
-                            Text("Recently selected categories will be shown here")
-                                .font(.system(size: 12, weight: .regular, design: .default))
-                                .foregroundStyle(Color.theme.accent).opacity(0.75)
-                            
-                            Spacer()
-                        }
-                    }
-                    
                     VStack {
                         HStack {
                             Text("ALL CATEGORIES")
