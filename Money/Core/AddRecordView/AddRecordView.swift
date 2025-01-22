@@ -20,10 +20,6 @@ struct AddRecordView: View {
     @State private var selectedDate: Date = Date()
     @State private var sheetHeight: CGFloat = .zero
     
-    private var formattedDate: String {
-        moneyViewModel.formattedDate(for: selectedDate)
-    }
-    
     var body: some View {
         NavigationStack {
             
@@ -167,7 +163,7 @@ extension AddRecordView {
             Button(action: {
                 isDatePickerPresented.toggle()
             }) {
-                Text(formattedDate)
+                Text(DateFormatterUtility.formatDateAndTime(selectedDate))
                     .font(.system(size: 14, weight: .medium, design: .default))
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
             }

@@ -1,5 +1,5 @@
 //
-//  DateFormatter.swift
+//  DateFormatterUtility.swift
 //  Money
 //
 //  Created by Iacob Zanoci on 22/01/2025.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct DateFormatterUtil {
-    static func formatDate(_ date: Date) -> String {
+struct DateFormatterUtility {
+    static func formatDateAndTime(_ date: Date) -> String {
         let calendar = Calendar.current
         let today = calendar.isDateInToday(date)
         
@@ -26,4 +26,13 @@ struct DateFormatterUtil {
             return "\(dateFormatter.string(from: date)) at \(timeFormatter.string(from: date))"
         }
     }
+    
+    static func formatTime(_ date: Date) -> String {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateStyle = .none
+        timeFormatter.timeStyle = .short
+        return timeFormatter.string(from: date)
+    }
 }
+
+

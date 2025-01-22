@@ -13,7 +13,7 @@ struct DeleteConfirmationSheet: View {
     let transaction: Transaction
     let onDelete: () -> Void
     let onCancel: () -> Void
-
+    
     var body: some View {
         VStack(spacing: 20) {
             VStack(spacing: 5) {
@@ -31,9 +31,10 @@ struct DeleteConfirmationSheet: View {
                         .font(.system(size: 16, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.theme.accent).opacity(0.5)
                     Spacer()
-                    Text(viewModel.time(for: transaction))
+                    Text(DateFormatterUtility.formatTime(transaction.date ?? Date()))
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
-                        .foregroundStyle(Color.theme.accent).opacity(0.75)
+                        .foregroundStyle(Color.theme.accent.opacity(0.75))
+                    
                 }
             }
             VStack(spacing: 10) {

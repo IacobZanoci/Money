@@ -28,7 +28,7 @@
 		4248665C2D38521600832374 /* CurrencySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248665B2D38521600832374 /* CurrencySettingsView.swift */; };
 		424C6B582D3FE5350061722B /* xMarkDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B572D3FE5350061722B /* xMarkDismissButton.swift */; };
 		424C6B5F2D4035DA0061722B /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B5E2D4035DA0061722B /* Binding+Extensions.swift */; };
-		424C6B612D410B9F0061722B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B602D410B9F0061722B /* DateFormatter.swift */; };
+		424C6B612D410B9F0061722B /* DateFormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B602D410B9F0061722B /* DateFormatterUtility.swift */; };
 		424C6B632D41119B0061722B /* ButtonBackgroundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */; };
@@ -82,7 +82,7 @@
 		4248665B2D38521600832374 /* CurrencySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsView.swift; sourceTree = "<group>"; };
 		424C6B572D3FE5350061722B /* xMarkDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xMarkDismissButton.swift; sourceTree = "<group>"; };
 		424C6B5E2D4035DA0061722B /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
-		424C6B602D410B9F0061722B /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		424C6B602D410B9F0061722B /* DateFormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtility.swift; sourceTree = "<group>"; };
 		424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundHelper.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			children = (
 				42B3347D2D3C333B006C6B01 /* ViewExtensions.swift */,
 				423015012D3E6D1A00A7EBC2 /* PreferenceKeys.swift */,
-				424C6B602D410B9F0061722B /* DateFormatter.swift */,
+				424C6B602D410B9F0061722B /* DateFormatterUtility.swift */,
 				424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */,
 			);
 			path = Utilities;
@@ -483,7 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424C6B612D410B9F0061722B /* DateFormatter.swift in Sources */,
+				424C6B612D410B9F0061722B /* DateFormatterUtility.swift in Sources */,
 				42D6067A2CD3C1D60029BD7E /* CircleButtonView.swift in Sources */,
 				423F2A932D0D90E70043B327 /* CustomNavBar.swift in Sources */,
 				42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */,
