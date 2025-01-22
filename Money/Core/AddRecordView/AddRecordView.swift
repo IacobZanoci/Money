@@ -283,18 +283,10 @@ extension AddRecordView {
             .padding(.horizontal)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(buttonBackgroundColor)
+                    .fill(ButtonBackgroundHelper.getBackgroundColor(for: expenseCount, recordType: selectedRecordType))
             )
         }
         .disabled(Float(expenseCount ?? "") ?? 0 <= 0)
-    }
-    
-    private var buttonBackgroundColor: Color {
-        if let amount = Float(expenseCount ?? ""), amount > 0 {
-            return selectedRecordType == .expense ? Color.theme.red : Color.theme.green
-        } else {
-            return Color.gray.opacity(0.5)
-        }
     }
 }
 
