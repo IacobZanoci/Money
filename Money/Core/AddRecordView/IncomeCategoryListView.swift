@@ -8,27 +8,17 @@
 import SwiftUI
 
 struct IncomeCategoryListView: View {
-    
-    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: MoneyViewModel
-    @State private var searchText: String = ""
+    @Environment(\.dismiss) var dismiss
     
-    var filteredCategories: [IncomeCategory] {
-        if searchText.isEmpty {
-            return viewModel.incomeCategories
-        } else {
-            return viewModel.incomeCategories.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText)
-            }
-        }
-    }
+    @State private var searchText: String = ""
+    @State private var incomeCategories: [IncomeCategory] = IncomeCategory.incomeCategory
     
     var body: some View {
         ZStack {
             Color.theme.background.ignoresSafeArea()
             
             VStack(spacing: 10) {
-                // Custom Navigation Bar
                 CustomNavBar(
                     title: "Categories",
                     icon: "arrow.left",
@@ -42,7 +32,7 @@ struct IncomeCategoryListView: View {
                     HStack {
                         TextField("Search", text: $searchText)
                             .padding(8)
-                            .padding(.horizontal, 24) // Space for magnifying glass
+                            .padding(.horizontal, 24)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.theme.searchBarBackground)
@@ -74,8 +64,6 @@ struct IncomeCategoryListView: View {
                 .padding(.top)
                 
                 VStack(spacing: 24) {
-                    
-                    // Recently Used Section
                     VStack(spacing: 16) {
                         HStack {
                             Text("RECENTLY USED")
@@ -102,7 +90,6 @@ struct IncomeCategoryListView: View {
                         }
                     }
                     
-                    // All Categories Section
                     VStack {
                         HStack {
                             Text("ALL CATEGORIES")
@@ -113,8 +100,8 @@ struct IncomeCategoryListView: View {
                         
                         ScrollView {
                             VStack(alignment: .leading, spacing: 0) {
-                                ForEach(filteredCategories.indices, id: \.self) { index in
-                                    let category = filteredCategories[index]
+                                ForEach(CategoryFilter.filterIncomeCategories(incomeCategories, searchText: searchText).indices, id: \.self) { index in
+                                    let category = CategoryFilter.filterIncomeCategories(incomeCategories, searchText: searchText)[index]
                                     
                                     Button(action: {
                                         viewModel.selectIncomeCategory(category)
@@ -142,8 +129,7 @@ struct IncomeCategoryListView: View {
                                         .padding(.vertical, 12)
                                     }
                                     
-                                    // Add a Divider after each category, except the last one
-                                    if index < filteredCategories.count - 1 {
+                                    if index < CategoryFilter.filterIncomeCategories(incomeCategories, searchText: searchText).count - 1 {
                                         Divider()
                                             .background(Color.theme.accent.opacity(0.2))
                                     }
@@ -156,6 +142,7 @@ struct IncomeCategoryListView: View {
                 .padding()
             }
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

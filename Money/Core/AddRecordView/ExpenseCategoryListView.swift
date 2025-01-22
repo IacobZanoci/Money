@@ -8,19 +8,11 @@
 import SwiftUI
 
 struct ExpenseCategoryListView: View {
-    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: MoneyViewModel
-    @State private var searchText: String = ""
+    @Environment(\.dismiss) var dismiss
     
-    var filteredCategories: [ExpenseCategory] {
-        if searchText.isEmpty {
-            return viewModel.expenseCategories
-        } else {
-            return viewModel.expenseCategories.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText)
-            }
-        }
-    }
+    @State private var searchText: String = ""
+    @State private var expenseCategories: [ExpenseCategory] = ExpenseCategory.expenseCategory
     
     var body: some View {
         ZStack {
@@ -40,7 +32,7 @@ struct ExpenseCategoryListView: View {
                     HStack {
                         TextField("Search", text: $searchText)
                             .padding(8)
-                            .padding(.horizontal, 24) // Space for magnifying glass
+                            .padding(.horizontal, 24)
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.theme.searchBarBackground)
@@ -72,8 +64,6 @@ struct ExpenseCategoryListView: View {
                 .padding(.top)
                 
                 VStack(spacing: 24) {
-                    
-                    // Recently Used Section
                     VStack(spacing: 16) {
                         HStack {
                             Text("RECENTLY USED")
@@ -100,7 +90,6 @@ struct ExpenseCategoryListView: View {
                         }
                     }
                     
-                    // All Categories Section
                     VStack {
                         HStack {
                             Text("ALL CATEGORIES")
@@ -111,8 +100,8 @@ struct ExpenseCategoryListView: View {
                         
                         ScrollView {
                             VStack(alignment: .leading, spacing: 0) {
-                                ForEach(filteredCategories.indices, id: \.self) { index in
-                                    let category = filteredCategories[index]
+                                ForEach(CategoryFilter.filterExpenseCategories(expenseCategories, searchText: searchText).indices, id: \.self) { index in
+                                    let category = CategoryFilter.filterExpenseCategories(expenseCategories, searchText: searchText)[index]
                                     
                                     Button(action: {
                                         viewModel.selectExpenseCategory(category)
@@ -140,8 +129,7 @@ struct ExpenseCategoryListView: View {
                                         .padding(.vertical, 12)
                                     }
                                     
-                                    // Add a Divider after each category, except the last one
-                                    if index < filteredCategories.count - 1 {
+                                    if index < CategoryFilter.filterExpenseCategories(expenseCategories, searchText: searchText).count - 1 {
                                         Divider()
                                             .background(Color.theme.accent.opacity(0.2))
                                     }
@@ -154,6 +142,7 @@ struct ExpenseCategoryListView: View {
                 .padding()
             }
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

@@ -10,17 +10,14 @@ import CoreData
 
 class MoneyViewModel: ObservableObject {
     
-    // MARK: Published Proprietes
     @Published var transactions: [Transaction] = [] // Holds all transaction records
     @Published var spentMoney: Float = 0
     @Published var earnedMoney: Float = 0
     @Published var selectedMonth: String
     @Published var selectedYear: String
     
-    @Published var expenseCategories: [ExpenseCategory] = ExpenseCategory.expenseCategory
     @Published var selectedExpenseCategory: ExpenseCategory? = ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
     
-    @Published var incomeCategories: [IncomeCategory] = IncomeCategory.incomeCategory
     @Published var selectedIncomeCategory: IncomeCategory? = IncomeCategory(name: "Other", icon: "ellipsis.circle.fill")
     
     // MARK: Core Data Container

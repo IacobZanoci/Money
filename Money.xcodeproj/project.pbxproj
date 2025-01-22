@@ -31,6 +31,7 @@
 		424C6B612D410B9F0061722B /* DateFormatterUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B602D410B9F0061722B /* DateFormatterUtility.swift */; };
 		424C6B632D41119B0061722B /* ButtonBackgroundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */; };
 		424C6B652D4133AD0061722B /* RecordAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */; };
+		424C6B672D4138F50061722B /* CategoryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B662D4138F50061722B /* CategoryFilter.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */; };
 		42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */; };
@@ -86,6 +87,7 @@
 		424C6B602D410B9F0061722B /* DateFormatterUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtility.swift; sourceTree = "<group>"; };
 		424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBackgroundHelper.swift; sourceTree = "<group>"; };
 		424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAmountFormatter.swift; sourceTree = "<group>"; };
+		424C6B662D4138F50061722B /* CategoryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilter.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
 		42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerListAndDate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				424C6B602D410B9F0061722B /* DateFormatterUtility.swift */,
 				424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */,
 				424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */,
+				424C6B662D4138F50061722B /* CategoryFilter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				423014FA2D3D591200A7EBC2 /* EmailType.swift in Sources */,
 				423015002D3E66AA00A7EBC2 /* xCircleDismissButton.swift in Sources */,
 				42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */,
+				424C6B672D4138F50061722B /* CategoryFilter.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
 				423014FE2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
