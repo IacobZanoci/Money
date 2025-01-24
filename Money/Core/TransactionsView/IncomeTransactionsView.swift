@@ -50,10 +50,10 @@ struct IncomeTransactionsView: View {
             }
         }
         .sheet(isPresented: $isMonthPickerPresented) {
-                    MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear, viewModel: viewModel)
-                        .presentationDetents([.medium, .fraction(0.3)])
-                        .presentationDragIndicator(.visible)
-                }
+            MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear, viewModel: viewModel)
+                .presentationDetents([.medium, .fraction(0.3)])
+                .presentationDragIndicator(.visible)
+        }
         .sheet(item: $transactionToDelete) { transaction in
             DeleteConfirmationSheet(
                 transaction: transaction,
@@ -71,7 +71,12 @@ struct IncomeTransactionsView: View {
         }
         .navigationTitle("Income")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackNavigationCircleButton()
+            }
+            
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(isEditing ? "Done" : "Edit") {
                     isEditing.toggle()

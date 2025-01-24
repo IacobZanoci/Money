@@ -70,7 +70,12 @@ struct ExpenseTransactionsView: View {
         }
         .navigationTitle("Expenses")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackNavigationCircleButton()
+            }
+            
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(isEditing ? "Done" : "Edit") {
                     isEditing.toggle()
