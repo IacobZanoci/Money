@@ -65,13 +65,6 @@ struct SettingsView: View {
                         }
                         
                         VStack(spacing: 10) {
-                            NavigationLink(destination: EmptyView()) {
-                                SettingsViewButton(image: "heart.square.fill",
-                                                   colorName: Color.theme.tip,
-                                                   title: "Tip Iacob",
-                                                   type: "",
-                                                   showType: false)
-                            }
                             
                             Button(action: {
                                 if emailRequestViewModel.canSendMail {
