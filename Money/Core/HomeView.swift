@@ -48,33 +48,29 @@ struct HomeView: View {
 extension HomeView {
     
     private var headerHomeView: some View {
-        return HStack(alignment: .center) {
-            Text("money")
-                .font(.system(size: 20, weight: .bold, design: .rounded))
-                .foregroundStyle(Color.theme.green)
+        ZStack {
+            VStack {
+                Text("money")
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundStyle(Color.theme.green)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
             
-            Spacer()
+            VStack {
+                Text(viewModel.currentFormattedDate)
+                    .font(.system(size: 12, weight: .semibold, design: .default))
+                    .foregroundStyle(Color.theme.green)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 24)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .foregroundStyle(Color.theme.green.opacity(0.15))
+                    )
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
             
-            Text(viewModel.currentFormattedDate)
-                .font(.system(size: 12, weight: .semibold, design: .default))
-                .foregroundStyle(Color.theme.green)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 24)
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .foregroundStyle(Color.theme.green.opacity(0.15))
-                )
-            
-            Spacer()
             
             HStack(alignment: .center, spacing: 24) {
-                Button(action: {
-                    
-                }) {
-                    Image(systemName: "heart")
-                        .font(.system(size: 20))
-                        .foregroundStyle(Color.theme.accent)
-                }
                 
                 Button(action: {
                     isShowingAddRecordSheet.toggle()
@@ -88,7 +84,9 @@ extension HomeView {
                         .environmentObject(viewModel)
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
+        .frame(maxWidth: .infinity)
         .padding(.top, 6)
     }
     
