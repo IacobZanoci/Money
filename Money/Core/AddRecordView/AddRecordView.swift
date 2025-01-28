@@ -117,7 +117,7 @@ extension AddRecordView {
                         set: { newValue in
                             expenseCount = RecordAmountFormatter.formatRecordAmountCount(newValue)
                         }
-                    ).max(7)
+                    ).max(9)
                 )
                 .font(.system(size: 32, weight: .semibold, design: .default))
                 .foregroundColor(Color.theme.accent)
