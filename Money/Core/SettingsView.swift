@@ -115,14 +115,6 @@ struct SettingsView: View {
                                 )
                             }
                             
-                            NavigationLink(destination: EmptyView()) {
-                                SettingsViewButton(image: "star.square.fill",
-                                                   colorName: Color.theme.rateAppStore,
-                                                   title: "Rate on App Store",
-                                                   type: "",
-                                                   showType: false)
-                            }
-                            
                             Button(action: {
                                 if let appUrl = URL(string: "twitter://user?screen_name=iacobzanoci"),
                                    UIApplication.shared.canOpenURL(appUrl) {
