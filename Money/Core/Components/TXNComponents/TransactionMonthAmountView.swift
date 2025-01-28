@@ -15,6 +15,7 @@ enum TransactionType {
 struct TransactionMonthAmountView: View {
     
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     @Binding var selectedMonth: String
     @Binding var selectedYear: String
@@ -48,7 +49,7 @@ struct TransactionMonthAmountView: View {
                                          ? Color.theme.red.opacity(0.7)
                                          : Color.theme.green.opacity(0.7)
                         )
-                    Text(String(format: "%.2f", totalAmount))
+                    Text(amountFormatterViewModel.formattedAmount(totalAmount))
                         .font(.system(size: 16, weight: .semibold, design: .rounded))
                         .foregroundStyle(transactionType == .expense
                                          ? Color.theme.red

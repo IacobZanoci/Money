@@ -11,10 +11,11 @@ struct IncomeHomeListItemView: View {
     
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     let iconName: String
     let title: String
-    let amount: Double
+    let amount: Float
     
     var body: some View {
         HStack {
@@ -39,7 +40,7 @@ struct IncomeHomeListItemView: View {
                 Text("+ \(currencySettingsViewModel.selectedCurrency)")
                     .font(.system(size: 12, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.theme.accent.opacity(0.7))
-                Text(String(format: "%.2f", amount))
+                Text(amountFormatterViewModel.formattedAmount(amount))
                     .font(.system(size: 14, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.theme.accent)
             }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DeleteConfirmationSheet: View {
     @StateObject var viewModel = MoneyViewModel()
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     let transaction: Transaction
     let onDelete: () -> Void
@@ -22,9 +24,14 @@ struct DeleteConfirmationSheet: View {
                         .font(.system(size: 16, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.theme.accent)
                     Spacer()
-                    Text("$ \(String(format: "%.2f", transaction.amount))")
-                        .font(.system(size: 14, weight: .semibold, design: .rounded))
-                        .foregroundStyle(Color.theme.accent)
+                    HStack(alignment: .firstTextBaseline, spacing: 4) {
+                        Text(currencySettingsViewModel.selectedCurrency)
+                            .font(.system(size: 12, weight: .medium, design: .rounded))
+                            .foregroundStyle(Color.theme.accent.opacity(0.85))
+                        Text(amountFormatterViewModel.formattedAmount(transaction.amount))
+                            .font(.system(size: 14, weight: .semibold, design: .rounded))
+                            .foregroundStyle(Color.theme.accent)
+                    }
                 }
                 HStack {
                     Text("This action cannot be undone.")

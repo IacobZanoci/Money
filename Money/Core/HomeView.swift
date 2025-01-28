@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @EnvironmentObject var viewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     @State private var isShowingAddRecordSheet = false
     @State private var showInfoSheet = false
@@ -136,7 +137,7 @@ extension HomeView {
                         .font(.system(size: 25, weight: .semibold, design: .rounded))
                         .foregroundStyle(balance.isPositive ? Color.theme.green.opacity(0.8) : Color.theme.red.opacity(0.8))
                     
-                    Text(String(format: "%.2f", balance.amount))
+                    Text(amountFormatterViewModel.formattedAmount(balance.amount))
                         .font(.system(size: 32, weight: .semibold, design: .rounded))
                         .foregroundStyle(balance.isPositive ? Color.theme.green : Color.theme.red)
                 }
@@ -150,7 +151,7 @@ extension HomeView {
                             Text(currencySettingsViewModel.selectedCurrency)
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white.opacity(0.85))
-                            Text(String(format: "%.2f", viewModel.earnedToday))
+                            Text(amountFormatterViewModel.formattedAmount(viewModel.earnedToday))
                                 .font(.system(size: 18, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white)
                         }
@@ -189,7 +190,7 @@ extension HomeView {
                             Text(currencySettingsViewModel.selectedCurrency)
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white.opacity(0.85))
-                            Text(String(format: "%.2f", viewModel.spentToday))
+                            Text(amountFormatterViewModel.formattedAmount(viewModel.spentToday))
                                 .font(.system(size: 18, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white)
                         }
@@ -332,7 +333,7 @@ extension HomeView {
                         IncomeHomeListItemView(
                             iconName: transaction.categoryIcon ?? "ellipsis.circle.fill",
                             title: transaction.categoryName ?? "Other",
-                            amount: Double(transaction.amount)
+                            amount: Float(transaction.amount)
                         )
                         
                         if index != lastThreeIncomeTransactions.count - 1 {

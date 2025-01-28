@@ -10,6 +10,7 @@ import SwiftUI
 struct TransactionContainerListAndDate: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     @ObservedObject var viewModel: TransactionViewModel
     
@@ -43,7 +44,7 @@ struct TransactionContainerListAndDate: View {
                     Text("\(transactionType == .expense ? "- " : "+ ")\(currencySettingsViewModel.selectedCurrency)")
                         .font(.system(size: 12, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.theme.accent.opacity(0.85))
-                    Text(String(format: "%.2f", totalAmount))
+                    Text(amountFormatterViewModel.formattedAmount(totalAmount))
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.theme.accent.opacity(0.9))
                 }
@@ -73,7 +74,7 @@ struct TransactionContainerListAndDate: View {
                         icon: transaction.categoryIcon ?? "questionmark.circle.fill",
                         title: transaction.categoryName ?? "Unknown",
                         time: timeFormatter.string(from: transaction.date ?? Date()),
-                        amount: "\(transactionType == .expense ? "-" : "+") \(currencySettingsViewModel.selectedCurrency) \(String(format: "%.2f", transaction.amount))",
+                        amount: "\(transactionType == .expense ? "-" : "+") \(currencySettingsViewModel.selectedCurrency) \(amountFormatterViewModel.formattedAmount(transaction.amount))",
                         color: transactionColor
                     )
                     .padding(.vertical, 4)

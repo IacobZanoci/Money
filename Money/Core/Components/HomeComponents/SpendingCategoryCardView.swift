@@ -10,6 +10,7 @@ import SwiftUI
 struct SpendingCategoryCardView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     let categoryName: String
     let iconColor: Color
@@ -40,7 +41,7 @@ struct SpendingCategoryCardView: View {
                     Text(currencySettingsViewModel.selectedCurrency)
                         .font(.system(size: 12, weight: .medium, design: .rounded))
                         .foregroundStyle(Color.theme.accent.opacity(0.85))
-                    Text(String(format: "%.2f", moneyViewModel.totalAmount(forCategory: categoryName, type: type)))
+                    Text(amountFormatterViewModel.formattedAmount(moneyViewModel.totalAmount(forCategory: categoryName, type: type)))
                         .font(.system(size: 15, weight: .medium, design: .rounded))
                         .foregroundStyle(Color.theme.accent)
                 }
