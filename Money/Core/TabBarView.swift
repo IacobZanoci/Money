@@ -49,6 +49,8 @@ struct TabBarView: View {
                                 .foregroundStyle(Color.theme.accent.opacity(0.95))
                         }
                         .onTapGesture {
+                            HapticManager.instance.impact(style: .medium)
+                            
                             isShowingAddRecordSheet.toggle()
                         }
                         .sheet(isPresented: $isShowingAddRecordSheet) {
