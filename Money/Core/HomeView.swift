@@ -73,6 +73,8 @@ extension HomeView {
             HStack(alignment: .center, spacing: 24) {
                 
                 Button(action: {
+                    HapticManager.instance.impact(style: .medium)
+                    
                     isShowingAddRecordSheet.toggle()
                 }) {
                     Image(systemName: "plus")
