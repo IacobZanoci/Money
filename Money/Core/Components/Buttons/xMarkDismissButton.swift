@@ -14,6 +14,8 @@ struct xMarkDismissButton: View {
     
     var body: some View {
         Button(action: {
+            HapticManager.instance.impact(style: .light)
+            
             presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "xmark")

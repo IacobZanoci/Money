@@ -84,6 +84,8 @@ extension AddRecordView {
                 .pickerStyle(SegmentedPickerStyle())
                 .frame(width: 230)
                 .onTapGesture {
+                    HapticManager.instance.impact(style: .light)
+                    
                     if selectedRecordType == .expense {
                         selectedRecordType = .income
                     } else {
