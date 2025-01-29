@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		421BDEEB2D4A9187009DA14C /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421BDEEA2D4A9187009DA14C /* HapticManager.swift */; };
+		421BDEEF2D4AA668009DA14C /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421BDEEE2D4AA668009DA14C /* ShakeEffect.swift */; };
 		421E92502D1435B50049D82F /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E924F2D1435B50049D82F /* RecordType.swift */; };
 		421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92532D15804A0049D82F /* IncomeCategoryListView.swift */; };
 		421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92552D1580C10049D82F /* IncomeCategory.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		421BDEEA2D4A9187009DA14C /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		421BDEEE2D4AA668009DA14C /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
 		421E924F2D1435B50049D82F /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		421E92532D15804A0049D82F /* IncomeCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryListView.swift; sourceTree = "<group>"; };
 		421E92552D1580C10049D82F /* IncomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategory.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */,
 				424C6B662D4138F50061722B /* CategoryFilter.swift */,
 				421BDEEA2D4A9187009DA14C /* HapticManager.swift */,
+				421BDEEE2D4AA668009DA14C /* ShakeEffect.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				424C6B672D4138F50061722B /* CategoryFilter.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
 				423014FE2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift in Sources */,
+				421BDEEF2D4AA668009DA14C /* ShakeEffect.swift in Sources */,
 				42E966CF2CD927ED006F16AE /* AddRecordView.swift in Sources */,
 				421E925E2D1717990049D82F /* ExpenseTransactionsView.swift in Sources */,
 				42A148B42D1DA4BA006BC1D6 /* TransactionMonthAmountView.swift in Sources */,
