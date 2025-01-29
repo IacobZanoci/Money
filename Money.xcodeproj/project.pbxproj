@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421BDEEB2D4A9187009DA14C /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421BDEEA2D4A9187009DA14C /* HapticManager.swift */; };
 		421E92502D1435B50049D82F /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E924F2D1435B50049D82F /* RecordType.swift */; };
 		421E92542D15804A0049D82F /* IncomeCategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92532D15804A0049D82F /* IncomeCategoryListView.swift */; };
 		421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E92552D1580C10049D82F /* IncomeCategory.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		421BDEEA2D4A9187009DA14C /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		421E924F2D1435B50049D82F /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		421E92532D15804A0049D82F /* IncomeCategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryListView.swift; sourceTree = "<group>"; };
 		421E92552D1580C10049D82F /* IncomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategory.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				424C6B622D41119B0061722B /* ButtonBackgroundHelper.swift */,
 				424C6B642D4133AD0061722B /* RecordAmountFormatter.swift */,
 				424C6B662D4138F50061722B /* CategoryFilter.swift */,
+				421BDEEA2D4A9187009DA14C /* HapticManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				423014FA2D3D591200A7EBC2 /* EmailType.swift in Sources */,
 				423015002D3E66AA00A7EBC2 /* xCircleDismissButton.swift in Sources */,
 				42A148B62D1DA6FB006BC1D6 /* MonthYearPicker.swift in Sources */,
+				421BDEEB2D4A9187009DA14C /* HapticManager.swift in Sources */,
 				424C6B672D4138F50061722B /* CategoryFilter.swift in Sources */,
 				421E92562D1580C10049D82F /* IncomeCategory.swift in Sources */,
 				423014FE2D3E655400A7EBC2 /* InfoSpendingTrackerCard.swift in Sources */,

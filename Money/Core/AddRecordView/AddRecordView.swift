@@ -22,6 +22,7 @@ struct AddRecordView: View {
     @State private var isCategorySheetPresented: Bool = false
     @State private var isDatePickerPresented: Bool = false
     @State private var sheetHeight: CGFloat = .zero
+    @State private var shakeOffset: CGFloat = 0
     
     var body: some View {
         NavigationStack {
@@ -146,7 +147,10 @@ extension AddRecordView {
                     lineWidth: 1.2
                 )
         )
+        .offset(x: shakeOffset) // Apply shake effect to the whole view
     }
+
+
     
     private var dateAndTimeSection: some View {
         HStack {
@@ -240,8 +244,11 @@ extension AddRecordView {
     private var confirmButton: some View {
         Button(action: {
             guard let amount = Float(expenseCount ?? ""), amount > 0 else {
+                shake()
                 return
             }
+            
+            HapticManager.instance.impact(style: .light)
             
             if selectedRecordType == .expense {
                 let selectedCategory = moneyViewModel.selectedExpenseCategory ?? ExpenseCategory(name: "Other", icon: "ellipsis.circle.fill")
@@ -268,6 +275,7 @@ extension AddRecordView {
                 Text("Confirm")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundStyle(Color.theme.white)
+                
                 HStack {
                     Spacer()
                     Image(systemName: "checkmark")
@@ -277,7 +285,6 @@ extension AddRecordView {
                         .foregroundStyle(Color.theme.white)
                         .opacity(Float(expenseCount ?? "") ?? 0 > 0 ? 1 : 0)
                 }
-                
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .padding(.vertical, 14)
@@ -286,9 +293,40 @@ extension AddRecordView {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(ButtonBackgroundHelper.getBackgroundColor(for: expenseCount, recordType: selectedRecordType))
             )
+            .opacity((Float(expenseCount ?? "") ?? 0) > 0 ? 1 : 0.5) // Only visually disable the button
         }
-        .disabled(Float(expenseCount ?? "") ?? 0 <= 0)
     }
+
+
+    
+    private func shake() {
+        let shakeCount = 6
+        let shakeDistance: CGFloat = 10
+        let duration = 0.5
+        
+        HapticManager.instance.notification(type: .error)
+        
+        withAnimation(.easeInOut(duration: duration / Double(shakeCount * 2))) {
+            shakeOffset = -shakeDistance
+        }
+        
+        for i in 1..<shakeCount {
+            DispatchQueue.main.asyncAfter(deadline: .now() + (duration / Double(shakeCount * 2) * Double(i * 2))) {
+                withAnimation(.easeInOut(duration: duration / Double(shakeCount * 2))) {
+                    shakeOffset = (i % 2 == 0) ? -shakeDistance : shakeDistance
+                }
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+            withAnimation(.easeInOut(duration: duration / Double(shakeCount * 2))) {
+                shakeOffset = 0
+            }
+        }
+    }
+
+
+
 }
 
 #Preview {
