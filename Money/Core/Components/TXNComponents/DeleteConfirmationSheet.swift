@@ -45,29 +45,36 @@ struct DeleteConfirmationSheet: View {
                 }
             }
             VStack(spacing: 10) {
-                Button("Delete") {
+                Button(action: {
                     onDelete()
+                    HapticManager.instance.impact(style: .heavy)
+                }) {
+                    Text("Delete")
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .foregroundColor(Color.theme.white)
+                        .padding(.vertical, 12)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.theme.red)
+                        )
+                        .contentShape(Rectangle())
                 }
-                .font(.system(size: 14, weight: .medium, design: .default))
-                .foregroundColor(Color.theme.white)
-                .padding(.vertical, 12)
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(Color.theme.red)
-                )
                 
-                Button("Cancel") {
+                Button(action: {
                     onCancel()
+                }) {
+                    Text("Cancel")
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .foregroundColor(Color.theme.accent)
+                        .padding(.vertical, 12)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.theme.cancelButton)
+                        )
+                        .contentShape(Rectangle())
                 }
-                .font(.system(size: 14, weight: .medium, design: .default))
-                .foregroundColor(Color.theme.accent)
-                .padding(.vertical, 12)
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(Color.theme.cancelButton)
-                )
             }
         }
         .padding()
