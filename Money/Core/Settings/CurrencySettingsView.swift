@@ -56,6 +56,12 @@ struct CurrencySettingsView: View {
             .scrollContentBackground(.hidden)
             .navigationTitle("Currency")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    BackNavigationCircleButton()
+                }
+            }
             .dismissAfterSelection(seconds: 0.4, presentationMode: presentationMode, isSelected: isThemeSelected)
         }
     }

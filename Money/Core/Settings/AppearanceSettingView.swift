@@ -60,6 +60,12 @@ struct AppearanceSettingView: View {
             .scrollContentBackground(.hidden)
             .navigationTitle("Appearance")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    BackNavigationCircleButton()
+                }
+            }
             .dismissAfterSelection(seconds: 0.4, presentationMode: presentationMode, isSelected: isThemeSelected)
         }
     }
