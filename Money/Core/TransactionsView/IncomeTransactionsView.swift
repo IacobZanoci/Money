@@ -54,7 +54,9 @@ struct IncomeTransactionsView: View {
                 .presentationDetents([.medium, .fraction(0.3)])
                 .presentationDragIndicator(.visible)
         }
-        .sheet(item: $transactionToDelete) { transaction in
+        .sheet(item: $transactionToDelete, onDismiss: {
+            isEditing = false
+        }) { transaction in
             DeleteConfirmationSheet(
                 transaction: transaction,
                 onDelete: {
