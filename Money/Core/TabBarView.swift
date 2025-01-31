@@ -14,6 +14,7 @@ struct TabBarView: View {
     @EnvironmentObject var themeSettingsViewModel: ThemeSettingViewModel
     
     @State private var isShowingAddRecordSheet = false
+    @State private var selectedRecordType: RecordType = .expense
     
     var body: some View {
         GeometryReader { geometry in
@@ -50,11 +51,11 @@ struct TabBarView: View {
                         }
                         .onTapGesture {
                             HapticManager.instance.impact(style: .medium)
-                            
+                            selectedRecordType = .expense
                             isShowingAddRecordSheet.toggle()
                         }
                         .sheet(isPresented: $isShowingAddRecordSheet) {
-                            AddRecordView()
+                            AddRecordView(selectedRecordType: $selectedRecordType)
                                 .environmentObject(moneyViewModel)
                         }
                         .offset(y: -geometry.size.height / 8 / 8)

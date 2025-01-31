@@ -10,10 +10,10 @@ import SwiftUI
 struct AddRecordView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     @Environment(\.dismiss) var dismiss
+    @Binding var selectedRecordType: RecordType
     
     // Data-related
     @State private var expenseCount: String? = ""
-    @State private var selectedRecordType: RecordType = .expense
     @State private var selectedDate: Date = Date()
     
     // UI-related
@@ -301,6 +301,6 @@ extension AddRecordView {
 }
 
 #Preview {
-    AddRecordView()
+    AddRecordView(selectedRecordType: .constant(.income))
         .environmentObject(MoneyViewModel())
 }

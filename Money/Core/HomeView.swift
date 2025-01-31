@@ -14,6 +14,7 @@ struct HomeView: View {
     @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     @State private var isShowingAddRecordSheet = false
+    @State private var selectedRecordType: RecordType = .expense
     @State private var showInfoSheet = false
     @State private var sheetHeight: CGFloat = .zero
     
@@ -74,7 +75,7 @@ extension HomeView {
                 
                 Button(action: {
                     HapticManager.instance.impact(style: .medium)
-                    
+                    selectedRecordType = .expense
                     isShowingAddRecordSheet.toggle()
                 }) {
                     Image(systemName: "plus")
@@ -82,7 +83,7 @@ extension HomeView {
                         .foregroundStyle(Color.theme.accent)
                 }
                 .sheet(isPresented: $isShowingAddRecordSheet) {
-                    AddRecordView()
+                    AddRecordView(selectedRecordType: $selectedRecordType)
                         .environmentObject(viewModel)
                 }
             }
@@ -366,7 +367,17 @@ extension HomeView {
                         .multilineTextAlignment(.center)
                         .lineSpacing(6)
                     
-                    RoundedButtonTextView(text: "Add income")
+                    Button(action: {
+                        HapticManager.instance.impact(style: .medium)
+                        selectedRecordType = .income
+                        isShowingAddRecordSheet.toggle()
+                    }) {
+                        RoundedButtonTextView(text: "Add income")
+                    }
+                    .sheet(isPresented: $isShowingAddRecordSheet) {
+                        AddRecordView(selectedRecordType: $selectedRecordType)
+                            .environmentObject(viewModel)
+                    }
                 }
                 .frame(maxWidth: .infinity)
                 .padding(16)
