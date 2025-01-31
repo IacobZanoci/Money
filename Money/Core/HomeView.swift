@@ -317,8 +317,10 @@ extension HomeView {
                 
                 Spacer()
                 
-                NavigationLink(destination: IncomeTransactionsView()) {
-                    ButtonTextChevron(text: "View All")
+                if !viewModel.filteredTransactions.isEmpty {
+                    NavigationLink(destination: IncomeTransactionsView()) {
+                        ButtonTextChevron(text: "View All")
+                    }
                 }
             }
             
