@@ -70,8 +70,8 @@ class MoneyViewModel: ObservableObject {
         return uniqueYears.sorted { $0 > $1 }.map { String($0) } // Sort in descending order
     }
     
-    var dailyBalance: (amount: Float, isPositive: Bool) {
-        let balance = earnedToday - spentToday
+    var monthBalance: (amount: Float, isPositive: Bool) {
+        let balance = totalIncomeForSelectedMonth - totalSpentForSelectedMonth
         return (amount: abs(balance), isPositive: balance >= 0)
     }
     

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddRecordView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
+    @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     @Environment(\.dismiss) var dismiss
     @Binding var selectedRecordType: RecordType
     
@@ -109,7 +110,7 @@ extension AddRecordView {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack(spacing: 0) {
-                Text(selectedRecordType == .expense ? "- $ " : "+ $ ")
+                Text(selectedRecordType == .expense ? "- \(currencySettingsViewModel.selectedCurrency) " : "+ \(currencySettingsViewModel.selectedCurrency) ")
                     .font(.system(size: 32, weight: .semibold, design: .rounded))
                     .foregroundColor(selectedRecordType == .expense ? Color.theme.red : Color.theme.green)
                 

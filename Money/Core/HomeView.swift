@@ -133,7 +133,7 @@ extension HomeView {
                 }
                 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
-                    let balance = viewModel.dailyBalance
+                    let balance = viewModel.monthBalance
                     Text(currencySettingsViewModel.selectedCurrency)
                         .font(.system(size: 25, weight: .semibold, design: .rounded))
                         .foregroundStyle(balance.isPositive ? Color.theme.green.opacity(0.8) : Color.theme.red.opacity(0.8))
@@ -152,11 +152,11 @@ extension HomeView {
                             Text(currencySettingsViewModel.selectedCurrency)
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white.opacity(0.85))
-                            Text(amountFormatterViewModel.formattedAmount(viewModel.earnedToday))
+                            Text(amountFormatterViewModel.formattedAmount(viewModel.totalIncomeForSelectedMonth))
                                 .font(.system(size: 18, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color.theme.white)
                         }
-                        Text("Earned Today")
+                        Text("Earned in \(viewModel.selectedMonth)")
                             .font(.system(size: 12, weight: .medium, design: .default))
                             .foregroundStyle(Color.theme.white)
                     }

@@ -29,30 +29,45 @@ struct ExpenseTransactionsView: View {
             .padding(.horizontal)
             .padding(.top, 10)
             
-            ScrollView {
-                VStack(spacing: 16) {
-                    ForEach(viewModel.groupedExpenseTransactions, id: \.date) { group in
-                        TransactionContainerListAndDate(
-                            viewModel: transactionViewModel,
-                            date: group.date,
-                            totalAmount: group.totalAmount,
-                            transactions: group.transactions,
-                            transactionType: .expense,
-                            isEditing: $isEditing,
-                            onDelete: { transaction in
-                                transactionToDelete = transaction
-                            }
-                        )
+            ZStack {
+                if viewModel.groupedExpenseTransactions.isEmpty {
+                    VStack(spacing: 10) {
+                        Image(systemName: "tray.full.fill")
+                            .font(.system(size: 40))
+                            .foregroundStyle(Color.theme.accent.opacity(0.75))
+                        
+                        Text("No transactions")
+                            .font(.system(size: 14, weight: .semibold, design: .rounded))
+                            .foregroundStyle(Color.theme.accent.opacity(0.75))
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .padding()
+                
+                ScrollView {
+                    VStack(spacing: 16) {
+                        ForEach(viewModel.groupedExpenseTransactions, id: \.date) { group in
+                            TransactionContainerListAndDate(
+                                viewModel: transactionViewModel,
+                                date: group.date,
+                                totalAmount: group.totalAmount,
+                                transactions: group.transactions,
+                                transactionType: .expense,
+                                isEditing: $isEditing,
+                                onDelete: { transaction in
+                                    transactionToDelete = transaction
+                                }
+                            )
+                        }
+                    }
+                    .padding()
+                }
             }
         }
         .sheet(isPresented: $isMonthPickerPresented) {
-                    MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear, viewModel: viewModel)
-                        .presentationDetents([.medium, .fraction(0.3)])
-                        .presentationDragIndicator(.visible)
-                }
+            MonthYearPicker(selectedMonth: $viewModel.selectedMonth, selectedYear: $viewModel.selectedYear, viewModel: viewModel)
+                .presentationDetents([.medium, .fraction(0.3)])
+                .presentationDragIndicator(.visible)
+        }
         .sheet(item: $transactionToDelete, onDismiss: {
             isEditing = false
         }) { transaction in
