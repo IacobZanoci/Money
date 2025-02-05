@@ -141,13 +141,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		421E924D2D1435230049D82F /* HomeModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomeModel;
-			sourceTree = "<group>";
-		};
 		421E924E2D1435330049D82F /* AddRecordModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +189,6 @@
 			children = (
 				42B084D12D39087E00E8115A /* SettingsModels */,
 				421E924E2D1435330049D82F /* AddRecordModel */,
-				421E924D2D1435230049D82F /* HomeModel */,
 				42F6F8342D09A9F400D489A8 /* CoreData */,
 			);
 			path = Models;
@@ -336,18 +328,16 @@
 		42D606632CCEB7DC0029BD7E /* Money */ = {
 			isa = PBXGroup;
 			children = (
-				42B334802D3D43A1006C6B01 /* Info.plist */,
-				42B3347C2D3C3317006C6B01 /* Utilities */,
-				42B334742D3AE558006C6B01 /* Services */,
 				42D606622CCEB7DC0029BD7E /* MoneyApp.swift */,
-				42D606602CCEB7DC0029BD7E /* Assets.xcassets */,
-				427D82FC2CECA082008A5238 /* Models */,
-				423F2A8C2D0AF6740043B327 /* Persistence */,
-				42F6F82D2D099DE300D489A8 /* ViewModels */,
 				42D606682CD0EB3D0029BD7E /* Core */,
-				42D606742CD0F29E0029BD7E /* Extensions */,
 				42D606872CD570BA0029BD7E /* Router */,
+				42B334742D3AE558006C6B01 /* Services */,
+				423F2A8C2D0AF6740043B327 /* Persistence */,
+				42B3347C2D3C3317006C6B01 /* Utilities */,
+				42D606742CD0F29E0029BD7E /* Extensions */,
+				42FF90362D537E2400D2AF7E /* Resources */,
 				42D6065F2CCEB7DC0029BD7E /* Preview Content */,
+				42B334802D3D43A1006C6B01 /* Info.plist */,
 			);
 			path = Money;
 			sourceTree = "<group>";
@@ -355,6 +345,8 @@
 		42D606682CD0EB3D0029BD7E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				42F6F82D2D099DE300D489A8 /* ViewModels */,
+				427D82FC2CECA082008A5238 /* Models */,
 				423014FC2D3E64F600A7EBC2 /* HomeViews */,
 				4248665A2D3851ED00832374 /* Settings */,
 				42D606612CCEB7DC0029BD7E /* TabBarView.swift */,
@@ -429,6 +421,14 @@
 				427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		42FF90362D537E2400D2AF7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42D606602CCEB7DC0029BD7E /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
