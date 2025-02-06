@@ -12,9 +12,8 @@ class PersistenceController {
     
     let container: NSPersistentContainer
     
-    // MARK: - Initialization
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "MoneyContainer") // Replace with your .xcdatamodeld file name
+        container = NSPersistentContainer(name: "MoneyContainer")
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -29,7 +28,6 @@ class PersistenceController {
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     }
     
-    // MARK: - Save Context
     func saveContext() {
         let context = container.viewContext
         if context.hasChanges {
@@ -43,12 +41,10 @@ class PersistenceController {
         }
     }
     
-    // MARK: - Preview (for SwiftUI Previews)
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         let context = controller.container.viewContext
         
-        // Add sample data for previews
         let sampleData = Money(context: context)
         sampleData.spentMoney = 100.0
         sampleData.earnedMoney = 200.0
