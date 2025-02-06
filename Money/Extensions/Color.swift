@@ -9,9 +9,7 @@ import Foundation
 import SwiftUI
 
 extension Color {
-     
     static let theme = ColorTheme()
-    
 }
 
 struct ColorTheme {
@@ -21,7 +19,7 @@ struct ColorTheme {
     let accent = Color("AccentColor")
     let green = Color("GreenThemeColor")
     let red = Color("RedThemeColor")
-    let white = Color("WhiteThemeColor") //should elimine in all code and delete
+    let white = Color("WhiteThemeColor")
     let cardColor = Color("CardColor")
     
     // MARK: Tab View
