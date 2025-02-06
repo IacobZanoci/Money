@@ -10,7 +10,7 @@ import CoreData
 
 class MoneyViewModel: ObservableObject {
     
-    @Published var transactions: [Transaction] = [] // Holds all transaction records
+    @Published var transactions: [Transaction] = []
     @Published var spentMoney: Float = 0
     @Published var earnedMoney: Float = 0
     @Published var selectedMonth: String
@@ -34,7 +34,6 @@ class MoneyViewModel: ObservableObject {
         fetchTransactions()
         calculateTotals()
     }
-    
     
     // MARK: Computed Proprietes
     var currentFormattedDate: String {
@@ -66,8 +65,8 @@ class MoneyViewModel: ObservableObject {
             guard let date = transaction.date else { return nil }
             return calendar.component(.year, from: date)
         }
-        let uniqueYears = Set(years) // Remove duplicates
-        return uniqueYears.sorted { $0 > $1 }.map { String($0) } // Sort in descending order
+        let uniqueYears = Set(years)
+        return uniqueYears.sorted { $0 > $1 }.map { String($0) }
     }
     
     var monthBalance: (amount: Float, isPositive: Bool) {
@@ -173,7 +172,6 @@ class MoneyViewModel: ObservableObject {
         .sorted { $0.transactions.first?.date ?? Date() > $1.transactions.first?.date ?? Date() }
     }
     
-    // maybe delete
     var groupedIncomeRecords: [(categoryName: String, categoryIcon: String, totalAmount: Float)] {
         let grouped = Dictionary(grouping: incomeRecords, by: { $0.categoryName ?? "Unknown" })
         
@@ -190,7 +188,6 @@ class MoneyViewModel: ObservableObject {
     
     // MARK: Public Methods
     func updateFilteredTransactions() {
-        // Update transactions and recalculate totals for the selected month/year
         let filtered = transactions.filter { transaction in
             let calendar = Calendar.current
             let transactionDate = transaction.date ?? Date()
@@ -341,4 +338,3 @@ class MoneyViewModel: ObservableObject {
         }
     }
 }
-

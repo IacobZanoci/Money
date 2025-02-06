@@ -16,7 +16,6 @@ class CurrencySettingsViewModel: ObservableObject {
     }
     
     init() {
-        // Default: USD
         self.selectedCurrency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     }
 }

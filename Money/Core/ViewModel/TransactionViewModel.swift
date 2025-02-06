@@ -10,7 +10,6 @@ import SwiftUI
 
 class TransactionViewModel: ObservableObject {
     
-    //MARK: Published functions
     @Published var slideIn: Bool = false
     
     //MARK: Animations
