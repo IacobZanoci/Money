@@ -326,7 +326,6 @@ extension HomeView {
             
             if !viewModel.filteredTransactions.isEmpty {
                 VStack(spacing: 0) {
-                    // Fetch the last 3 income transactions for the current month
                     let lastThreeIncomeTransactions = viewModel.filteredTransactions
                         .filter { $0.type == RecordType.income.rawValue }
                         .sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct IncomeCategoryListView: View {
-    @ObservedObject var viewModel: MoneyViewModel
     @Environment(\.dismiss) var dismiss
+    
+    @ObservedObject var viewModel: MoneyViewModel
     
     @State private var searchText: String = ""
     @State private var incomeCategories: [IncomeCategory] = IncomeCategory.incomeCategory

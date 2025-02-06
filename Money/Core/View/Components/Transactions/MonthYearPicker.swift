@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MonthYearPicker: View {
+    @Environment(\.dismiss) var dismiss
+    
     @Binding var selectedMonth: String
     @Binding var selectedYear: String
-    
-    @Environment(\.dismiss) var dismiss
     
     @ObservedObject var viewModel: MoneyViewModel
     
@@ -32,7 +32,6 @@ struct MonthYearPicker: View {
                     }
                 }
                 .onChange(of: selectedYear) { _ in
-                    // Reset month if the selected month is unavailable for the new year
                     if !viewModel.availableMonthsForSelectedYear.contains(selectedMonth) {
                         selectedMonth = viewModel.availableMonthsForSelectedYear.first ?? ""
                     }
@@ -79,7 +78,7 @@ struct MonthYearPicker_Previews: PreviewProvider {
         @State var sampleYear = "2024"
         
         let sampleViewModel = MoneyViewModel()
-
+        
         return MonthYearPicker(
             selectedMonth: $sampleMonth,
             selectedYear: $sampleYear,

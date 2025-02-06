@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     @StateObject var viewRouter: ViewRouter
+    
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
     @EnvironmentObject var themeSettingsViewModel: ThemeSettingViewModel

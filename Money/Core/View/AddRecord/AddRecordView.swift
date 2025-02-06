@@ -13,11 +13,9 @@ struct AddRecordView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var selectedRecordType: RecordType
     
-    // Data-related
     @State private var expenseCount: String? = ""
     @State private var selectedDate: Date = Date()
     
-    // UI-related
     @FocusState private var isTextFieldFocused: Bool
     @State private var profileSegmentIndex: Int = 0
     @State private var isCategorySheetPresented: Bool = false
@@ -27,7 +25,6 @@ struct AddRecordView: View {
     
     var body: some View {
         NavigationStack {
-            
             ZStack {
                 Color.theme.background.ignoresSafeArea()
                 

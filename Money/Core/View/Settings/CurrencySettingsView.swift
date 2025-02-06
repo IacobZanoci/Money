@@ -48,7 +48,7 @@ struct CurrencySettingsView: View {
                     }
                 } header: {
                     Spacer(minLength: 0)
-                        .listRowInsets(EdgeInsets()) // Removes any default padding
+                        .listRowInsets(EdgeInsets())
                 }
             }
             .environment(\.defaultMinListHeaderHeight, 16)

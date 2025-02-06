@@ -10,6 +10,7 @@ import SwiftUI
 struct SpendingCategoryCardView: View {
     @EnvironmentObject var moneyViewModel: MoneyViewModel
     @EnvironmentObject var currencySettingsViewModel: CurrencySettingsViewModel
+    
     @StateObject private var amountFormatterViewModel = AmountFormatterViewModel()
     
     let categoryName: String
@@ -51,13 +52,13 @@ struct SpendingCategoryCardView: View {
         .padding(.leading, 16)
         .padding(.vertical, 16)
         .background(
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.theme.cardColor)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 14)
-                            .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
-                    )
-            )
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color.theme.cardColor)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color.theme.accent.opacity(0.12), lineWidth: 1.5)
+                )
+        )
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
