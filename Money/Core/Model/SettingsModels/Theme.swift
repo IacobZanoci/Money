@@ -12,9 +12,9 @@ enum Theme: String, CaseIterable, Identifiable {
     case system
     case light
     case dark
-
+    
     var id: String { rawValue }
-
+    
     var displayThemeName: String {
         switch self {
         case .system: return "System"

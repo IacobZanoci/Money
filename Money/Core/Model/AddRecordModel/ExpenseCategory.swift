@@ -13,11 +13,11 @@ struct ExpenseCategory: Identifiable {
     let name: String
     let icon: String
     
-        init(id: UUID = UUID(), name: String, icon: String) {
-            self.id = id
-            self.name = name
-            self.icon = icon
-        }
+    init(id: UUID = UUID(), name: String, icon: String) {
+        self.id = id
+        self.name = name
+        self.icon = icon
+    }
     
     static let expenseCategory: [ExpenseCategory] = [
         ExpenseCategory(id: UUID(), name: "Groceries", icon: "basket.fill"),

@@ -10,6 +10,6 @@ import Foundation
 enum RecordType: String, CaseIterable, Identifiable {
     case expense
     case income
-
+    
     var id: String { self.rawValue }
 }
