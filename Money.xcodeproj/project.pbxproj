@@ -189,13 +189,6 @@
 			path = SettingsModels;
 			sourceTree = "<group>";
 		};
-		42B334742D3AE558006C6B01 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		42B3347C2D3C3317006C6B01 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +298,6 @@
 				42D606622CCEB7DC0029BD7E /* MoneyApp.swift */,
 				42D606682CD0EB3D0029BD7E /* Core */,
 				42D606872CD570BA0029BD7E /* Router */,
-				42B334742D3AE558006C6B01 /* Services */,
 				423F2A8C2D0AF6740043B327 /* Persistence */,
 				42B3347C2D3C3317006C6B01 /* Utilities */,
 				42D606742CD0F29E0029BD7E /* Extensions */,
