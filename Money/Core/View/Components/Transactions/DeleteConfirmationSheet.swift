@@ -80,7 +80,3 @@ struct DeleteConfirmationSheet: View {
         .padding()
     }
 }
-
-//#Preview {
-//    DeleteConfirmationSheet()
-//}

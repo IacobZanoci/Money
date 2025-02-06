@@ -19,8 +19,3 @@ struct AddRecordNavBarButton: View {
         }
     }
 }
-
-
-//#Preview {
-    //  AddRecordNavBarButton(icon: "xmark")
-//}
