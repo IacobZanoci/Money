@@ -86,12 +86,12 @@ struct IncomeCategoryListView: View {
                                             
                                             ZStack {
                                                 Circle()
-                                                    .foregroundStyle(Color.theme.green)
+                                                    .foregroundStyle(Color.theme.green.opacity(0.1))
                                                     .frame(width: 30, height: 30)
                                                     .overlay(
                                                         Image(systemName: category.icon)
                                                             .font(.system(size: 14.5))
-                                                            .foregroundStyle(Color.theme.white)
+                                                            .foregroundStyle(Color.theme.green)
                                                     )
                                             }
                                             

@@ -86,12 +86,12 @@ struct ExpenseCategoryListView: View {
                                             
                                             ZStack {
                                                 Circle()
-                                                    .foregroundStyle(Color.theme.red)
+                                                    .foregroundStyle(Color.theme.red.opacity(0.1))
                                                     .frame(width: 30, height: 30)
                                                     .overlay(
                                                         Image(systemName: category.icon)
                                                             .font(.system(size: 14.5))
-                                                            .foregroundStyle(Color.theme.white)
+                                                            .foregroundStyle(Color.theme.red)
                                                     )
                                             }
                                             
