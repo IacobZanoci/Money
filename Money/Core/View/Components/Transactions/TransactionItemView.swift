@@ -21,11 +21,12 @@ struct TransactionItemView: View {
                     Circle()
                         .fill(color)
                         .frame(width: 30, height: 30)
+                        .opacity(0.1)
                     
                     Image(systemName: icon)
                         .resizable()
                         .scaledToFit()
-                        .foregroundStyle(Color.theme.white)
+                        .foregroundStyle(color)
                         .frame(width: 18, height: 18)
                 }
                 
