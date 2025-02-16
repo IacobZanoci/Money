@@ -37,6 +37,8 @@
 		424C6B692D43DFAC0061722B /* BackNavigationCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B682D43DFAC0061722B /* BackNavigationCircleButton.swift */; };
 		424C6B6B2D43E7970061722B /* UINavigationController + SwipeBackGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B6A2D43E7970061722B /* UINavigationController + SwipeBackGesture.swift */; };
 		424C6B6D2D480B130061722B /* AmountFormatterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C6B6C2D480B130061722B /* AmountFormatterViewModel.swift */; };
+		427BBBB62D610982001DA6F9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BBBB52D610982001DA6F9 /* Item.swift */; };
+		427BBBB82D610B79001DA6F9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BBBB72D610B79001DA6F9 /* OnboardingView.swift */; };
 		427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 427D82FD2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld */; };
 		42A148B02D1D6A44006BC1D6 /* TransactionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */; };
 		42A148B22D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */; };
@@ -98,6 +100,8 @@
 		424C6B682D43DFAC0061722B /* BackNavigationCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackNavigationCircleButton.swift; sourceTree = "<group>"; };
 		424C6B6A2D43E7970061722B /* UINavigationController + SwipeBackGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + SwipeBackGesture.swift"; sourceTree = "<group>"; };
 		424C6B6C2D480B130061722B /* AmountFormatterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountFormatterViewModel.swift; sourceTree = "<group>"; };
+		427BBBB52D610982001DA6F9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		427BBBB72D610B79001DA6F9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		427D82FE2CF5DE57008A5238 /* MoneyContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoneyContainer.xcdatamodel; sourceTree = "<group>"; };
 		42A148AF2D1D6A44006BC1D6 /* TransactionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemView.swift; sourceTree = "<group>"; };
 		42A148B12D1D6E53006BC1D6 /* TransactionContainerListAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionContainerListAndDate.swift; sourceTree = "<group>"; };
@@ -168,9 +172,18 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		427BBBB42D610961001DA6F9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				427BBBB52D610982001DA6F9 /* Item.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		427D82FC2CECA082008A5238 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				427BBBB42D610961001DA6F9 /* Onboarding */,
 				42B084D12D39087E00E8115A /* SettingsModels */,
 				421E924E2D1435330049D82F /* AddRecordModel */,
 				42F6F8342D09A9F400D489A8 /* CoreData */,
@@ -395,6 +408,7 @@
 		42FF90372D5380FA00D2AF7E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				427BBBB72D610B79001DA6F9 /* OnboardingView.swift */,
 				42D606612CCEB7DC0029BD7E /* TabBarView.swift */,
 				42D606702CD0EBCD0029BD7E /* HomeView.swift */,
 				42D606722CD0EBE90029BD7E /* SettingsView.swift */,
@@ -517,6 +531,7 @@
 				423015022D3E6D1A00A7EBC2 /* PreferenceKeys.swift in Sources */,
 				42B084D62D39737A00E8115A /* CurrencyData.swift in Sources */,
 				424C6B632D41119B0061722B /* ButtonBackgroundHelper.swift in Sources */,
+				427BBBB82D610B79001DA6F9 /* OnboardingView.swift in Sources */,
 				42F6F8362D09AA0800D489A8 /* PersistenceController.swift in Sources */,
 				424C6B5F2D4035DA0061722B /* Binding+Extensions.swift in Sources */,
 				427D82FF2CF5DE57008A5238 /* MoneyContainer.xcdatamodeld in Sources */,
@@ -540,6 +555,7 @@
 				421E92652D1764BC0049D82F /* IncomeTransactionsView.swift in Sources */,
 				42D606762CD0F2B10029BD7E /* Color.swift in Sources */,
 				42B64F7D2D2AD85500B3AA62 /* SettingsViewButton.swift in Sources */,
+				427BBBB62D610982001DA6F9 /* Item.swift in Sources */,
 				424C6B6D2D480B130061722B /* AmountFormatterViewModel.swift in Sources */,
 				4248665C2D38521600832374 /* CurrencySettingsView.swift in Sources */,
 				423014F72D3D531800A7EBC2 /* DeviceInfo.swift in Sources */,

@@ -13,13 +13,19 @@ struct MoneyApp: App {
     @StateObject private var moneyViewModel = MoneyViewModel()
     @StateObject private var themeViewModel = ThemeSettingViewModel()
     
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            TabBarView(viewRouter: ViewRouter())
-                .environmentObject(moneyViewModel)
-                .environmentObject(currencySettingsViewModel)
-                .environmentObject(themeViewModel)
-                .preferredColorScheme(themeViewModel.selectedTheme == .light ? .light : (themeViewModel.selectedTheme == .dark ? .dark : nil))
+            if hasSeenOnboarding {
+                TabBarView(viewRouter: ViewRouter())
+                    .environmentObject(moneyViewModel)
+                    .environmentObject(currencySettingsViewModel)
+                    .environmentObject(themeViewModel)
+                    .preferredColorScheme(themeViewModel.selectedTheme == .light ? .light : (themeViewModel.selectedTheme == .dark ? .dark : nil))
+            } else {
+                OnboardingView()
+            }
         }
     }
 }
